@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 39368900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: AnaMenuyeGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &39368900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,7 +1042,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 313035589}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: PauseAyarlardanDuzPaneleGeriGecme
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &313035589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,7 +1763,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 503620956}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: YapimcilarMenusuneGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &503620956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2233,7 +2269,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 543389802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: AnaMenuyeGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &543389802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2895,7 +2943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 802065816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: AnaMenuyeGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &802065816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,7 +3432,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 963523372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: AnaMenuyeGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &963523372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3809,7 +3881,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1038585056}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: NasilOynanirMenusuneGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1038585056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4000,10 +4084,10 @@ MonoBehaviour:
     nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
     torquent per conubia nostra inceptos himenaeos.
 
-    
 
-    Lorem ipsum dolor
-    sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque
+
+    Lorem ipsum dolor sit
+    amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque
     sem placerat. In id cursus mi pretium tellus duis convallis.'
 --- !u!222 &1090231191
 CanvasRenderer:
@@ -4951,7 +5035,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1482209174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: AnaMenuyeGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1482209174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5147,7 +5243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1520764412}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: PausedakiAyarlarMenusuneGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1520764412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5414,7 +5522,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Oyna
+  m_Text: 'Yeni
+
+    Oyun'
 --- !u!222 &1586009872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5423,6 +5533,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586009869}
   m_CullTransparentMesh: 1
+--- !u!1 &1588016742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588016744}
+  - component: {fileID: 1588016743}
+  m_Layer: 0
+  m_Name: UiManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1588016743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588016742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3e270f2f669894986fa602e606dc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anaMenu: {fileID: 150244188}
+  anaMenuOgeleri: {fileID: 308172517}
+  nasilOynanirMenusu: {fileID: 863343811}
+  yapimcilarMenusu: {fileID: 1790348198}
+  ayarlarMenusu: {fileID: 1157766655}
+  pausePaneli: {fileID: 2015377168}
+  pauseOgeleri: {fileID: 329190844}
+  pauseAyarlarMenusu: {fileID: 1323371607}
+  kazandinMenusu: {fileID: 2092137840}
+--- !u!4 &1588016744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588016742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1612157008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,7 +5743,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1672041518}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: OyunaKaldiginYerdenDevamEt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1672041518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5775,7 +5950,7 @@ GameObject:
   - component: {fileID: 1704841195}
   - component: {fileID: 1704841194}
   m_Layer: 0
-  m_Name: OynaButonu
+  m_Name: YeniOyunButonu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5844,7 +6019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1704841195}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: OyunaSifirdanBasla
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1704841195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6044,7 +6231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1733144704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: OyunaDevamEtPauseEkranindanCik
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1733144704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6544,7 +6743,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2043830112}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: AyarlarMenusuneGecis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2043830112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6794,7 +7005,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2105102731}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1588016743}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: BolumuYenidenOyna
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2105102731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7008,5 +7231,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1417239652}
   - {fileID: 925813454}
+  - {fileID: 1588016744}
   - {fileID: 525826392}
   - {fileID: 1678308950}
