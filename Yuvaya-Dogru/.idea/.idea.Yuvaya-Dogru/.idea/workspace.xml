@@ -7,6 +7,8 @@
     <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/harundeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/harundeneme.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New Folder/Playermovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New Folder/Playermovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StoveFire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StoveFire.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FanOscillation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GroundCheck.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GroundLock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/New Folder/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/New Folder/Playermovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -96,7 +100,8 @@
       <option name="presentableId" value="Default" />
       <updated>1766255490055</updated>
       <workItem from="1766255492718" duration="3464000" />
-      <workItem from="1766336511699" duration="2112000" />
+      <workItem from="1766336511699" duration="2930000" />
+      <workItem from="1766415923226" duration="12817000" />
     </task>
     <servers />
   </component>

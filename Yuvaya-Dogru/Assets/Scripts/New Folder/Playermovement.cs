@@ -5,29 +5,42 @@ using UnityEngine;
 public class Playermovement : MonoBehaviour
 {
     public float moveSpeed = 6f;
-    public float gravity = -9.81f;
+    public LayerMask groundLayer;
 
-    CharacterController controller;
-    Vector3 velocity;
+    Rigidbody rb;
+    bool isGrounded;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        float x = Input.GetAxis("Horizontal"); // A - D
-        float z = Input.GetAxis("Vertical"); // W - S
+        CheckGround();
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        if (!isGrounded)
+        {
+            // Havada → kontrol yok
+            rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+            return;
+        }
 
-        // Yerçekimi
-        if (controller.isGrounded && velocity.y < 0)
-            velocity.y = -2f;
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        Vector3 move = new Vector3(x, 0f, z) * moveSpeed;
+        rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
     }
+
+    void CheckGround()
+    {
+        isGrounded = Physics.Raycast(
+            transform.position + Vector3.up * 0.1f,
+            Vector3.down,
+            1.2f,
+            groundLayer
+        );
+    }
+   
 }

@@ -5,36 +5,7 @@ using UnityEngine;
 
 public class StoveFire : MonoBehaviour
 {
-    /*
-         public ParticleSystem fireParticle;
-         public Light fireLight;
-         
-         public float fireOnTime = 3f;   // Yanma süresi
-         public float fireOffTime = 2f;  // Sönük kalma süresi
-     
-         void Start()
-         {
-             StartCoroutine(FireRoutine());
-         }
-     
-         IEnumerator FireRoutine()
-         {
-             while (true)
-             {
-                 // ATEŞ YAN
-                 fireParticle.Play();
-                 fireLight.enabled = true;
-     
-                 yield return new WaitForSeconds(fireOnTime);
-     
-                 // ATEŞ SÖN
-                 fireParticle.Stop();
-                 fireLight.enabled = false;
-     
-                 yield return new WaitForSeconds(fireOffTime);
-             }
-         }
-         */
+   
     public ParticleSystem fireParticle;
     public Light fireLight;
 
