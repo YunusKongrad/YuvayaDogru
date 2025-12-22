@@ -21,7 +21,7 @@ public class Playermovement : MonoBehaviour
 
         if (!isGrounded)
         {
-            // Havada → kontrol yok
+            // Havada kontrol yok
             rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
             return;
         }

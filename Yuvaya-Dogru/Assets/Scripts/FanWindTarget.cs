@@ -30,8 +30,6 @@ public class FanWindTarget : MonoBehaviour
       if (rb == null) return;
       
       
-     
-      
       //  Fan kuvveti
       Vector3 force = new Vector3(xForce, upwardForce, 0f);
       rb.AddForce(force, ForceMode.Acceleration);
@@ -44,7 +42,7 @@ public class FanWindTarget : MonoBehaviour
       Rigidbody rb = other.GetComponent<Rigidbody>();
       if (rb == null) return;
 
-      //  Fan bitti → DOĞAL DÜŞÜŞ
+      //  Fan bitti VE DOĞAL DÜŞÜŞ OLMA ANI 
       rb.useGravity = true;
       rb.drag = 0f;
    }
