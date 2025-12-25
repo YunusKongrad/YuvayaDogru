@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689924807298963761, guid: 90697ac7dd33c3c42a7ea9d3a57a7e80, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2689924807298963761, guid: 90697ac7dd33c3c42a7ea9d3a57a7e80, type: 3}
       propertyPath: isGrounded
