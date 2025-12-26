@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RuzgarEtkisi : MonoBehaviour
-{
+{/*
     public float ruzgarGucu = 20f;
     private Vector3 ruzgarM;
     private void OnTriggerStay(Collider other)
@@ -23,5 +23,20 @@ public class RuzgarEtkisi : MonoBehaviour
                 rb.AddForce(ruzgarM,ForceMode.Acceleration);
             }
         }
+    }
+    */
+    public float ruzgarGucu = 6f;
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        CharacterController cc = other.GetComponent<CharacterController>();
+        if (cc == null) return;
+
+        Vector3 windMove =
+            -transform.forward * ruzgarGucu * Time.deltaTime;
+
+        cc.Move(windMove);
     }
 }

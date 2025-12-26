@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
+    /*
     public float moveSpeed = 6f;
     public LayerMask groundLayer;
 
@@ -42,5 +43,62 @@ public class Playermovement : MonoBehaviour
             groundLayer
         );
     }
-   
+    */
+    
+    //aa
+    
+    public float moveSpeed = 6f;
+
+    public float normalGravity = -20f;
+    public float lowGravity = -6f;   // Fan çıkışı sonrası
+    float currentGravity;
+
+    CharacterController controller;
+    Vector3 velocity;
+
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+        currentGravity = normalGravity;
+    }
+
+    void Update()
+    {
+        bool grounded = controller.isGrounded;
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move =
+            transform.right * x +
+            transform.forward * z;
+
+        controller.Move(move * moveSpeed * Time.deltaTime);
+
+        //  ZEMİNE DEĞİNCE
+        if (grounded)
+        {
+            velocity.y = 0f;          // DUR
+            currentGravity = 0f;      // Gravity KAPALI
+        }
+        else
+        {
+            // Gravity uygula
+            velocity.y += currentGravity * Time.deltaTime;
+        }
+
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    //  FAN ALANINDAN ÇIKINCA ÇAĞRILACAK
+    public void SetLowGravity()
+    {
+        currentGravity = lowGravity;
+    }
+
+    //  NORMAL GRAVITY (GEREKİRSE)
+    public void SetNormalGravity()
+    {
+        currentGravity = normalGravity;
+    }
 }
