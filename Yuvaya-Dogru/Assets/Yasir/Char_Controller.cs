@@ -160,7 +160,7 @@ public class Char_Controller : MonoBehaviour
         {
             if (velocityY > gravityLimit)
             {
-                velocityY -= gravity * Time.fixedDeltaTime;
+                velocityY -= gravity * Time.deltaTime;
             }
         }
         movement = (forward * _moveInput.y) + (right * _moveInput.x);
