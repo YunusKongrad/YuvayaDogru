@@ -4,50 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/pushable obj matarail.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/pushable obj matarail.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Menu.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Menu.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Menu_Controller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Menu_Controller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/Pushable object.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/Pushable object.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/camera.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/camera.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/pushableObjScripts.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/pushableObjScripts.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/CamController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/CamController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Char.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/Char.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Char.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/Char.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Char_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Char_Controller.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Crump materail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/Crump materail.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Crump materail.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/Crump materail.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/GameControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/GameControls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/albany-whites-white-wallpaper-tiled-111725.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Square-White.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/albany-whites-white-wallpaper-tiled-111725.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Square-White.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/platform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/platform.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/platform.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/platform.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/platformlar.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/platformlar.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/platformlar.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/platformlar.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/sopung .prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/sopung .prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/sopung .prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/sopung .prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/sopung materail 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/sopung materail 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/sopung materail 1.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/sopung materail 1.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/sopung materail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/sopung materail.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/sopung materail.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Matarial/sopung materail.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-    </list>
+    <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +18,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/New Folder/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/New Folder/Playermovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RuzgarEtkisi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Yunus/Scripts/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Yunus/Scripts/FallingObstacleLink.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -75,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "YunusYeni",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,7 +99,8 @@
       <workItem from="1766336511699" duration="2930000" />
       <workItem from="1766415923226" duration="14185000" />
       <workItem from="1766475363939" duration="2010000" />
-      <workItem from="1766867722566" duration="325000" />
+      <workItem from="1766701516182" duration="599000" />
+      <workItem from="1766778457177" duration="3647000" />
     </task>
     <servers />
   </component>
