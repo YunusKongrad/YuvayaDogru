@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6425035673482882528}
   - component: {fileID: 7055224593397565314}
   - component: {fileID: 2679219095617049108}
+  - component: {fileID: 4040605077313083734}
   m_Layer: 0
   m_Name: Char
   m_TagString: Player
@@ -73,6 +74,8 @@ MonoBehaviour:
   jumpPressed: 0
   sopungJumped: 0
   isRunning: 0
+  isClimbing: 0
+  canClimb: 0
   staminaAnim: 0
   startStaminanim: 0
   staminaBar: {fileID: 4953318846535665758}
@@ -96,6 +99,19 @@ CharacterController:
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4040605077313083734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925083450172533123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cc54d97a0ef594db7f4711a7b08698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 0}
 --- !u!1 &2198899774259175737
 GameObject:
   m_ObjectHideFlags: 0

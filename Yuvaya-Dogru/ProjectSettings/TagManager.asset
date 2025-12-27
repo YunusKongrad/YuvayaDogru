@@ -9,6 +9,8 @@ TagManager:
   - Crump
   - Ground
   - Button
+  - rope
+  - Pushable
   layers:
   - Default
   - TransparentFX
