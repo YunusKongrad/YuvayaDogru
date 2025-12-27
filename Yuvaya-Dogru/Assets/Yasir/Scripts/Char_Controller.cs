@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngineInternal;
 public class Char_Controller : MonoBehaviour
 {
     
@@ -12,16 +13,18 @@ public class Char_Controller : MonoBehaviour
     CharacterController cc;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform;
+    [SerializeField] GameObject _pushingObj;
+    Vector3 _pushingObjPos;
     [Header("Karakter özellikleri")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float jumpForce,RunSpeed;
+    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed;
 
     [Header("Kalýcý deðerler")]
     public Vector3 movement;
     [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit,stamina,maxStamina,staminaFactor;
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning;
+    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing,canClimb;
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
@@ -44,14 +47,21 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Jump.performed += DoJump;
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
-
+        _controls.Player.Climb.performed += Climb_performed;
+        _controls.Player.Climb.canceled += Climb_canceled;
     }
+
+    private void Climb_canceled(InputAction.CallbackContext obj)=> canClimb = false;
+   
+    private void Climb_performed(InputAction.CallbackContext obj) => canClimb = false;
+   
 
     private void Run_canceled(InputAction.CallbackContext obj)
     {
         startStaminanim = false;
         isRunning = false;
         staminaAnim = false;
+        speed -= RunSpeed;
     }
 
     private void Run_performed(InputAction.CallbackContext obj)
@@ -59,8 +69,10 @@ public class Char_Controller : MonoBehaviour
         startStaminanim = true;
         isRunning = true;
         staminaAnim = true;
+        speed += RunSpeed;
     }
-
+    Vector3 forward;
+    Vector3 right;
     private void Update()
     {
      
@@ -70,36 +82,22 @@ public class Char_Controller : MonoBehaviour
             stamina -= Time.deltaTime * staminaFactor;
             Debug.Log("azalýyor");
         }
+        forward = _cameraTransform.forward;
+        right = _cameraTransform.right;
         MoveCharacter();
         staminaBar.fillAmount = stamina / maxStamina;
-        #region stamina
-        if (startStaminanim && staminaAlpha<255)
+        if (canClimb)
         {
-            staminaAlpha += Time.deltaTime * 160f;
-            if (staminaAlpha>255)
+            RaycastHit ray;
+            if (Physics.Raycast(transform.position, forward, out ray, 3))
             {
-                staminaAlpha = 255;
-            }
-            if (staminaAlpha<=150)
-            {
-                staminaBar2.color = new Color32(0, 0, 0, (byte)staminaAlpha);
-            }
-            staminaBar.color = new Color32(0, 50, 250, (byte)staminaAlpha);
-            
-        }
-        else if(!startStaminanim && staminaAlpha >0)
-        {
-            staminaAlpha -= Time.deltaTime * 150F;
-            if (staminaAlpha < 0)
-            {
-                staminaAlpha = 0;
-            }
-            staminaBar.color = new Color32(0, 50, 250, (byte)staminaAlpha);
-            staminaBar2.color = new Color32(0, 0, 0, (byte)staminaAlpha);
-        }
 
-        #endregion
-
+                if (ray.collider.CompareTag("rope"))
+                {
+                    isClimbing = true;
+                }
+            }                      
+        }       
 
         #region zýplma
         bool isGrounded2 = cc.isGrounded;
@@ -119,7 +117,7 @@ public class Char_Controller : MonoBehaviour
     {
         if (jumpPressed)
         {
-            moveSpeed /= moveMulti;
+            speed /= moveMulti;
             jumpPressed = false;
         }
         isGrounded = true;
@@ -137,7 +135,7 @@ public class Char_Controller : MonoBehaviour
     {
         if (isGrounded)
         {
-            moveSpeed *= moveMulti;
+            speed *= moveMulti;
             velocityY = jumpForce;          
             isGrounded = false;         
             jumpPressed = true;
@@ -147,41 +145,32 @@ public class Char_Controller : MonoBehaviour
 
     private void MoveCharacter()
     {
-        Vector3 forward = _cameraTransform.forward;
-        Vector3 right = _cameraTransform.right;
 
+        right = _cameraTransform.right;
         forward.y = 0f;
         right.y = 0f;
 
         forward.Normalize();
         right.Normalize();
-
-        if (!isGrounded)
+        if (isClimbing)
         {
-            if (velocityY > gravityLimit)
-            {
-                velocityY -= gravity * Time.fixedDeltaTime;
-            }
-        }
-        movement = (forward * _moveInput.y) + (right * _moveInput.x);
-        movement.y += velocityY;
-        if (isRunning)
-        {
-            if (stamina > 0)
-            {
-                cc.Move(movement * RunSpeed * Time.deltaTime);
-            }
-            else
-            {
-                cc.Move(movement * moveSpeed * Time.deltaTime);
-            }
-
+            movement.y += _moveInput.y;
         }
         else
         {
-            cc.Move(movement * moveSpeed * Time.deltaTime);
+            if (!isGrounded)
+            {
+                if (velocityY > gravityLimit)
+                {
+                    velocityY -= gravity * Time.deltaTime;
+                }
+            }
+            movement = (forward * _moveInput.y) + (right * _moveInput.x);
+            movement.y += velocityY;
+
+          
         }
-        
+        cc.Move(movement * speed * Time.deltaTime);
     }
 
     private void OnDisable()
@@ -216,7 +205,8 @@ public class Char_Controller : MonoBehaviour
 
 
         }
-        if (hit.collider.CompareTag("Ground"))
+       
+        if (hit.collider.gameObject.layer==6 && hit.collider.tag!= "Sopung")
         {
             if (hit.normal.y > 0.9f)
             {
@@ -225,8 +215,41 @@ public class Char_Controller : MonoBehaviour
 
 
         }
-    }
+        if (hit.collider.CompareTag("Pushable"))
+        {
+            Vector3 extents = hit.collider.bounds.extents;
 
+            
+            float objectRadius = Mathf.Abs(Vector3.Dot(extents, hit.normal));
+
+          
+            float dynamicRayDistance = objectRadius + 0.1f;
+            RaycastHit ray;
+           
+
+            if (Physics.Raycast(hit.transform.position, -hit.normal, out ray, dynamicRayDistance))
+            {
+
+                Debug.Log("çarpýyor");
+
+            }
+            else
+            {
+                _isCurrentlyPushing = true;
+                speed = pushingSpeed;
+                _pushingObjPos = hit.gameObject.transform.position;
+                _pushingObjPos -= hit.normal * Time.deltaTime * speed;
+                hit.gameObject.transform.position = _pushingObjPos;
+            }
+            Debug.DrawRay(hit.transform.position, -hit.normal*dynamicRayDistance,Color.red);
+        }
+        if (hit.collider.CompareTag("rope"))
+        {
+            
+        }
+        
+    }
+    bool _isCurrentlyPushing;
     IEnumerator staminaWait()
     {
         yield return new WaitForSeconds(1);
@@ -238,4 +261,23 @@ public class Char_Controller : MonoBehaviour
        
     }
 
+    private void LateUpdate()
+    {
+        if (_isCurrentlyPushing)
+        {
+            _isCurrentlyPushing = false;
+        }
+        else
+        {
+            if (isRunning)
+            {
+                speed = RunSpeed;
+            }
+            else
+            {
+                speed = moveSpeed;
+            }
+           
+        }
+    }
 }
