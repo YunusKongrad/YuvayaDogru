@@ -19,6 +19,12 @@ public class Menu_Controller : MonoBehaviour
         _controller.Enable();
         _controller.Menu.Move.performed += ctx => StartNavigating(ctx.ReadValue<float>());
         _controller.Menu.Move.canceled += ctx => StopNavigating();
+        _controller.Menu.Select.performed += Select_performed;
+    }
+
+    private void Select_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        buttons[_index].onClick.Invoke();
     }
 
     private void OnDisable() => _controller.Disable();
