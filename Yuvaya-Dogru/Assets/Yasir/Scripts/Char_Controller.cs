@@ -24,7 +24,7 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit,stamina,maxStamina,staminaFactor;
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning;
+    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing,canClimb;
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
@@ -47,8 +47,14 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Jump.performed += DoJump;
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
-
+        _controls.Player.Climb.performed += Climb_performed;
+        _controls.Player.Climb.canceled += Climb_canceled;
     }
+
+    private void Climb_canceled(InputAction.CallbackContext obj)=> canClimb = false;
+   
+    private void Climb_performed(InputAction.CallbackContext obj) => canClimb = false;
+   
 
     private void Run_canceled(InputAction.CallbackContext obj)
     {
@@ -80,8 +86,18 @@ public class Char_Controller : MonoBehaviour
         right = _cameraTransform.right;
         MoveCharacter();
         staminaBar.fillAmount = stamina / maxStamina;
-       
-        //new Vector3(transform.position.x, transform.position.y, _cameraTransform.forward.z)
+        if (canClimb)
+        {
+            RaycastHit ray;
+            if (Physics.Raycast(transform.position, forward, out ray, 3))
+            {
+
+                if (ray.collider.CompareTag("rope"))
+                {
+                    isClimbing = true;
+                }
+            }                      
+        }       
 
         #region zýplma
         bool isGrounded2 = cc.isGrounded;
@@ -131,23 +147,29 @@ public class Char_Controller : MonoBehaviour
     {
 
         right = _cameraTransform.right;
-
         forward.y = 0f;
         right.y = 0f;
 
         forward.Normalize();
         right.Normalize();
-
-        if (!isGrounded)
+        if (isClimbing)
         {
-            if (velocityY > gravityLimit)
-            {
-                velocityY -= gravity * Time.deltaTime;
-            }
+            movement.y += _moveInput.y;
         }
-        movement = (forward * _moveInput.y) + (right * _moveInput.x);
-        movement.y += velocityY;
-       
+        else
+        {
+            if (!isGrounded)
+            {
+                if (velocityY > gravityLimit)
+                {
+                    velocityY -= gravity * Time.deltaTime;
+                }
+            }
+            movement = (forward * _moveInput.y) + (right * _moveInput.x);
+            movement.y += velocityY;
+
+          
+        }
         cc.Move(movement * speed * Time.deltaTime);
     }
 
@@ -220,6 +242,10 @@ public class Char_Controller : MonoBehaviour
                 hit.gameObject.transform.position = _pushingObjPos;
             }
             Debug.DrawRay(hit.transform.position, -hit.normal*dynamicRayDistance,Color.red);
+        }
+        if (hit.collider.CompareTag("rope"))
+        {
+            
         }
         
     }
