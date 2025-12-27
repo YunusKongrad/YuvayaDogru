@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class FanWindTarget : MonoBehaviour
-{
+{/*
    public float xForce = 15f;
    public float upwardForce = 6f;
    public float airDrag = 1.5f;
@@ -46,6 +46,36 @@ public class FanWindTarget : MonoBehaviour
       rb.useGravity = true;
       rb.drag = 0f;
    }
-  
+   */
    
+   
+   //aa
+   public float forwardForce = 4f;
+   public float upForce = 1f;
+
+   void OnTriggerStay(Collider other)
+   {
+      if (!other.CompareTag("Player")) return;
+
+      CharacterController controller = other.GetComponent<CharacterController>();
+      if (controller == null) return;
+
+      Vector3 push =
+        -Vector3.forward * forwardForce +
+         Vector3.up * upForce;
+
+      controller.Move(push * Time.deltaTime);
+      
+   }
+
+   void OnTriggerExit(Collider other)
+   {
+      if (!other.CompareTag("Player")) return;
+
+      Playermovement pm = other.GetComponent<Playermovement>();
+      if (pm == null) return;
+
+      //  Fan alanından çıkınca gravity AZALSIN
+      pm.SetLowGravity();
+   }
 }

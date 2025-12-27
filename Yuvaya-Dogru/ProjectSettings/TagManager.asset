@@ -8,8 +8,7 @@ TagManager:
   - Gruond
   - Crump
   - Ground
-  - Pushable
-  - Rope
+  - Button
   layers:
   - Default
   - TransparentFX
