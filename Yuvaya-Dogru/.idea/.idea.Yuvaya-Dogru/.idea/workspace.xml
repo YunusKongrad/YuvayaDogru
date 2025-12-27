@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Harun/Scripts/FanWindTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Harun/Scripts/FanWindTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Harun/Scripts/New Folder/Playermovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Harun/Scripts/New Folder/Playermovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Harun/Scripts/RuzgarEtkisi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Harun/Scripts/RuzgarEtkisi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/harundeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/harundeneme.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,10 +18,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FanOscillation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/New Folder/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/New Folder/Playermovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RuzgarEtkisi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Harun/Scripts/PlayerButtonRay.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -103,7 +98,7 @@
       <workItem from="1766336511699" duration="2930000" />
       <workItem from="1766415923226" duration="14185000" />
       <workItem from="1766475363939" duration="2010000" />
-      <workItem from="1766761671129" duration="5417000" />
+      <workItem from="1766761671129" duration="7638000" />
     </task>
     <servers />
   </component>
