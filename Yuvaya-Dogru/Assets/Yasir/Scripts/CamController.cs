@@ -34,50 +34,22 @@ public class CamController : MonoBehaviour
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -45, 45f);
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-        float value = Time.deltaTime * 7 * sensitivity;
-        if (_xRotation<mouseX2)
-        {
-            //YUKARI
-            if (lookinPos.z<upPos.z)
-            {
-                lookinPos.z +=value ;
-               
-            }
-            if (lookinPos.y>upPos.y)
-            {
-                lookinPos.y -= value;
-            }
-           
-
-
-        }
-        if (_xRotation > mouseX2)
-        {
-            //AÞAÐI
-            if (lookinPos.z>downPos.z)
-            {
-                lookinPos.z -= value;
-            }
-            if (lookinPos.y < downPos.y)
-            {
-                lookinPos.y += value;
-            }
-            
-        }
+        float t = Mathf.InverseLerp(-45f, 45f, _xRotation);
         if (isLookingUp)
         {
-            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, lookinPos,
-         ref vel2, posSpeed);
+            // Vector3.Lerp, t oranýna göre iki pozisyon arasýnda gidip gelir.
+            lookinPos = Vector3.Lerp(upPos, downPos, t);
+
+            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, lookinPos, ref vel2, posSpeed*1.2f);
         }
         else
         {
-            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, simplePos,
-         ref vel2, posSpeed);
+            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, simplePos, ref vel2, posSpeed);
         }
 
-            mouseX2 = _xRotation;
+        mouseX2 = _xRotation;
         target.Rotate(Vector3.up * mouseX);
-       
+
         transform.parent.position = Vector3.SmoothDamp(transform.parent.position, target.position,
             ref velocity, speed);
         transform.parent.Rotate(Vector3.up * mouseX);
