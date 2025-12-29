@@ -46,7 +46,6 @@ public class FallingObstacleLink : MonoBehaviour
 
     private void DropNow()
     {
-        // 1 kez çalışsın istiyorsun; zaten _used bunu sağlıyor.
         if (CameraShake.Instance != null)
             CameraShake.Instance.Shake(duration: 0.25f, strength: 0.06f, frequency: 28f);
 

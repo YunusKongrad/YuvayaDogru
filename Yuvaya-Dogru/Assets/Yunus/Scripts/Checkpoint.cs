@@ -19,8 +19,7 @@ public class Checkpoint : MonoBehaviour
         var respawn = other.GetComponentInParent<CheckpointRespawn>();
         if (respawn == null) return;
 
-        // ÖNEMLİ: Rotasyonu checkpoint’ten değil, oyuncunun o anki rotasyonundan alıyoruz.
-        // Böylece oyuncu checkpoint aldığında nereye bakıyorsa respawn’da da oraya bakar.
+        // oyuncu checkpoint aldığında nereye bakıyorsa respawn’da da oraya bakar.
         Transform playerRoot = respawn.transform;
 
         respawn.SetCheckpoint(transform.position, playerRoot.rotation);
