@@ -6,6 +6,7 @@ public class UiManager : MonoBehaviour
 {
     public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu,
                       pausePaneli, pauseOgeleri, pauseAyarlarMenusu, kazandinMenusu;
+    GameControls _gameControlls;
     private void Start()
     {
         anaMenu.SetActive(true);
@@ -76,6 +77,26 @@ public class UiManager : MonoBehaviour
             anaMenu.SetActive(true);
             anaMenuOgeleri.SetActive(true);
             //oyun içi'in kapatýlmasý falan buraya yazýlacak
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pausePaneli.activeSelf == false)
+            {
+                pausePaneli.SetActive(true);
+                pauseOgeleri.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else if (pausePaneli.activeSelf == true)
+            {
+                pausePaneli.SetActive(false);
+                pauseOgeleri.SetActive(false);
+                pauseAyarlarMenusu.SetActive(false);
+                Time.timeScale = 1f;
+            }
         }
     }
 

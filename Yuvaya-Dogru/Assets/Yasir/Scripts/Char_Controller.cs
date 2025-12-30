@@ -47,13 +47,9 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Jump.performed += DoJump;
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
-        _controls.Player.Climb.performed += Climb_performed;
-        _controls.Player.Climb.canceled += Climb_canceled;
+       
     }
 
-    private void Climb_canceled(InputAction.CallbackContext obj)=> canClimb = false;
-   
-    private void Climb_performed(InputAction.CallbackContext obj) => canClimb = false;
    
 
     private void Run_canceled(InputAction.CallbackContext obj)

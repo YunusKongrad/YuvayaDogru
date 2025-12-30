@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Menu_Controller : MonoBehaviour
 {
     [Serializable]
@@ -12,11 +13,14 @@ public class Menu_Controller : MonoBehaviour
         // 2. KURAL: Ýçerideki deðiþkenleri görünür yap
         [SerializeField] public GameObject[] buttonsSelect;
         [SerializeField] public Button[] buttons;
-
-        public MenuButon(GameObject[] s, Button[] b)
+        public bool[] isSleder;
+        public Slider[] slider;
+        public MenuButon(GameObject[] g, Button[] b,bool[] i,Slider[] s)
         {
-            buttonsSelect = s;
+            buttonsSelect = g;
             buttons = b;
+            isSleder = i;
+            slider = s;
         }
     }
    
@@ -36,14 +40,26 @@ public class Menu_Controller : MonoBehaviour
         _controller.Menu.Move.canceled += ctx => StopNavigating2();
 
         _controller.Menu.Move2.performed += ctx2 => StartNavigating(ctx2.ReadValue<float>());
+        _controller.Menu.Value.performed += ctx3 => StartValue(ctx3.ReadValue<float>());
         _controller.Menu.Move2.canceled += ctx2 => StopNavigating();
-
         _controller.Menu.Select.performed += Select_performed;
+    }
+    float vv = 0;
+    private void StartValue(float value)
+    {
+        
+        if (menuB[_index2].isSleder[_index])
+        {
+            Debug.Log(value);
+            vv += value*0.1f;
+            menuB[_index2].slider[_index].value = vv;
+            
+        }
     }
 
     private void Select_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-       menuB[_index].buttons[_index2].onClick.Invoke();
+       menuB[_index2].buttons[_index].onClick.Invoke();
     }
 
     private void OnDisable() => _controller.Disable();

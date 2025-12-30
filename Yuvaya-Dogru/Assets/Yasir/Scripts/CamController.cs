@@ -62,18 +62,10 @@ public class CamController : MonoBehaviour
         ýAction.action.Enable();
         _controls.Player.LookUp.performed += LookUp_performed;
         _controls.Player.LookUp.canceled += LookUp_canceled;
-        _controls.Player.Climb.performed += Climb_performed;
-        _controls.Player.Climb.canceled += Climb_canceled;
+        
     }
 
-    private void Climb_performed(InputAction.CallbackContext obj)
-    {
-        isClimbing = true;
-    }
-    private void Climb_canceled(InputAction.CallbackContext obj)
-    {
-        throw new NotImplementedException();
-    }
+   
 
     private void LookUp_canceled(InputAction.CallbackContext obj)
     {

@@ -82,9 +82,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Climb"",
+                    ""name"": ""Interactive"",
                     ""type"": ""Button"",
-                    ""id"": ""2a1252e6-fff4-400d-b1c7-2d8b2d440b01"",
+                    ""id"": ""fad50e6c-40e4-4797-a2f0-f0ff9a51e60f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -281,23 +281,12 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fc05698c-14ab-4a69-b840-36ba880ca03e"",
+                    ""id"": ""0d416c65-2bb7-4e71-864b-2033d53b1796"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Climb"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9e97dd47-da0c-42e5-8bc8-e0e60be98403"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Climb"",
+                    ""action"": ""Interactive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -329,6 +318,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""name"": ""Move2"",
                     ""type"": ""Value"",
                     ""id"": ""afa52a3f-62f5-40e4-82c1-a0d9e357092e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Value"",
+                    ""type"": ""Value"",
+                    ""id"": ""ab92a0f3-6ce9-48d6-8c0a-0b01deaa4109"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -489,6 +487,72 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""fdc845bc-c3bb-4d1c-b520-56345db00bdf"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Value"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a4cd86a5-dfb6-4a17-ab53-17368d29f0ed"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Value"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3842f207-0b6f-47c1-b73a-1ce3498a2845"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Value"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b0dbd9b8-cf79-4429-b97c-b9d20882ac7c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Value"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""794c8a83-eabd-482e-9cb2-90e95d4d6164"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Value"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""52189c7f-a9a9-4504-9adb-d0619b2395ab"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Value"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -503,12 +567,13 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_Player_Turn = m_Player.FindAction("Turn", throwIfNotFound: true);
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_LookUp = m_Player.FindAction("LookUp", throwIfNotFound: true);
-        m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
+        m_Player_Interactive = m_Player.FindAction("Interactive", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
         m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
         m_Menu_Move2 = m_Menu.FindAction("Move2", throwIfNotFound: true);
+        m_Menu_Value = m_Menu.FindAction("Value", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -576,7 +641,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Turn;
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_LookUp;
-    private readonly InputAction m_Player_Climb;
+    private readonly InputAction m_Player_Interactive;
     public struct PlayerActions
     {
         private @GameControls m_Wrapper;
@@ -587,7 +652,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         public InputAction @Turn => m_Wrapper.m_Player_Turn;
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @LookUp => m_Wrapper.m_Player_LookUp;
-        public InputAction @Climb => m_Wrapper.m_Player_Climb;
+        public InputAction @Interactive => m_Wrapper.m_Player_Interactive;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -615,9 +680,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @LookUp.started += instance.OnLookUp;
             @LookUp.performed += instance.OnLookUp;
             @LookUp.canceled += instance.OnLookUp;
-            @Climb.started += instance.OnClimb;
-            @Climb.performed += instance.OnClimb;
-            @Climb.canceled += instance.OnClimb;
+            @Interactive.started += instance.OnInteractive;
+            @Interactive.performed += instance.OnInteractive;
+            @Interactive.canceled += instance.OnInteractive;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -640,9 +705,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @LookUp.started -= instance.OnLookUp;
             @LookUp.performed -= instance.OnLookUp;
             @LookUp.canceled -= instance.OnLookUp;
-            @Climb.started -= instance.OnClimb;
-            @Climb.performed -= instance.OnClimb;
-            @Climb.canceled -= instance.OnClimb;
+            @Interactive.started -= instance.OnInteractive;
+            @Interactive.performed -= instance.OnInteractive;
+            @Interactive.canceled -= instance.OnInteractive;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -667,6 +732,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Move;
     private readonly InputAction m_Menu_Select;
     private readonly InputAction m_Menu_Move2;
+    private readonly InputAction m_Menu_Value;
     public struct MenuActions
     {
         private @GameControls m_Wrapper;
@@ -674,6 +740,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Menu_Move;
         public InputAction @Select => m_Wrapper.m_Menu_Select;
         public InputAction @Move2 => m_Wrapper.m_Menu_Move2;
+        public InputAction @Value => m_Wrapper.m_Menu_Value;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -692,6 +759,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Move2.started += instance.OnMove2;
             @Move2.performed += instance.OnMove2;
             @Move2.canceled += instance.OnMove2;
+            @Value.started += instance.OnValue;
+            @Value.performed += instance.OnValue;
+            @Value.canceled += instance.OnValue;
         }
 
         private void UnregisterCallbacks(IMenuActions instance)
@@ -705,6 +775,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Move2.started -= instance.OnMove2;
             @Move2.performed -= instance.OnMove2;
             @Move2.canceled -= instance.OnMove2;
+            @Value.started -= instance.OnValue;
+            @Value.performed -= instance.OnValue;
+            @Value.canceled -= instance.OnValue;
         }
 
         public void RemoveCallbacks(IMenuActions instance)
@@ -730,12 +803,13 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         void OnTurn(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnLookUp(InputAction.CallbackContext context);
-        void OnClimb(InputAction.CallbackContext context);
+        void OnInteractive(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnMove2(InputAction.CallbackContext context);
+        void OnValue(InputAction.CallbackContext context);
     }
 }
