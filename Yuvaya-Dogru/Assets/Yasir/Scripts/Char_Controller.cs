@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngineInternal;
 public class Char_Controller : MonoBehaviour
 {
@@ -11,20 +12,22 @@ public class Char_Controller : MonoBehaviour
     GameControls _controls;
      Vector2 _moveInput;
     CharacterController cc;
+    [SerializeField] Material _material, _material2;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] Transform _cameraTransform;
-    [SerializeField] GameObject _pushingObj;
-    Vector3 _pushingObjPos;
+    [SerializeField] Transform _cameraTransform, _hangingPos;
+    [SerializeField] GameObject _pushingObj,hangingobj;
+    [SerializeField] Vector3 _pushingObjPos;
     [Header("Karakter özellikleri")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed;
+    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed,ClimpSpeed, snapDuration;
 
     [Header("Kalýcý deðerler")]
     public Vector3 movement;
     [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit,stamina,maxStamina,staminaFactor;
+
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing,canClimb;
+    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing,canClimb,isHanging,isHit;
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
@@ -47,11 +50,129 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Jump.performed += DoJump;
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
+        _controls.Player.Climb.performed += Climb_performed;
        
     }
 
-   
+    private void Climb_performed(InputAction.CallbackContext obj)
+    {
+        if (canClimb)
+        {
 
+           
+            Vector3 pos = hangingobj.transform.position;
+            pos.y += 2;
+            _hangingPos.position = pos;
+            climb=true;
+            StartCoroutine(ClimbAnim(_hangingPos));
+        }
+        else
+        {
+            RaycastHit ray;
+            if (Physics.Raycast(_cameraTransform.transform.position, forward, out ray, rayDistance))
+            {
+               
+                if (ray.collider.CompareTag("rope"))
+                {
+                    isHanging = true;
+                    normal = ray.normal;
+                    hangingobj = ray.collider.gameObject;
+                   
+                    cc.enabled = false;
+                    Vector3 pos = hangingobj.transform.position - ((-ray.normal) + new Vector3(0, (cc.height +
+                        hangingobj.GetComponent<Collider>().bounds.size.y) / 2, 0));
+                    _hangingPos.position = pos;
+
+
+                    StartCoroutine(ClimbAnim(_hangingPos));
+
+                }
+            }
+        }
+        
+    }
+    IEnumerator ClimbAnim(Transform target)
+    {
+        // 1. Fiziði ve kontrolü kapat ki titreme yapmasýn
+
+        // Baþlangýç deðerlerini al
+        Vector3 startPos = transform.position;
+        Quaternion startRot = transform.rotation;
+
+        float timeElapsed = 0;
+
+        while (timeElapsed < snapDuration)
+        {
+            // Lerp ile yumuþak geçiþ (0'dan 1'e giden bir oran hesapla)
+            float t = timeElapsed / snapDuration;
+
+            // Yumuþak hareket (Ease-Out efekti için Mathf.SmoothStep kullanýlabilir)
+            t = t * t * (3f - 2f * t); // SmoothStep formülü
+
+            // Pozisyonu ve Dönüþü (Rotasyonu) hedefle eþle
+            transform.position = Vector3.Lerp(startPos, target.position, t);
+            transform.rotation = Quaternion.Lerp(startRot, target.rotation, t);
+
+            timeElapsed += Time.deltaTime;
+            yield return null; // Bir sonraki kareyi bekle
+        }
+
+        // 2. Tam hedefe kilitle (Küsürat hatalarýný önlemek için)
+        transform.position = target.position;
+        transform.rotation = target.rotation;
+
+        // BURADA: Artýk karakter tutunuyor.
+        // controller.enabled = true; // DÝKKAT: Týrmanma bitene kadar bunu açma!
+        if (climb)
+        {
+            Invoke("EndClimb", .1f);
+            Debug.Log("endclimb");
+            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material2;
+        }
+        else
+        {
+            Invoke("EndHanging", .1f);
+        }
+           
+      
+    }
+    public void EndHanging()
+    {
+        isHanging = false;
+        canClimb = true;
+        
+        movement = Vector3.zero;
+    }
+    Vector3 normal;
+    bool climb;
+
+    IEnumerator climb2()
+    {
+       
+        float timeElapsed = 0;
+
+        while (timeElapsed< ClimpSpeed)
+        {
+            float t = timeElapsed / ClimpSpeed;
+
+           
+            t = t * t * (3f - 2f * t);
+            transform.position = Vector3.Lerp(transform.position, (hangingobj.transform.position + new Vector3(0, 2, 0)),t);
+            timeElapsed += Time.deltaTime;
+            yield return null; // Bir sonraki kareyi bekle
+
+        }
+        EndClimb();
+    }
+    void EndClimb()
+    {
+        canClimb = false;
+        isHanging = false;
+        cc.enabled = true;
+        climb = false;
+        movement = (forward * _moveInput.y) + (right * _moveInput.x);
+        movement.y += velocityY;
+    }
     private void Run_canceled(InputAction.CallbackContext obj)
     {
         startStaminanim = false;
@@ -71,28 +192,25 @@ public class Char_Controller : MonoBehaviour
     Vector3 right;
     private void Update()
     {
-     
+      
         _moveInput = _controls.Player.Move.ReadValue<Vector2>();
+        
+      
+      
+        forward = _cameraTransform.forward;
+      
         if (_moveInput!=Vector2.zero && isRunning)
         {
             stamina -= Time.deltaTime * staminaFactor;
             Debug.Log("azalýyor");
         }
-        forward = _cameraTransform.forward;
+       
         right = _cameraTransform.right;
         MoveCharacter();
         staminaBar.fillAmount = stamina / maxStamina;
         if (canClimb)
         {
-            RaycastHit ray;
-            if (Physics.Raycast(transform.position, forward, out ray, 3))
-            {
-
-                if (ray.collider.CompareTag("rope"))
-                {
-                    isClimbing = true;
-                }
-            }                      
+                
         }       
 
         #region zýplma
@@ -148,11 +266,12 @@ public class Char_Controller : MonoBehaviour
 
         forward.Normalize();
         right.Normalize();
-        if (isClimbing)
+        if (isHanging)
         {
-            movement.y += _moveInput.y;
+           
+            cc.Move(movement * speed * Time.deltaTime);
         }
-        else
+        else if(!canClimb)
         {
             if (!isGrounded)
             {
@@ -201,12 +320,48 @@ public class Char_Controller : MonoBehaviour
 
 
         }
-       
-        if (hit.collider.gameObject.layer==6 && hit.collider.tag!= "Sopung")
+        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y<-0.5f)
         {
-            if (hit.normal.y > 0.9f)
+            if (hit.normal.y > 0.5f)
             {
                 canJump = true;
+            }
+            else
+            {
+                isHanging = true;
+                normal = hit.normal;
+                hangingobj = hit.collider.gameObject;
+
+                cc.enabled = false;
+                Collider coll = hangingobj.GetComponent<Collider>();
+                Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
+                    hit.normal.y-((cc.height+ coll.bounds.size.y)/2),hit.normal.z * coll.bounds.size.z)));
+                _hangingPos.position = pos;
+                gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
+
+                StartCoroutine(ClimbAnim(_hangingPos));
+            }
+            if (hit.collider.transform.position.y >= transform.position.y + 1)
+            {
+                if (hit.normal.y > 0.9f)
+                {
+                    canJump = true;
+                }
+                else if (Mathf.Abs(hit.normal.y) < 0.1f)
+                {
+                    isHanging = true;
+                    normal = hit.normal;
+                    hangingobj = hit.collider.gameObject;
+
+                    cc.enabled = false;
+                    Vector3 pos = hangingobj.transform.position - ((-hit.normal) + new Vector3(0, (cc.height +
+                        hangingobj.GetComponent<Collider>().bounds.size.y) / 2, 0));
+                    _hangingPos.position = pos;
+                    gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
+
+                    StartCoroutine(ClimbAnim(_hangingPos));
+                }
+
             }
 
 
@@ -239,10 +394,7 @@ public class Char_Controller : MonoBehaviour
             }
             Debug.DrawRay(hit.transform.position, -hit.normal*dynamicRayDistance,Color.red);
         }
-        if (hit.collider.CompareTag("rope"))
-        {
-            
-        }
+        
         
     }
     bool _isCurrentlyPushing;

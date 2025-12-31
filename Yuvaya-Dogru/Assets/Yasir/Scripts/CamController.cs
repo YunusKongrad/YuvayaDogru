@@ -32,7 +32,7 @@ public class CamController : MonoBehaviour
         float mouseX = _mouseDelta.x * sensitivity;
         float mouseY = _mouseDelta.y * sensitivity;
         _xRotation -= mouseY;
-        _xRotation = Mathf.Clamp(_xRotation, -45, 45f);
+        _xRotation = Mathf.Clamp(_xRotation, -45, 25f);
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         float t = Mathf.InverseLerp(-45f, 45f, _xRotation);
         if (isLookingUp)
