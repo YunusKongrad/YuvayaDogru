@@ -15,11 +15,12 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] Material _material, _material2;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform, _hangingPos;
-    [SerializeField] GameObject _pushingObj,hangingobj;
+    [SerializeField] GameObject _pushingObj,hangingobj,_groundChechObj;
     [SerializeField] Vector3 _pushingObjPos;
+    Coroutine _climbCoruntine;
     [Header("Karakter özellikleri")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed,ClimpSpeed, snapDuration;
+    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed,ClimpSpeed, snapDuration, originalStepOffset, sphereRadius,sphereDistance;
 
     [Header("Kalýcý deðerler")]
     public Vector3 movement;
@@ -68,23 +69,27 @@ public class Char_Controller : MonoBehaviour
         }
         else
         {
-            RaycastHit ray;
-            if (Physics.Raycast(_cameraTransform.transform.position, forward, out ray, rayDistance))
+            RaycastHit hit;
+            if (Physics.Raycast(_cameraTransform.transform.position, forward, out hit, rayDistance))
             {
                
-                if (ray.collider.CompareTag("rope"))
+                if (hit.collider.CompareTag("rope"))
                 {
-                    isHanging = true;
-                    normal = ray.normal;
-                    hangingobj = ray.collider.gameObject;
-                   
-                    cc.enabled = false;
-                    Vector3 pos = hangingobj.transform.position - ((-ray.normal) + new Vector3(0, (cc.height +
-                        hangingobj.GetComponent<Collider>().bounds.size.y) / 2, 0));
-                    _hangingPos.position = pos;
+                    if (hit.collider.gameObject.transform.position.y > transform.position.y + 1)
+                    {
+                        isHanging = true;
+                        normal = hit.normal;
+                        hangingobj = hit.collider.gameObject;
 
+                        cc.enabled = false;
+                        Collider coll = hangingobj.GetComponent<Collider>();
+                        Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
+                         hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
+                        _hangingPos.position = pos;
+                        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
 
-                    StartCoroutine(ClimbAnim(_hangingPos));
+                        StartCoroutine(ClimbAnim(_hangingPos));
+                    }
 
                 }
             }
@@ -126,12 +131,13 @@ public class Char_Controller : MonoBehaviour
         if (climb)
         {
             Invoke("EndClimb", .1f);
-            Debug.Log("endclimb");
+           
             gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material2;
         }
         else
         {
             Invoke("EndHanging", .1f);
+
         }
            
       
@@ -146,24 +152,6 @@ public class Char_Controller : MonoBehaviour
     Vector3 normal;
     bool climb;
 
-    IEnumerator climb2()
-    {
-       
-        float timeElapsed = 0;
-
-        while (timeElapsed< ClimpSpeed)
-        {
-            float t = timeElapsed / ClimpSpeed;
-
-           
-            t = t * t * (3f - 2f * t);
-            transform.position = Vector3.Lerp(transform.position, (hangingobj.transform.position + new Vector3(0, 2, 0)),t);
-            timeElapsed += Time.deltaTime;
-            yield return null; // Bir sonraki kareyi bekle
-
-        }
-        EndClimb();
-    }
     void EndClimb()
     {
         canClimb = false;
@@ -202,18 +190,20 @@ public class Char_Controller : MonoBehaviour
         if (_moveInput!=Vector2.zero && isRunning)
         {
             stamina -= Time.deltaTime * staminaFactor;
-            Debug.Log("azalýyor");
+          
         }
-       
+
+        
+      
+
+      
         right = _cameraTransform.right;
         MoveCharacter();
         staminaBar.fillAmount = stamina / maxStamina;
-        if (canClimb)
-        {
-                
-        }       
+      
 
         #region zýplma
+      
         bool isGrounded2 = cc.isGrounded;
         if (isGrounded2)
         {
@@ -225,7 +215,7 @@ public class Char_Controller : MonoBehaviour
         }
         #endregion
     }
-
+   
 
     private void OnLanded()
     {
@@ -266,6 +256,17 @@ public class Char_Controller : MonoBehaviour
 
         forward.Normalize();
         right.Normalize();
+        if (cc.isGrounded)
+        {
+            
+            cc.stepOffset = originalStepOffset;
+        }
+        else
+        {
+           
+            cc.stepOffset = 0f;
+        }
+
         if (isHanging)
         {
            
@@ -273,21 +274,39 @@ public class Char_Controller : MonoBehaviour
         }
         else if(!canClimb)
         {
-            if (!isGrounded)
+            bool hitGround = Physics.SphereCast(transform.position, sphereRadius,
+          Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
+            if (hitGround && velocityY < 0)
+            {
+                velocityY = -2f;
+            }
+            else
             {
                 if (velocityY > gravityLimit)
                 {
                     velocityY -= gravity * Time.deltaTime;
                 }
             }
-            movement = (forward * _moveInput.y) + (right * _moveInput.x);
+            if (cc.isGrounded && !hitGround)
+            {
+                
+                movement.x += _contactNormal.x * speed;
+                movement.z += _contactNormal.z * speed;
+
+                Debug.Log(movement);
+            }
+            else
+            {
+                movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+            }
+             
             movement.y += velocityY;
 
-          
-        }
-        cc.Move(movement * speed * Time.deltaTime);
-    }
 
+        }
+        cc.Move(movement  * Time.deltaTime);
+    }
+    private Vector3 _contactNormal;
     private void OnDisable()
     {
         _controls.Disable();
@@ -296,6 +315,7 @@ public class Char_Controller : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+         _contactNormal = hit.normal;
         if (hit.collider.CompareTag("Crump"))
         {
             stamina += 3;
@@ -320,26 +340,17 @@ public class Char_Controller : MonoBehaviour
 
 
         }
-        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y<-0.5f)
+        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y<-1f)
         {
+           
             if (hit.normal.y > 0.5f)
             {
                 canJump = true;
             }
             else
             {
-                isHanging = true;
-                normal = hit.normal;
-                hangingobj = hit.collider.gameObject;
 
-                cc.enabled = false;
-                Collider coll = hangingobj.GetComponent<Collider>();
-                Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
-                    hit.normal.y-((cc.height+ coll.bounds.size.y)/2),hit.normal.z * coll.bounds.size.z)));
-                _hangingPos.position = pos;
-                gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
-
-                StartCoroutine(ClimbAnim(_hangingPos));
+                SetHanging(hit);
             }
             if (hit.collider.transform.position.y >= transform.position.y + 1)
             {
@@ -349,17 +360,8 @@ public class Char_Controller : MonoBehaviour
                 }
                 else if (Mathf.Abs(hit.normal.y) < 0.1f)
                 {
-                    isHanging = true;
-                    normal = hit.normal;
-                    hangingobj = hit.collider.gameObject;
-
-                    cc.enabled = false;
-                    Vector3 pos = hangingobj.transform.position - ((-hit.normal) + new Vector3(0, (cc.height +
-                        hangingobj.GetComponent<Collider>().bounds.size.y) / 2, 0));
-                    _hangingPos.position = pos;
-                    gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
-
-                    StartCoroutine(ClimbAnim(_hangingPos));
+                    SetHanging(hit);
+                    
                 }
 
             }
@@ -396,6 +398,31 @@ public class Char_Controller : MonoBehaviour
         }
         
         
+    }
+
+    void SetHanging(ControllerColliderHit hit)
+    {
+        if (isHanging==false)
+        {
+            if (hit.gameObject.transform.position.y> transform.position.y+.5f)
+            {
+                isHanging = true;
+                normal = hit.normal;
+                hangingobj = hit.collider.gameObject;
+
+                cc.enabled = false;
+                Collider coll = hangingobj.GetComponent<Collider>();
+                Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
+                 hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
+                _hangingPos.position = pos;
+                gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
+
+                StartCoroutine(ClimbAnim(_hangingPos));
+            }
+           
+        }
+       
+
     }
     bool _isCurrentlyPushing;
     IEnumerator staminaWait()
