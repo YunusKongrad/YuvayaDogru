@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngineInternal;
 public class Char_Controller : MonoBehaviour
 {
-    
+    private CharTirmanma charTirmanmaCS;   
     GameControls _controls;
      Vector2 _moveInput;
     CharacterController cc;
@@ -36,7 +36,7 @@ public class Char_Controller : MonoBehaviour
         _controls = new GameControls();
      
         cc = GetComponent<CharacterController>();
-        
+        charTirmanmaCS = GetComponent<CharTirmanma>();
 
     }
 
@@ -47,13 +47,13 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Jump.performed += DoJump;
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
-        _controls.Player.Climb.performed += Climb_performed;
-        _controls.Player.Climb.canceled += Climb_canceled;
+        //_controls.Player.Climb.performed += Climb_performed;
+        //_controls.Player.Climb.canceled += Climb_canceled;
     }
 
-    private void Climb_canceled(InputAction.CallbackContext obj)=> canClimb = false;
+    //private void Climb_canceled(InputAction.CallbackContext obj)=> canClimb = false;
    
-    private void Climb_performed(InputAction.CallbackContext obj) => canClimb = false;
+    //private void Climb_performed(InputAction.CallbackContext obj) => canClimb = false;
    
 
     private void Run_canceled(InputAction.CallbackContext obj)
@@ -75,41 +75,47 @@ public class Char_Controller : MonoBehaviour
     Vector3 right;
     private void Update()
     {
-     
-        _moveInput = _controls.Player.Move.ReadValue<Vector2>();
-        if (_moveInput!=Vector2.zero && isRunning)
+        if (charTirmanmaCS.tirmanmaAktif == false)
         {
-            stamina -= Time.deltaTime * staminaFactor;
-            Debug.Log("azalýyor");
-        }
-        forward = _cameraTransform.forward;
-        right = _cameraTransform.right;
-        MoveCharacter();
-        staminaBar.fillAmount = stamina / maxStamina;
-        if (canClimb)
-        {
-            RaycastHit ray;
-            if (Physics.Raycast(transform.position, forward, out ray, 3))
+            _moveInput = _controls.Player.Move.ReadValue<Vector2>();
+            if (_moveInput != Vector2.zero && isRunning)
             {
-
-                if (ray.collider.CompareTag("rope"))
+                stamina -= Time.deltaTime * staminaFactor;
+                Debug.Log("azalýyor");
+            }
+            forward = _cameraTransform.forward;
+            right = _cameraTransform.right;
+            MoveCharacter();
+            staminaBar.fillAmount = stamina / maxStamina;
+            /*if (canClimb)
+            {
+                RaycastHit ray;
+                if (Physics.Raycast(transform.position, forward, out ray, 3))
                 {
-                    isClimbing = true;
-                }
-            }                      
-        }       
 
-        #region zýplma
-        bool isGrounded2 = cc.isGrounded;
-        if (isGrounded2)
-        {
-            sopungJumped = false;
+                    if (ray.collider.CompareTag("rope"))
+                    {
+                        isClimbing = true;
+                    }
+                }                      
+            }*/
+
+            #region zýplma
+            bool isGrounded2 = cc.isGrounded;
+            if (isGrounded2)
+            {
+                sopungJumped = false;
+            }
+            if (isGrounded2 && !wasGrounded && canJump)
+            {
+                OnLanded();
+            }
+            #endregion
         }
-        if (isGrounded2 && !wasGrounded && canJump)
+        else if(charTirmanmaCS.tirmanmaAktif == true)
         {
-            OnLanded();
+
         }
-        #endregion
     }
 
 
@@ -152,7 +158,7 @@ public class Char_Controller : MonoBehaviour
 
         forward.Normalize();
         right.Normalize();
-        if (isClimbing)
+        /*if (isClimbing)
         {
             movement.y += _moveInput.y;
         }
@@ -169,7 +175,16 @@ public class Char_Controller : MonoBehaviour
             movement.y += velocityY;
 
           
+        }*/
+        if (!isGrounded)
+        {
+            if (velocityY > gravityLimit)
+            {
+                velocityY -= gravity * Time.deltaTime;
+            }
         }
+        movement = (forward * _moveInput.y) + (right * _moveInput.x);
+        movement.y += velocityY;
         cc.Move(movement * speed * Time.deltaTime);
     }
 

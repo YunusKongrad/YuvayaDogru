@@ -10,9 +10,10 @@ public class CharTirmanma : MonoBehaviour
     public GameObject pressE;
     private float tirmanmaHizi = 3f, mesefa = 1f;
     public LayerMask tirmanmaLayer;
-    private bool tirmanmaAktif;
+    public bool tirmanmaAktif = false;
     private Vector2 moveInput;
     private GameControls kontroller;
+    private Vector3 duvarinPos;
 
     private void Awake()
     {
@@ -21,7 +22,6 @@ public class CharTirmanma : MonoBehaviour
     }
     private void OnEnable()
     {
-        kontroller.Enable();
         kontroller.Player.Enable();
         kontroller.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         kontroller.Player.Move.canceled += ctx => moveInput = Vector2.zero;
@@ -43,14 +43,15 @@ public class CharTirmanma : MonoBehaviour
     private bool IsClimbableAhead()
     {
         RaycastHit hit;
-        return Physics.Raycast
-            (
-                transform.position + Vector3.up,
-                transform.forward,
-                out hit,
-                mesefa,
-                tirmanmaLayer
-            );
+        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, mesefa, tirmanmaLayer) == true)
+        {
+            duvarinPos = hit.point - hit.normal * 0.46f;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     private void CheckClimbUi()
     {
@@ -69,6 +70,7 @@ public class CharTirmanma : MonoBehaviour
         if(IsClimbableAhead() == true)
         {
             Debug.Log("Duvar var, týrmanmaya giriyor");
+            transform.position = duvarinPos;
             tirmanmaAktif = true;
         }
         else
