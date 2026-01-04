@@ -14,7 +14,7 @@ public class CamController : MonoBehaviour
     GameControls _controls;
     public Char_Controller char_control;
     Vector2 _mouseDelta;
-    bool isLookingUp, isLookingDow,isClimbing;
+    bool isLookingUp, isLookingDow/*,isClimbing*/;
     private float _xRotation = 0f;
 
     private void Awake() => _controls = new GameControls();
@@ -90,18 +90,18 @@ public class CamController : MonoBehaviour
         ýAction.action.Enable();
         _controls.Player.LookUp.performed += LookUp_performed;
         _controls.Player.LookUp.canceled += LookUp_canceled;
-        _controls.Player.Climb.performed += Climb_performed;
-        _controls.Player.Climb.canceled += Climb_canceled;
+        //_controls.Player.Climb.performed += Climb_performed;
+        //_controls.Player.Climb.canceled += Climb_canceled;
     }
 
-    private void Climb_performed(InputAction.CallbackContext obj)
+    /*private void Climb_performed(InputAction.CallbackContext obj)
     {
         isClimbing = true;
     }
     private void Climb_canceled(InputAction.CallbackContext obj)
     {
         throw new NotImplementedException();
-    }
+    }*/
 
     private void LookUp_canceled(InputAction.CallbackContext obj)
     {

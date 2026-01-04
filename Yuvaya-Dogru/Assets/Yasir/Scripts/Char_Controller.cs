@@ -26,7 +26,7 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] bool isGrounded;
     [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing,canClimb;
     [Header("stamina")]
-    [SerializeField] bool staminaAnim, startStaminanim;
+    [SerializeField] bool staminaAnim/*, startStaminanim*/;
     [SerializeField] Image staminaBar, staminaBar2;
     [SerializeField] float staminaAlpha;
 
@@ -58,7 +58,7 @@ public class Char_Controller : MonoBehaviour
 
     private void Run_canceled(InputAction.CallbackContext obj)
     {
-        startStaminanim = false;
+        //startStaminanim = false;
         isRunning = false;
         staminaAnim = false;
         speed -= RunSpeed;
@@ -66,7 +66,7 @@ public class Char_Controller : MonoBehaviour
 
     private void Run_performed(InputAction.CallbackContext obj)
     {
-        startStaminanim = true;
+        //startStaminanim = true;
         isRunning = true;
         staminaAnim = true;
         speed += RunSpeed;
@@ -270,7 +270,7 @@ public class Char_Controller : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (!staminaAnim)
         {
-            startStaminanim = false;
+            //startStaminanim = false;
 
         }
        

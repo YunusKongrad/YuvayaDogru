@@ -8,20 +8,24 @@ public class CharTirmanma : MonoBehaviour
     CharacterController cc;
     public Transform kameraTransform;
     public GameObject pressE;
-    private float tirmanmaHizi = 3f, mesefa = 1f;
+    private float tirmanmaHizi = 3f, mesefa = 1f, duvarYoksuresi = 0f, maxDuvarYokSuresi = 0.15f;
     public LayerMask tirmanmaLayer;
     public bool tirmanmaAktif = false;
     private Vector2 moveInput;
     private GameControls kontroller;
-    private Vector3 duvarinPos;
+    private Vector3 duvarinPos, duvarinYonu;
+    private Char_Controller _char;
+
 
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
         kontroller = new GameControls();
+        _char = GetComponent<Char_Controller>();
     }
     private void OnEnable()
     {
+        kontroller.Enable();
         kontroller.Player.Enable();
         kontroller.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         kontroller.Player.Move.canceled += ctx => moveInput = Vector2.zero;
@@ -33,6 +37,8 @@ public class CharTirmanma : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log("Ray sonucu: " + IsClimbableAhead());
+
         CheckClimbUi();
         if(tirmanmaAktif == true)
         {
@@ -42,10 +48,21 @@ public class CharTirmanma : MonoBehaviour
     }
     private bool IsClimbableAhead()
     {
+        Vector3 rayYonu;
+        if (tirmanmaAktif == true)
+        {
+            rayYonu = transform.forward;
+        }
+        else
+        {
+            rayYonu = kameraTransform.forward;
+        }
+        Debug.DrawRay(transform.position + Vector3.up, rayYonu * mesefa, Color.red);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, mesefa, tirmanmaLayer) == true)
+        if (Physics.Raycast(transform.position + Vector3.up, rayYonu, out hit, mesefa, tirmanmaLayer) == true)
         {
             duvarinPos = hit.point - hit.normal * 0.46f;
+            duvarinYonu = -hit.normal;
             return true;
         }
         else
@@ -66,11 +83,11 @@ public class CharTirmanma : MonoBehaviour
     }
     private void TryStartClimb(InputAction.CallbackContext ctx)
     {
-        Debug.Log("E'ye basildi!");
         if(IsClimbableAhead() == true)
         {
-            Debug.Log("Duvar var, týrmanmaya giriyor");
+            _char.isSticky = true;
             transform.position = duvarinPos;
+            transform.forward = -duvarinYonu;
             tirmanmaAktif = true;
         }
         else
@@ -87,12 +104,21 @@ public class CharTirmanma : MonoBehaviour
     {
         if(IsClimbableAhead() == false)
         {
-            StopClimb();
+            duvarYoksuresi += Time.deltaTime;
+            if (duvarYoksuresi > maxDuvarYokSuresi)
+            {
+                StopClimb();
+            }
+        }
+        else if (IsClimbableAhead() == true)
+        {
+            duvarYoksuresi = 0f;
         }
     }
     private void StopClimb()
     {
         tirmanmaAktif = false;
+        _char.isSticky = false;
     }
     private void OnTriggerEnter(Collider other)
     {
