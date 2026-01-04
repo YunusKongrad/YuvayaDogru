@@ -29,8 +29,8 @@ public class Char_Controller : MonoBehaviour
 
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing, canJump, isHanging,isHit;
-    public bool canClimb;
+    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing, canJump, isHanging;
+    public bool canClimb, isSticky;
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
@@ -256,63 +256,67 @@ public class Char_Controller : MonoBehaviour
 
         forward.Normalize();
         right.Normalize();
-        if (cc.isGrounded)
+        if (!isSticky)
         {
-            
-            cc.stepOffset = originalStepOffset;
-        }
-        else
-        {
-           
-            cc.stepOffset = 0f;
-        }
-
-        if (isHanging)
-        {
-           
-            cc.Move(movement * speed * Time.deltaTime);
-        }
-        else if(!canClimb)
-        {
-            bool hitGround = Physics.SphereCast(transform.position, sphereRadius,
-          Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
-            if (hitGround && velocityY < 0)
+            if (cc.isGrounded)
             {
-                velocityY = -2f;
+
+                cc.stepOffset = originalStepOffset;
             }
             else
             {
-                if (velocityY > gravityLimit)
+
+                cc.stepOffset = 0f;
+            }
+
+            if (isHanging)
+            {
+
+                cc.Move(movement * speed * Time.deltaTime);
+            }
+            else if (!canClimb)
+            {
+                bool hitGround = Physics.SphereCast(transform.position, sphereRadius,
+              Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
+                if (hitGround && velocityY < 0)
                 {
-                    velocityY -= gravity * Time.deltaTime;
+                    velocityY = -2f;
                 }
-            }
-            if (cc.isGrounded && !hitGround)
-            {
-                
-                movement.x += _contactNormal.x * speed;
-                movement.z += _contactNormal.z * speed;
+                else
+                {
+                    if (velocityY > gravityLimit)
+                    {
+                        velocityY -= gravity * Time.deltaTime;
+                    }
+                }
+                if (cc.isGrounded && !hitGround)
+                {
 
+                    movement.x += _contactNormal.x * speed;
+                    movement.z += _contactNormal.z * speed;
+
+                }
+                else
+                {
+                    movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                }
+
+                movement.y += velocityY;
+
+
+            }
+            if (_moveInput.y < 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
             else
             {
-                movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
-             
-            movement.y += velocityY;
-
-
-        }
-        if (_moveInput.y<0)
-        {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
             animator.WalkAnim(MathF.Abs(_moveInput.y * speed));
-        cc.Move(movement  * Time.deltaTime);
+            cc.Move(movement * Time.deltaTime);
+        }
+        
     }
     private Vector3 _contactNormal;
     private void OnDisable()
