@@ -21,20 +21,25 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] Vector3 _pushingObjPos;
     [Header("Karakter özellikleri")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed,ClimpSpeed, snapDuration, originalStepOffset, sphereRadius,sphereDistance;
-
+    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed, originalStepOffset, sphereRadius,sphereDistance;
     [Header("Kalýcý deðerler")]
     public Vector3 movement;
     [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit,stamina,maxStamina,staminaFactor;
 
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing, canJump, isHanging;
+    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning, canJump, isHanging;
     public bool canClimb, isSticky;
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
     [SerializeField] float staminaAlpha;
+
+    [Header("Týrmanma")]
+    public Transform leftHandTarget;
+    public Transform rightHandTarget;
+    public float ikWeight, ClimpSpeed, snapDuration;
+    public bool isClimbing;
 
     private void Awake()
     {
@@ -59,41 +64,45 @@ public class Char_Controller : MonoBehaviour
 
     private void Climb_performed(InputAction.CallbackContext obj)
     {
-        if (canClimb)
+        if (!isSticky)
         {
-            EndHanging();
-
-
-            climb = true;
-        }
-        else
-        {
-            /**
-            RaycastHit hit;
-            if (Physics.Raycast(_cameraTransform.transform.position, forward, out hit, rayDistance))
+            if (canClimb)
             {
-               
-                if (hit.collider.CompareTag("rope"))
-                {
-                    if (hit.collider.gameObject.transform.position.y > transform.position.y + 1)
-                    {
-                        isHanging = true;
-                        normal = hit.normal;
-                        hangingobj = hit.collider.gameObject;
+                EndHanging();
 
-                        cc.enabled = false;
-                        Collider coll = hangingobj.GetComponent<Collider>();
-                        Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
-                         hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
-                        _hangingPos.position = pos;
-                        animator.Hold();
-                        StartCoroutine(ClimbAnim(_hangingPos));
-                    }
 
-                }
+                climb = true;
             }
-            **/
+            else
+            {
+                /**
+                RaycastHit hit;
+                if (Physics.Raycast(_cameraTransform.transform.position, forward, out hit, rayDistance))
+                {
+                   
+                    if (hit.collider.CompareTag("rope"))
+                    {
+                        if (hit.collider.gameObject.transform.position.y > transform.position.y + 1)
+                        {
+                            isHanging = true;
+                            normal = hit.normal;
+                            hangingobj = hit.collider.gameObject;
+
+                            cc.enabled = false;
+                            Collider coll = hangingobj.GetComponent<Collider>();
+                            Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
+                             hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
+                            _hangingPos.position = pos;
+                            animator.Hold();
+                            StartCoroutine(ClimbAnim(_hangingPos));
+                        }
+
+                    }
+                }
+                **/
+            }
         }
+       
         
     }
     
@@ -149,7 +158,7 @@ public class Char_Controller : MonoBehaviour
         isHanging = false;
         
         climb = false;
-        
+        isClimbing = false;
         Vector3 pos = hangingobj.transform.position;
         pos.y += 1f;
        // _hangingPos.position = pos;
@@ -174,6 +183,8 @@ public class Char_Controller : MonoBehaviour
         staminaAnim = true;
         speed += RunSpeed;
     }
+
+  
     Vector3 forward;
     Vector3 right;
     private void Update()
@@ -236,7 +247,7 @@ public class Char_Controller : MonoBehaviour
    
     private void DoJump(InputAction.CallbackContext context)
     {
-        if (isGrounded)
+        if (isGrounded && !isSticky)
         {
             speed *= moveMulti;
             velocityY = jumpForce;          
@@ -305,18 +316,77 @@ public class Char_Controller : MonoBehaviour
 
 
             }
-            if (_moveInput.y < 0)
+            float animspeed = 0;
+            if (_moveInput.x + _moveInput.y == 0)
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                if (_moveInput.y > 0 && _moveInput.x < 0)
+                {
+                    transform.localRotation = Quaternion.Euler(0, -45, 0);
+                    animspeed = 1;
+                    Debug.Log("0");
+                }
+                if (_moveInput.x > 0 && _moveInput.y < 0)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 135, 0);
+                    animspeed = 1;
+                    Debug.Log("1");
+                }
             }
             else
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                if (_moveInput.x + _moveInput.y >= 1.35)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 45, 0);
+                    animspeed = 1;
+                    Debug.Log("2");
+                }
+                else if (_moveInput.x + _moveInput.y <= -1.35)
+                {
+                    transform.localRotation = Quaternion.Euler(0, -135, 0);
+                    animspeed = 1;
+                    Debug.Log("3");
+                }
+                else 
+                {
+                    if (_moveInput.y != 0)
+                    {
+                        if (_moveInput.y < 0)
+                        {
+                            transform.localRotation = Quaternion.Euler(0, 180, 0);
+                            animspeed = 1;
+                            Debug.Log("4");
+                        }
+                        else
+                        {
+                            transform.localRotation = Quaternion.Euler(0, 0, 0);
+                            animspeed = 1;
+                            Debug.Log("5");
+                        }
+                    }
+                    if (_moveInput.x != 0)
+                    {
+                        if (_moveInput.x > 0)
+                        {
+                            transform.localRotation = Quaternion.Euler(0, 90, 0);
+                            animspeed = 1;
+                            Debug.Log("6");
+                        }
+                        else
+                        {
+                            transform.localRotation = Quaternion.Euler(0, 270, 0);
+                            animspeed = 1;
+                            Debug.Log("7");
+                        }
+                    }
+                }
+              
+
             }
-            animator.WalkAnim(MathF.Abs(_moveInput.y * speed));
+            //Debug.Log(_moveInput);
+            animator.WalkAnim(MathF.Abs(animspeed* speed));
             cc.Move(movement * Time.deltaTime);
         }
-        
+
     }
     private Vector3 _contactNormal;
     private void OnDisable()
@@ -359,12 +429,12 @@ public class Char_Controller : MonoBehaviour
             {
                 canJump = true;
             }
-            else
+            else if(hit.normal.y>-.1f)
             {
 
                 SetHanging(hit);
             }
-            if (hit.collider.transform.position.y >= transform.position.y + 1)
+            if (hit.collider.transform.position.y >= transform.position.y)
             {
                 if (hit.normal.y > 0.9f)
                 {
@@ -413,9 +483,9 @@ public class Char_Controller : MonoBehaviour
 
     void SetHanging(ControllerColliderHit hit)
     {
-        if (isHanging==false)
+        if (isHanging == false)
         {
-            if (hit.gameObject.transform.position.y> transform.position.y)
+            if (hit.gameObject.transform.position.y > transform.position.y)
             {
                 isHanging = true;
                 normal = hit.normal;
@@ -423,37 +493,54 @@ public class Char_Controller : MonoBehaviour
 
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
-                Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
-                 hit.normal.y* coll.bounds.size.y, hit.normal.z * coll.bounds.size.z)));
+               
+                Debug.Log(hit.normal);
+                Vector3 pos = hit.gameObject.transform.position + (hit.normal * 0.8f);
                 _hangingPos.position = pos;
                 cc.enabled = false;
                 transform.position = pos;
                 cam.isClimbing = true;
-                Debug.Log(hit.gameObject.name);
-                 Vector3 rot = Vector3.zero;
-                if (hit.normal.z < 0)
+                isClimbing = true;
+
+                rightHandTarget = hit.gameObject.transform.GetChild(0);
+                leftHandTarget = hit.gameObject.transform.GetChild(1);
+                Vector3 rot = Vector3.zero;
+                if (MathF.Abs(hit.normal.z) > MathF.Abs(hit.normal.x))
                 {
-                    rot.y = 0;
+                    if (hit.normal.z < 0)
+                    {
+                        rot.y = 0;
+
+                    }
+                    if (hit.normal.z > 0)
+                    {
+                        rot.y = 180;
+
+                    }
+
                 }
-                else if (hit.normal.z >0)
+                else
                 {
-                    rot.y = 180;
+                    if (hit.normal.x < 0)
+                    {
+                        rot.y = 90;
+
+                    }
+                    else if (hit.normal.x > 0)
+                    {
+                        rot.y = 270;
+
+                    }
+
                 }
-                else if(hit.normal.x < 0)
-                {
-                    rot.y = 90;
-                }
-                else if (hit.normal.x > 0)
-                {
-                    rot.y = 270;
-                }
-                    transform.GetChild(0).localRotation = Quaternion.Euler(rot);
-                    animator.Hold();
-                
+
+                transform.GetChild(0).localRotation = Quaternion.Euler(rot);
+                animator.Hold();
+
             }
-           
+
         }
-       
+
 
     }
     bool _isCurrentlyPushing;

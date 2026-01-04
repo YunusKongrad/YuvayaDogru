@@ -8,7 +8,7 @@ public class CharTirmanma : MonoBehaviour
     CharacterController cc;
     public Transform kameraTransform;
     public GameObject pressE;
-    private float tirmanmaHizi = 3f, mesefa = 3f;
+    private float tirmanmaHizi = 3f, mesefa = 1f;
     public LayerMask tirmanmaLayer;
     public bool tirmanmaAktif = false;
     private Vector2 moveInput;
@@ -44,7 +44,8 @@ public class CharTirmanma : MonoBehaviour
     private bool IsClimbableAhead()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out hit, mesefa, tirmanmaLayer) == true)
+        Debug.DrawRay(transform.position + Vector3.up, kameraTransform.forward * mesefa, Color.green);
+        if (Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit, mesefa, tirmanmaLayer) == true)
         {
             duvarinPos = hit.point - hit.normal * 0.46f;
             return true;

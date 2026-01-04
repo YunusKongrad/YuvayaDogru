@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 037bdb9a2195b1247a1b1f771c57dd58
+guid: eb67f7e415fde124b855b11a67de23b1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -15,16 +15,16 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
       copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
-      : position error = 10.492146 mm\n\t'mixamorig:LeftLeg' : position error = 34.882183
-      mm\n\t'mixamorig:LeftFoot' : position error = 36.144684 mm\n\t'mixamorig:LeftToeBase'
-      : position error = 10.858974 mm\n\t'mixamorig:RightUpLeg' : position error
-      = 13.749355 mm\n\t'mixamorig:RightLeg' : position error = 34.833881 mm\n\t'mixamorig:RightFoot'
-      : position error = 34.979111 mm\n\t'mixamorig:RightToeBase' : position error
-      = 2.030536 mm\n"
+      : position error = 15.511004 mm\n\t'mixamorig:LeftLeg' : position error = 103.155128
+      mm\n\t'mixamorig:LeftFoot' : position error = 30.604588 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 10.858628 mm\n\t'mixamorig:RightUpLeg' : position error
+      = 17.977829 mm\n\t'mixamorig:RightLeg' : position error = 103.113411 mm\n\t'mixamorig:RightFoot'
+      : position error = 29.456074 mm\n\t'mixamorig:RightToeBase' : position error
+      = 2.030475 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -44,14 +44,14 @@ ModelImporter:
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 116
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
