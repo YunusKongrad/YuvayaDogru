@@ -24,6 +24,15 @@
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Char.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Char.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/ObstacleCube.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/ObstacleCube.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Point.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Point.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Scripts/Checkpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/Scripts/Checkpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Scripts/FallingObstacleLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/Scripts/FallingObstacleLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/yunusScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/yunusScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "Merging main",
+
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,7 +125,8 @@
       <workItem from="1766415923226" duration="14185000" />
       <workItem from="1766475363939" duration="2010000" />
       <workItem from="1766761671129" duration="7638000" />
-      <workItem from="1767558294453" duration="670000" />
+
+      <workItem from="1767041063129" duration="4289000" />
     </task>
     <servers />
   </component>
