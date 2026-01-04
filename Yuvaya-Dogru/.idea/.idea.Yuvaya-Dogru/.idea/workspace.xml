@@ -6,22 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CharTirmanma.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CharTirmanma.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ClimbAnimScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ClimbAnimScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.inputactions.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/Char.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/Char.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/camera.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/camera.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Object/Char.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Object/Char.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/yunusScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/yunusScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Object/GoalPoint.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Object/GoalPoint.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/anamenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/anamenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/yunusScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/yunusScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/pushableObjScripts.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/pushableObjScripts.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

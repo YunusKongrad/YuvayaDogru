@@ -220,6 +220,10 @@ public class Char_Controller : MonoBehaviour
             sopungJumped = false;
 
         }
+        if (isGrounded2 && !wasGrounded && canJump)
+        {
+            OnLanded();
+        }
         #endregion
     }
    
