@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cc: {fileID: 5067764132433203825}
-  _Cam: {fileID: 0}
+  _Cam: {fileID: 4558688488497334101}
 --- !u!1 &8184634518948399530
 GameObject:
   m_ObjectHideFlags: 0

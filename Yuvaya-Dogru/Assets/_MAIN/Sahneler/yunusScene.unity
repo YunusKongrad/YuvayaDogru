@@ -1377,6 +1377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 8052912415654773525, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
+      propertyPath: _Cam
+      value: 
+      objectReference: {fileID: 1979207558}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
 --- !u!1 &1281559069
@@ -1940,6 +1944,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &1979207558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4558688488497334101, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
+  m_PrefabInstance: {fileID: 1218194532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011890239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,6 +2044,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7285856864499314894, guid: 01e92820e11a53248816f879fa1a34bc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285856864499314894, guid: 01e92820e11a53248816f879fa1a34bc, type: 3}
+      propertyPath: m_TagString
+      value: rope
+      objectReference: {fileID: 0}
     - target: {fileID: 7628528113491790854, guid: 01e92820e11a53248816f879fa1a34bc, type: 3}
       propertyPath: m_RootOrder
       value: 8
