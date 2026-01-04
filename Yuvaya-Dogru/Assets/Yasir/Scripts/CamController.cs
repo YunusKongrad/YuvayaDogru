@@ -8,13 +8,13 @@ using UnityEngine.InputSystem;
 public class CamController : MonoBehaviour
 {
     public float speed, sensitivity,posSpeed;
-    public Transform target;
+    public Transform target,dummy;
     public Vector3 velocity,vel2,downPos,upPos,simplePos,lookinPos;
     public InputActionReference ýAction;
     GameControls _controls;
     public Char_Controller char_control;
     Vector2 _mouseDelta;
-    bool isLookingUp, isLookingDow,isClimbing;
+   public bool isLookingUp, isClimbing;
     private float _xRotation = 0f;
 
     private void Awake() => _controls = new GameControls();
@@ -35,7 +35,7 @@ public class CamController : MonoBehaviour
         _xRotation = Mathf.Clamp(_xRotation, -25, 35f);
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         float t = Mathf.InverseLerp(-45f, 45f, _xRotation);
-        if (isLookingUp)
+        if (isLookingUp || isClimbing)
         {
             // Vector3.Lerp, t oranýna göre iki pozisyon arasýnda gidip gelir.
             lookinPos = Vector3.Lerp(upPos, downPos, t);
@@ -48,10 +48,21 @@ public class CamController : MonoBehaviour
         }
 
         mouseX2 = _xRotation;
-        target.Rotate(Vector3.up * mouseX);
+        dummy.Rotate(Vector3.up * mouseX);
+        if (!isClimbing)
+        {
+            
+            target.rotation = dummy.rotation;
+        }
+        else
+        {
+           
+        }
 
-        transform.parent.position = Vector3.SmoothDamp(transform.parent.position, target.position,
-            ref velocity, speed);
+
+
+            transform.parent.position = Vector3.SmoothDamp(transform.parent.position, target.position,
+                ref velocity, speed);
         transform.parent.Rotate(Vector3.up * mouseX);
     }
    

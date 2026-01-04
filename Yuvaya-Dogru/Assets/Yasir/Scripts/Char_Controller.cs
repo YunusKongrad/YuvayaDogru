@@ -6,18 +6,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngineInternal;
+using static UnityEngine.GraphicsBuffer;
 public class Char_Controller : MonoBehaviour
 {
     
     GameControls _controls;
      Vector2 _moveInput;
+    [SerializeField] Char_Animation animator;
+    [SerializeField] CamController cam;
     CharacterController cc;
-    [SerializeField] Material _material, _material2;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform, _hangingPos;
     [SerializeField] GameObject _pushingObj,hangingobj,_groundChechObj;
     [SerializeField] Vector3 _pushingObjPos;
-    Coroutine _climbCoruntine;
     [Header("Karakter özellikleri")]
     [SerializeField] float moveSpeed;
     [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed,ClimpSpeed, snapDuration, originalStepOffset, sphereRadius,sphereDistance;
@@ -28,7 +29,8 @@ public class Char_Controller : MonoBehaviour
 
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool canJump,wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing,canClimb,isHanging,isHit;
+    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning,isClimbing, canJump, isHanging,isHit;
+    public bool canClimb;
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
@@ -59,16 +61,14 @@ public class Char_Controller : MonoBehaviour
     {
         if (canClimb)
         {
+            EndHanging();
 
-           
-            Vector3 pos = hangingobj.transform.position;
-            pos.y += 2;
-            _hangingPos.position = pos;
-            climb=true;
-            StartCoroutine(ClimbAnim(_hangingPos));
+
+            climb = true;
         }
         else
         {
+            /**
             RaycastHit hit;
             if (Physics.Raycast(_cameraTransform.transform.position, forward, out hit, rayDistance))
             {
@@ -86,26 +86,26 @@ public class Char_Controller : MonoBehaviour
                         Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
                          hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
                         _hangingPos.position = pos;
-                        gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
-
+                        animator.Hold();
                         StartCoroutine(ClimbAnim(_hangingPos));
                     }
 
                 }
             }
+            **/
         }
         
     }
-    IEnumerator ClimbAnim(Transform target)
+    
+    public void anim2bos(Transform target)
     {
         // 1. Fiziði ve kontrolü kapat ki titreme yapmasýn
-
         // Baþlangýç deðerlerini al
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
 
         float timeElapsed = 0;
-
+        Debug.Log("denemeasfdasdf");
         while (timeElapsed < snapDuration)
         {
             // Lerp ile yumuþak geçiþ (0'dan 1'e giden bir oran hesapla)
@@ -119,7 +119,7 @@ public class Char_Controller : MonoBehaviour
             transform.rotation = Quaternion.Lerp(startRot, target.rotation, t);
 
             timeElapsed += Time.deltaTime;
-            yield return null; // Bir sonraki kareyi bekle
+            //yield return null; // Bir sonraki kareyi bekle
         }
 
         // 2. Tam hedefe kilitle (Küsürat hatalarýný önlemek için)
@@ -128,38 +128,36 @@ public class Char_Controller : MonoBehaviour
 
         // BURADA: Artýk karakter tutunuyor.
         // controller.enabled = true; // DÝKKAT: Týrmanma bitene kadar bunu açma!
-        if (climb)
-        {
-            Invoke("EndClimb", .1f);
-           
-            gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material2;
-        }
-        else
-        {
-            Invoke("EndHanging", .1f);
-
-        }
-           
-      
     }
     public void EndHanging()
     {
         isHanging = false;
         canClimb = true;
-        
+        animator.Climb();
         movement = Vector3.zero;
+        movement = (forward * _moveInput.y) + (right * _moveInput.x);
+        movement.y += velocityY;
+       
+
     }
     Vector3 normal;
     bool climb;
 
-    void EndClimb()
+    public void EndClimb()
     {
         canClimb = false;
         isHanging = false;
-        cc.enabled = true;
+        
         climb = false;
-        movement = (forward * _moveInput.y) + (right * _moveInput.x);
-        movement.y += velocityY;
+        
+        Vector3 pos = hangingobj.transform.position;
+        pos.y += 1f;
+       // _hangingPos.position = pos;
+        transform.position = pos;
+        cc.enabled = true;
+        animator.EndHold();
+        cam.isClimbing = false;
+
     }
     private void Run_canceled(InputAction.CallbackContext obj)
     {
@@ -233,6 +231,7 @@ public class Char_Controller : MonoBehaviour
     void SopungJump()
     {
         velocityY += jumpForce*2;
+        animator.JumpAnim();
     }
    
     private void DoJump(InputAction.CallbackContext context)
@@ -244,6 +243,7 @@ public class Char_Controller : MonoBehaviour
             isGrounded = false;         
             jumpPressed = true;
             canJump = false;
+            animator.JumpAnim();
         }
     }
 
@@ -293,7 +293,6 @@ public class Char_Controller : MonoBehaviour
                 movement.x += _contactNormal.x * speed;
                 movement.z += _contactNormal.z * speed;
 
-                Debug.Log(movement);
             }
             else
             {
@@ -304,6 +303,15 @@ public class Char_Controller : MonoBehaviour
 
 
         }
+        if (_moveInput.y<0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+            animator.WalkAnim(MathF.Abs(_moveInput.y * speed));
         cc.Move(movement  * Time.deltaTime);
     }
     private Vector3 _contactNormal;
@@ -383,7 +391,6 @@ public class Char_Controller : MonoBehaviour
             if (Physics.Raycast(hit.transform.position, -hit.normal, out ray, dynamicRayDistance))
             {
 
-                Debug.Log("çarpýyor");
 
             }
             else
@@ -404,7 +411,7 @@ public class Char_Controller : MonoBehaviour
     {
         if (isHanging==false)
         {
-            if (hit.gameObject.transform.position.y> transform.position.y+.5f)
+            if (hit.gameObject.transform.position.y> transform.position.y)
             {
                 isHanging = true;
                 normal = hit.normal;
@@ -413,11 +420,32 @@ public class Char_Controller : MonoBehaviour
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
                 Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
-                 hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
+                 hit.normal.y* coll.bounds.size.y, hit.normal.z * coll.bounds.size.z)));
                 _hangingPos.position = pos;
-                gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = _material;
-
-                StartCoroutine(ClimbAnim(_hangingPos));
+                cc.enabled = false;
+                transform.position = pos;
+                cam.isClimbing = true;
+                Debug.Log(hit.gameObject.name);
+                 Vector3 rot = Vector3.zero;
+                if (hit.normal.z < 0)
+                {
+                    rot.y = 0;
+                }
+                else if (hit.normal.z >0)
+                {
+                    rot.y = 180;
+                }
+                else if(hit.normal.x < 0)
+                {
+                    rot.y = 90;
+                }
+                else if (hit.normal.x > 0)
+                {
+                    rot.y = 270;
+                }
+                    transform.GetChild(0).localRotation = Quaternion.Euler(rot);
+                    animator.Hold();
+                
             }
            
         }
