@@ -10,11 +10,12 @@ public class CamController : MonoBehaviour
     public float speed, sensitivity,posSpeed;
     public Transform target,dummy;
     public Vector3 velocity,vel2,downPos,upPos,simplePos,lookinPos;
-    public InputActionReference ýAction;
+    public InputActionReference iAction;
     GameControls _controls;
     public Char_Controller char_control;
     Vector2 _mouseDelta;
    public bool isLookingUp, isClimbing;
+
     private float _xRotation = 0f;
 
     private void Awake() => _controls = new GameControls();
@@ -22,7 +23,7 @@ public class CamController : MonoBehaviour
     void Update()
     {
       
-        _mouseDelta = ýAction.action.ReadValue<Vector2>();
+        _mouseDelta = iAction.action.ReadValue<Vector2>();
        
     }
     float mouseX2;
@@ -37,7 +38,7 @@ public class CamController : MonoBehaviour
         float t = Mathf.InverseLerp(-45f, 45f, _xRotation);
         if (isLookingUp || isClimbing)
         {
-            // Vector3.Lerp, t oranýna göre iki pozisyon arasýnda gidip gelir.
+            // Vector3.Lerp, t oranï¿½na gï¿½re iki pozisyon arasï¿½nda gidip gelir.
             lookinPos = Vector3.Lerp(upPos, downPos, t);
 
             transform.localPosition = Vector3.SmoothDamp(transform.localPosition, lookinPos, ref vel2, posSpeed*1.2f);
@@ -70,13 +71,14 @@ public class CamController : MonoBehaviour
     private void OnEnable()
     {
         _controls.Enable();
-        ýAction.action.Enable();
+        iAction.action.Enable();
         _controls.Player.LookUp.performed += LookUp_performed;
         _controls.Player.LookUp.canceled += LookUp_canceled;
         
     }
 
    
+
 
     private void LookUp_canceled(InputAction.CallbackContext obj)
     {
@@ -90,6 +92,6 @@ public class CamController : MonoBehaviour
 
     private void OnDisable()
     {
-        ýAction.action.Disable();
+        iAction.action.Disable();
     }
 }

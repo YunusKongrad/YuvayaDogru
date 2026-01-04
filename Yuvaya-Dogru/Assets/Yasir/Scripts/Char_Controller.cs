@@ -9,7 +9,7 @@ using UnityEngineInternal;
 using static UnityEngine.GraphicsBuffer;
 public class Char_Controller : MonoBehaviour
 {
-    
+    private CharTirmanma charTirmanmaCS;   
     GameControls _controls;
      Vector2 _moveInput;
     [SerializeField] Char_Animation animator;
@@ -19,10 +19,10 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] Transform _cameraTransform, _hangingPos;
     [SerializeField] GameObject _pushingObj,hangingobj,_groundChechObj;
     [SerializeField] Vector3 _pushingObjPos;
-    [Header("Karakter özellikleri")]
+    [Header("Karakter ï¿½zellikleri")]
     [SerializeField] float moveSpeed;
     [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed, originalStepOffset, sphereRadius,sphereDistance;
-    [Header("Kalýcý deðerler")]
+    [Header("Kalï¿½cï¿½ deï¿½erler")]
     public Vector3 movement;
     [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit,stamina,maxStamina,staminaFactor;
 
@@ -31,11 +31,11 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning, canJump, isHanging;
     public bool canClimb, isSticky;
     [Header("stamina")]
-    [SerializeField] bool staminaAnim, startStaminanim;
+    [SerializeField] bool staminaAnim/*, startStaminanim*/;
     [SerializeField] Image staminaBar, staminaBar2;
     [SerializeField] float staminaAlpha;
 
-    [Header("Týrmanma")]
+    [Header("Tï¿½rmanma")]
     public Transform leftHandTarget;
     public Transform rightHandTarget;
     public float ikWeight, ClimpSpeed, snapDuration;
@@ -43,17 +43,17 @@ public class Char_Controller : MonoBehaviour
 
     private void Awake()
     {
-        // 2. Nesneyi hafýzada oluþturuyoruz
+        // 2. Nesneyi hafï¿½zada oluï¿½turuyoruz
         _controls = new GameControls();
      
         cc = GetComponent<CharacterController>();
-        
+        charTirmanmaCS = GetComponent<CharTirmanma>();
 
     }
 
     private void OnEnable()
     {
-        // 3. Kontrolleri aktif ediyoruz (Bu olmazsa tuþlar çalýþmaz!)
+        // 3. Kontrolleri aktif ediyoruz (Bu olmazsa tuï¿½lar ï¿½alï¿½ï¿½maz!)
         _controls.Enable();
         _controls.Player.Jump.performed += DoJump;
         _controls.Player.Run.performed += Run_performed;
@@ -69,6 +69,7 @@ public class Char_Controller : MonoBehaviour
             if (canClimb)
             {
                 EndHanging();
+
 
 
                 climb = true;
@@ -108,8 +109,8 @@ public class Char_Controller : MonoBehaviour
     
     public void anim2bos(Transform target)
     {
-        // 1. Fiziði ve kontrolü kapat ki titreme yapmasýn
-        // Baþlangýç deðerlerini al
+        // 1. Fiziï¿½i ve kontrolï¿½ kapat ki titreme yapmasï¿½n
+        // Baï¿½langï¿½ï¿½ deï¿½erlerini al
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
 
@@ -117,13 +118,13 @@ public class Char_Controller : MonoBehaviour
         Debug.Log("denemeasfdasdf");
         while (timeElapsed < snapDuration)
         {
-            // Lerp ile yumuþak geçiþ (0'dan 1'e giden bir oran hesapla)
+            // Lerp ile yumuï¿½ak geï¿½iï¿½ (0'dan 1'e giden bir oran hesapla)
             float t = timeElapsed / snapDuration;
 
-            // Yumuþak hareket (Ease-Out efekti için Mathf.SmoothStep kullanýlabilir)
-            t = t * t * (3f - 2f * t); // SmoothStep formülü
+            // Yumuï¿½ak hareket (Ease-Out efekti iï¿½in Mathf.SmoothStep kullanï¿½labilir)
+            t = t * t * (3f - 2f * t); // SmoothStep formï¿½lï¿½
 
-            // Pozisyonu ve Dönüþü (Rotasyonu) hedefle eþle
+            // Pozisyonu ve Dï¿½nï¿½ï¿½ï¿½ (Rotasyonu) hedefle eï¿½le
             transform.position = Vector3.Lerp(startPos, target.position, t);
             transform.rotation = Quaternion.Lerp(startRot, target.rotation, t);
 
@@ -131,12 +132,12 @@ public class Char_Controller : MonoBehaviour
             //yield return null; // Bir sonraki kareyi bekle
         }
 
-        // 2. Tam hedefe kilitle (Küsürat hatalarýný önlemek için)
+        // 2. Tam hedefe kilitle (Kï¿½sï¿½rat hatalarï¿½nï¿½ ï¿½nlemek iï¿½in)
         transform.position = target.position;
         transform.rotation = target.rotation;
 
-        // BURADA: Artýk karakter tutunuyor.
-        // controller.enabled = true; // DÝKKAT: Týrmanma bitene kadar bunu açma!
+        // BURADA: Artï¿½k karakter tutunuyor.
+        // controller.enabled = true; // Dï¿½KKAT: Tï¿½rmanma bitene kadar bunu aï¿½ma!
     }
     public void EndHanging()
     {
@@ -170,7 +171,7 @@ public class Char_Controller : MonoBehaviour
     }
     private void Run_canceled(InputAction.CallbackContext obj)
     {
-        startStaminanim = false;
+        //startStaminanim = false;
         isRunning = false;
         staminaAnim = false;
         speed -= RunSpeed;
@@ -178,7 +179,7 @@ public class Char_Controller : MonoBehaviour
 
     private void Run_performed(InputAction.CallbackContext obj)
     {
-        startStaminanim = true;
+        //startStaminanim = true;
         isRunning = true;
         staminaAnim = true;
         speed += RunSpeed;
@@ -211,16 +212,17 @@ public class Char_Controller : MonoBehaviour
         staminaBar.fillAmount = stamina / maxStamina;
       
 
-        #region zýplma
+        #region ziplma
       
         bool isGrounded2 = cc.isGrounded;
         if (isGrounded2)
         {
             sopungJumped = false;
+
         }
-        if (isGrounded2 && !wasGrounded && canJump)
+        else if(charTirmanmaCS.tirmanmaAktif == true)
         {
-            OnLanded();
+
         }
         #endregion
     }
@@ -268,6 +270,7 @@ public class Char_Controller : MonoBehaviour
         forward.Normalize();
         right.Normalize();
         if (!isSticky)
+
         {
             if (cc.isGrounded)
             {
@@ -386,6 +389,7 @@ public class Char_Controller : MonoBehaviour
             animator.WalkAnim(MathF.Abs(animspeed* speed));
             cc.Move(movement * Time.deltaTime);
         }
+
 
     }
     private Vector3 _contactNormal;
@@ -549,7 +553,7 @@ public class Char_Controller : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (!staminaAnim)
         {
-            startStaminanim = false;
+            //startStaminanim = false;
 
         }
        
