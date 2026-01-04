@@ -5,34 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/51597242_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/51597242_0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/CharTirmanma.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/CharTirmanma.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/PausePaneli.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/PausePaneli.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/UiOyunİciManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/UiOyunİciManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KORAY/KorayDeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KORAY/KorayDeneme.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KORAY/OyunEkraniDeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KORAY/OyunEkraniDeneme.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KORAY/UiManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KORAY/UiManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/GameControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/GameControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/GameControls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CharTirmanma.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CharTirmanma.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Char.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Char.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/ObstacleCube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/ObstacleCube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Point.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Point.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Scripts/Checkpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/Scripts/Checkpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Scripts/FallingObstacleLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/Scripts/FallingObstacleLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/Char.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/Char.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/camera.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/prefabe/camera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Object/Char.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Object/Char.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Yunus/yunusScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/yunusScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
-
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,7 +113,6 @@
       <workItem from="1766415923226" duration="14185000" />
       <workItem from="1766475363939" duration="2010000" />
       <workItem from="1766761671129" duration="7638000" />
-
       <workItem from="1767041063129" duration="4289000" />
     </task>
     <servers />

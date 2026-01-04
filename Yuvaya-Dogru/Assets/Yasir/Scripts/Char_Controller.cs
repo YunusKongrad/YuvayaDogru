@@ -220,10 +220,6 @@ public class Char_Controller : MonoBehaviour
             sopungJumped = false;
 
         }
-        else if(charTirmanmaCS.tirmanmaAktif == true)
-        {
-
-        }
         #endregion
     }
    

@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
-    public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu,
-                      pausePaneli, pauseOgeleri, pauseAyarlarMenusu, kazandinMenusu;
+    public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu, kazandinMenusu;
     GameControls _gameControlls;
     private void Start()
     {
@@ -15,14 +14,11 @@ public class UiManager : MonoBehaviour
         nasilOynanirMenusu.SetActive(false);
         yapimcilarMenusu.SetActive(false);
         ayarlarMenusu.SetActive(false);
-        pausePaneli.SetActive(false);
-        pauseOgeleri.SetActive(false);
-        pauseAyarlarMenusu.SetActive(false);
         kazandinMenusu.SetActive(false);
     }
     public void OyunaSifirdanBasla()
     {
-        SceneManager.LoadScene("OyunEkraniDeneme");
+        SceneManager.LoadScene("yunusScene");
     }
     public void OyunaKaldiginYerdenDevamEt()
     {

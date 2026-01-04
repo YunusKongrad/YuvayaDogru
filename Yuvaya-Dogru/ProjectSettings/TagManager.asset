@@ -5,14 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sopung
-  - Gruond
   - Crump
   - Ground
   - Button
   - rope
   - Pushable
-
+  - TirmanmaAlaniTag
   - TirmanmaEnUst
+  - Camasir
   layers:
   - Default
   - TransparentFX
@@ -21,8 +21,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Sticky
-
+  - TirmanmaAlaniLayer
   - 
   - 
   - 

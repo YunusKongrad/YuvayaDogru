@@ -15,7 +15,7 @@ public class UiOyunİciManager : MonoBehaviour
     }
     public void AnaMenuyeGecis()
     {
-        SceneManager.LoadScene("KorayDeneme");
+        SceneManager.LoadScene("anamenu");
     }
     private void Update()
     {
