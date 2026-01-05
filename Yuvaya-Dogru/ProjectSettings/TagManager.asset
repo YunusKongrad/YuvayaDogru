@@ -13,6 +13,7 @@ TagManager:
   - TirmanmaAlaniTag
   - TirmanmaEnUst
   - Camasir
+  - TirmanmaEnAlt
   layers:
   - Default
   - TransparentFX

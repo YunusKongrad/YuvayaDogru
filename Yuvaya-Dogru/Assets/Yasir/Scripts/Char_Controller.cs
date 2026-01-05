@@ -9,7 +9,7 @@ using UnityEngineInternal;
 using static UnityEngine.GraphicsBuffer;
 public class Char_Controller : MonoBehaviour
 {
-    private CharTirmanma charTirmanmaCS;   
+    private CharTirmanmaMekanik charTirmanmaCS;   
     GameControls _controls;
      Vector2 _moveInput;
     [SerializeField] Char_Animation animator;
@@ -47,7 +47,7 @@ public class Char_Controller : MonoBehaviour
         _controls = new GameControls();
      
         cc = GetComponent<CharacterController>();
-        charTirmanmaCS = GetComponent<CharTirmanma>();
+        charTirmanmaCS = GetComponent<CharTirmanmaMekanik>();
 
     }
 
@@ -326,13 +326,11 @@ public class Char_Controller : MonoBehaviour
                 {
                     transform.localRotation = Quaternion.Euler(0, -45, 0);
                     animspeed = 1;
-                    Debug.Log("0");
                 }
                 if (_moveInput.x > 0 && _moveInput.y < 0)
                 {
                     transform.localRotation = Quaternion.Euler(0, 135, 0);
                     animspeed = 1;
-                    Debug.Log("1");
                 }
             }
             else
@@ -341,13 +339,11 @@ public class Char_Controller : MonoBehaviour
                 {
                     transform.localRotation = Quaternion.Euler(0, 45, 0);
                     animspeed = 1;
-                    Debug.Log("2");
                 }
                 else if (_moveInput.x + _moveInput.y <= -1.35)
                 {
                     transform.localRotation = Quaternion.Euler(0, -135, 0);
                     animspeed = 1;
-                    Debug.Log("3");
                 }
                 else 
                 {
@@ -357,13 +353,11 @@ public class Char_Controller : MonoBehaviour
                         {
                             transform.localRotation = Quaternion.Euler(0, 180, 0);
                             animspeed = 1;
-                            Debug.Log("4");
                         }
                         else
                         {
                             transform.localRotation = Quaternion.Euler(0, 0, 0);
                             animspeed = 1;
-                            Debug.Log("5");
                         }
                     }
                     if (_moveInput.x != 0)
@@ -372,13 +366,11 @@ public class Char_Controller : MonoBehaviour
                         {
                             transform.localRotation = Quaternion.Euler(0, 90, 0);
                             animspeed = 1;
-                            Debug.Log("6");
                         }
                         else
                         {
                             transform.localRotation = Quaternion.Euler(0, 270, 0);
                             animspeed = 1;
-                            Debug.Log("7");
                         }
                     }
                 }
