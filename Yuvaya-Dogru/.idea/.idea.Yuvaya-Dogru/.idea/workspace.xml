@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Harun/Scripts/ToasterTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Harun/Scripts/ToasterTrigger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Harun/harundeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Harun/harundeneme.unity" afterDir="false" />
-    </list>
+    <list default="true" id="f33c09c4-ed57-431d-b1b0-5e8e51a65b8a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +98,7 @@
       <workItem from="1766761671129" duration="7638000" />
       <workItem from="1767041063129" duration="4289000" />
       <workItem from="1767585347232" duration="1165000" />
-      <workItem from="1767621302439" duration="1204000" />
+      <workItem from="1767621302439" duration="1802000" />
     </task>
     <servers />
   </component>
