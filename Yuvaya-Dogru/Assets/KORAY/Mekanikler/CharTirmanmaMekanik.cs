@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class CharTirmanmaMekanik : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class CharTirmanmaMekanik : MonoBehaviour
     public GameObject pressEUi;
     private float tirmanmaHizi = 3f, rayMesafesi = 1f;
     public LayerMask tirmanmaLayeri;
-    private bool tirmanmaAktif = false;
+    public bool tirmanmaAktif = false;
     private Vector2 moveInput;
     private GameControls inputMapi;
     private Vector3 duvarinPos, duvarinYonu, tirmanmaOncesiYon;
     private Char_Controller _char;
     private string raycastAtilmaNedeni = "Duvar", interaksiyonaGirmeNedeni = "Yok";
-    private float tirmanmaOncesiZ;
+    public float tirmanmaOncesiZ;
     private RaycastHit tutunmaHiti;
     
     private void Awake()
@@ -45,9 +46,10 @@ public class CharTirmanmaMekanik : MonoBehaviour
                 Debug.Log("E'ye basildi ama interaksiyon yok");
                 break;
             case "Duvar":
+               
+                tirmanmaOncesiZ = transform.position.z;
                 transform.position = duvarinPos;
                 transform.forward = duvarinYonu;
-                tirmanmaOncesiZ = transform.position.z;
                 tirmanmaOncesiYon = kameraTransform.forward.normalized;
                 tirmanmaAktif = true;
                 _char.isSticky = true;
@@ -76,10 +78,11 @@ public class CharTirmanmaMekanik : MonoBehaviour
         RaycastHit hit;
         if(raycastAtilmaNedeni == "Duvar")
         {
+            Debug.DrawRay(transform.position + Vector3.up, kameraTransform.forward, Color.green);
             if(Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit, rayMesafesi, tirmanmaLayeri) == true)
             {
                 duvarinPos = hit.point - hit.normal * (charController.radius + 0.05f);
-                duvarinYonu = -hit.normal;
+                duvarinYonu = hit.normal;
                 pressEUi.SetActive(true);
                 interaksiyonaGirmeNedeni = "Duvar";
             }
@@ -91,28 +94,38 @@ public class CharTirmanmaMekanik : MonoBehaviour
         }
         else if (raycastAtilmaNedeni == "DuvardanCikis")
         {
+           
             Vector3 rayPozisyonu = new Vector3(transform.position.x, transform.position.y + 1f, tirmanmaOncesiZ);
+            Debug.DrawRay(rayPozisyonu, tirmanmaOncesiYon, Color.yellow);
             Physics.Raycast(rayPozisyonu, tirmanmaOncesiYon, out hit, rayMesafesi);
-            if (hit.collider.CompareTag("TirmanmaAlaniTag"))
             {
-                pressEUi.SetActive(false);
-                interaksiyonaGirmeNedeni = "Yok";
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag("TirmanmaAlaniTag"))
+                    {
+                        pressEUi.SetActive(false);
+                        interaksiyonaGirmeNedeni = "Yok";
+                    }
+                    else if (hit.collider.CompareTag("TirmanmaEnUst"))
+                    {
+                        pressEUi.SetActive(true);
+                        tutunmaHiti = hit;
+                        interaksiyonaGirmeNedeni = "DuvarinUstuneCikma";
+                    }
+                    else if (hit.collider.CompareTag("TirmanmaEnAlt"))
+                    {
+                        pressEUi.SetActive(true);
+                        interaksiyonaGirmeNedeni = "Duvardan›nme";
+                    }
+                    else
+                    {
+                        DuvardanCikis();
+                    }
+
+                }
+             
             }
-            else if (hit.collider.CompareTag("TirmanmaEnUst"))
-            {
-                pressEUi.SetActive(true);
-                tutunmaHiti = hit;
-                interaksiyonaGirmeNedeni = "DuvarinUstuneCikma";
-            }
-            else if (hit.collider.CompareTag("TirmanmaEnAlt"))
-            {
-                pressEUi.SetActive(true);
-                interaksiyonaGirmeNedeni = "Duvardan›nme";
-            }
-            else
-            {
-                DuvardanCikis();
-            }
+          
         }
     }
     private void DuvardanCikis()
@@ -122,6 +135,7 @@ public class CharTirmanmaMekanik : MonoBehaviour
         raycastAtilmaNedeni = "Duvar";
         pressEUi.SetActive(false);
         interaksiyonaGirmeNedeni = "Yok";
+        _char.OnLanded();
     }
     private void DuvarinUstuneCikma()
     {
