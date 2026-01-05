@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToasterTrigger : MonoBehaviour
+public class BreadTrigger : MonoBehaviour
 {
     public GameObject bread1;
 
