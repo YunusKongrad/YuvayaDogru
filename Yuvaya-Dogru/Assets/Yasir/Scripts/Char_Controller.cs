@@ -290,8 +290,22 @@ public class Char_Controller : MonoBehaviour
             }
             else if (!canClimb)
             {
-                bool hitGround = Physics.SphereCast(transform.position, sphereRadius,
+                bool hitGround =Physics.SphereCast(transform.position, sphereRadius,
               Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
+
+                if (cc.isGrounded && !hitGround)
+                {
+                    
+                    if (hitInfo.collider!=null)
+                    {
+                        Debug.Log("asdasdasd");
+                    }
+                    else
+                    {
+                        isGrounded = false;
+                    }
+                }
+                
                 if (hitGround && velocityY < 0)
                 {
                     velocityY = -2f;
@@ -307,8 +321,8 @@ public class Char_Controller : MonoBehaviour
                 {
 
                     movement.x += _contactNormal.x * speed;
-                    movement.z += _contactNormal.z * speed;
-
+                    movement.z += _contactNormal.z * speed;                
+                    
                 }
                 else
                 {
@@ -426,14 +440,14 @@ public class Char_Controller : MonoBehaviour
 
 
         }
-        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y<-1f)
+        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y<-1f )
         {
            
             if (hit.normal.y > 0.5f)
             {
                 canJump = true;
             }
-            else if(hit.normal.y>-.1f)
+            else if(hit.normal.y>-.1f && hit.collider.tag != "Camasir")
             {
 
                 SetHanging(hit);
@@ -444,7 +458,7 @@ public class Char_Controller : MonoBehaviour
                 {
                     canJump = true;
                 }
-                else if (Mathf.Abs(hit.normal.y) < 0.1f)
+                else if (Mathf.Abs(hit.normal.y) < 0.1f && hit.collider.tag != "Camasir")
                 {
                     SetHanging(hit);
                     
@@ -498,7 +512,7 @@ public class Char_Controller : MonoBehaviour
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
                
-                Debug.Log(hit.normal);
+                
                 Vector3 pos = hit.gameObject.transform.position + (hit.normal * 0.8f);
                 _hangingPos.position = pos;
                 cc.enabled = false;
