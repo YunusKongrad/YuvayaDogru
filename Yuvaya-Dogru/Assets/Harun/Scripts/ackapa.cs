@@ -62,6 +62,11 @@ public class ackapa : MonoBehaviour
 
             _currentCoroutine = StartCoroutine(ToggleDoor());
         }
+        Debug.DrawRay(
+            playerCamera.transform.position,
+            playerCamera.transform.forward * interactDistance,
+            Color.red
+        );
     }
 
     bool IsLookingAtThis()
