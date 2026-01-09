@@ -11,7 +11,7 @@ public class Char_Controller : MonoBehaviour
 {
     private CharTirmanmaMekanik charTirmanmaCS;   
     GameControls _controls;
-     Vector2 _moveInput;
+    public Vector2 _moveInput;
     [SerializeField] Char_Animation animator;
     [SerializeField] CamController cam;
     CharacterController cc;
@@ -228,7 +228,7 @@ public class Char_Controller : MonoBehaviour
     }
    
 
-    private void OnLanded()
+    public void OnLanded()
     {
         if (jumpPressed)
         {
