@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,7 +18,7 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] Transform _cameraTransform, _hangingPos;
     [SerializeField] GameObject _pushingObj, hangingobj, _groundChechObj;
     [SerializeField] Vector3 _pushingObjPos;
-    [Header("Karakter �zellikleri")]
+    [Header("Karakter ozellikleri")]
     [SerializeField] float moveSpeed;
     [SerializeField] float speed, jumpForce, RunSpeed, pushingSpeed, originalStepOffset, sphereRadius, sphereDistance;
     [Header("Kal�c� de�erler")]
@@ -31,9 +32,13 @@ public class Char_Controller : MonoBehaviour
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
-    [SerializeField] float staminaAlpha;
+    [SerializeField] float staminaAlpha, crumpAlpha;
+    [SerializeField] int crumpCount;
+    
+    [SerializeField] Image crumpImage;
+    [SerializeField] TextMeshProUGUI crumpT;
 
-    [Header("T�rmanma")]
+    [Header("Tirmanma")]
     public Transform leftHandTarget;
     public Transform rightHandTarget;
     public float ikWeight, ClimpSpeed, snapDuration;
@@ -57,7 +62,41 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
         _controls.Player.Climb.performed += Climb_performed;
+        _controls.Player.Eat.performed += Eat_performed;
 
+    }
+
+    private void Eat_performed(InputAction.CallbackContext obj)
+    {
+        if (crumpCount > 0 && stamina < maxStamina)
+        {
+            crumpCount--;
+            stamina += 15;
+            if (stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+
+            
+        }
+        crumpT.text = crumpCount.ToString();
+        crumpAlpha = 255;
+        crumpImage.gameObject.SetActive(true);
+        StartCoroutine(CrumpAnim());
+    }
+    IEnumerator CrumpAnim()
+    {
+
+
+        while(crumpImage.color.a>0.1f)
+        {
+            crumpAlpha -= Time.deltaTime * 150;
+            crumpImage.color = new Color32(255, 255, 255, (byte)crumpAlpha);
+            crumpT.color= new Color32(0, 0, 0, (byte)crumpAlpha);
+            yield return null;
+        }
+
+        crumpImage.gameObject.SetActive(false);
     }
 
     private void Climb_performed(InputAction.CallbackContext obj)
@@ -254,7 +293,7 @@ public class Char_Controller : MonoBehaviour
     }
 
 
-    private void OnLanded()
+    public void OnLanded()
     {
         if (jumpPressed)
         {
@@ -263,6 +302,7 @@ public class Char_Controller : MonoBehaviour
         }
         isGrounded = true;
         sopungJumped = false;
+        animator.Falling(false);
     }
 
 
@@ -283,9 +323,10 @@ public class Char_Controller : MonoBehaviour
             jumpPressed = true;
             canJump = false;
             animator.JumpAnim();
+          
         }
     }
-
+    bool hitGround;
     private void MoveCharacter()
     {
 
@@ -316,7 +357,7 @@ public class Char_Controller : MonoBehaviour
             }
             else if (!canClimb)
             {
-                bool hitGround = Physics.SphereCast(transform.position, sphereRadius,
+                hitGround = Physics.SphereCast(transform.position, sphereRadius,
               Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
 
                 if (cc.isGrounded && !hitGround)
@@ -416,7 +457,15 @@ public class Char_Controller : MonoBehaviour
                 }
             }
             //Debug.Log(_moveInput);
-            animator.WalkAnim(MathF.Abs(animspeed * speed));
+            if (velocityY<-.5f && !hitGround)
+            {
+                animator.Falling(true);
+            }
+            else
+            {
+                animator.Falling(false);
+            }
+                animator.WalkAnim(MathF.Abs(animspeed * speed));
             cc.Move(movement * Time.deltaTime);
         }
 
@@ -428,20 +477,29 @@ public class Char_Controller : MonoBehaviour
         _controls.Disable();
     }
 
-
+    IEnumerator StaminaWait()
+    {
+        yield return new WaitForSeconds(1);
+        if (!isRunning && !_isCurrentlyPushing)
+        {
+            staminaAnim = false;
+        }
+    }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         _contactNormal = hit.normal;
         if (hit.collider.CompareTag("Crump"))
         {
-            stamina += 3;
+            stamina += 1;
+            crumpCount++;
             if (stamina > maxStamina)
             {
                 stamina = maxStamina;
             }
+            crumpT.text = crumpCount.ToString();
+            staminaAnim = true;
+            StartCoroutine(StaminaWait());
             Destroy(hit.gameObject);
-
-            StartCoroutine(staminaWait());
         }
         if (hit.collider.CompareTag("Sopung"))
         {
@@ -451,6 +509,7 @@ public class Char_Controller : MonoBehaviour
                 {
                     SopungJump();
                     sopungJumped = true;
+                    animator.Falling(false);
                 }
             }
 
@@ -484,7 +543,7 @@ public class Char_Controller : MonoBehaviour
 
 
         }
-        if (hit.collider.CompareTag("Pushable"))
+        if (hit.collider.CompareTag("Pushable") && stamina>0)
         {
             Vector3 extents = hit.collider.bounds.extents;
 
@@ -505,15 +564,19 @@ public class Char_Controller : MonoBehaviour
             {
                 _isCurrentlyPushing = true;
                 speed = pushingSpeed;
+                stamina -= Time.deltaTime*0.2f;
+                staminaAnim = true;                              
                 _pushingObjPos = hit.gameObject.transform.position;
                 _pushingObjPos -= hit.normal * Time.deltaTime * speed;
                 hit.gameObject.transform.position = _pushingObjPos;
             }
-            Debug.DrawRay(hit.transform.position, -hit.normal * dynamicRayDistance, Color.red);
+            //Debug.DrawRay(hit.transform.position, -hit.normal * dynamicRayDistance, Color.red);
         }
 
 
     }
+    
+ 
 
     void SetHanging(ControllerColliderHit hit)
     {
@@ -578,16 +641,7 @@ public class Char_Controller : MonoBehaviour
 
     }
     bool _isCurrentlyPushing;
-    IEnumerator staminaWait()
-    {
-        yield return new WaitForSeconds(1);
-        if (!staminaAnim)
-        {
-            //startStaminanim = false;
-
-        }
-
-    }
+    
 
     private void LateUpdate()
     {
@@ -597,6 +651,7 @@ public class Char_Controller : MonoBehaviour
         }
         else
         {
+            staminaAnim = false;
             if (isRunning)
             {
                 speed = RunSpeed;
