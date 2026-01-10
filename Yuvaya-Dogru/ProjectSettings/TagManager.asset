@@ -13,6 +13,9 @@ TagManager:
   - TirmanmaAlaniTag
   - TirmanmaEnUst
   - Camasir
+  - "CAMAS\u0130R"
+  - dugme
+  - SliderArea
   layers:
   - Default
   - TransparentFX

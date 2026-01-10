@@ -18,6 +18,9 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] Transform _cameraTransform, _hangingPos;
     [SerializeField] GameObject _pushingObj, hangingobj, _groundChechObj;
     [SerializeField] Vector3 _pushingObjPos;
+    bool hitGround;
+    Vector2 slideMove;
+    Coroutine _slindingC;
     [Header("Karakter ozellikleri")]
     [SerializeField] float moveSpeed;
     [SerializeField] float speed, jumpForce, RunSpeed, pushingSpeed, originalStepOffset, sphereRadius, sphereDistance;
@@ -326,7 +329,22 @@ public class Char_Controller : MonoBehaviour
           
         }
     }
-    bool hitGround;
+    
+    IEnumerator SlindingMove()
+    {
+
+        while (isSliding)
+        {
+
+
+            slideMove.x = Mathf.MoveTowards(slideMove.x, _moveInput.x, Time.deltaTime);
+            slideMove.y = Mathf.MoveTowards(slideMove.y, _moveInput.y, Time.deltaTime);
+
+
+            yield return null;
+        }
+        _slindingC = null;
+    }
     private void MoveCharacter()
     {
 
@@ -393,7 +411,14 @@ public class Char_Controller : MonoBehaviour
                 }
                 else
                 {
-                    movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                    if (isSliding)
+                    {
+                        movement = ((forward * slideMove.y) + (right * slideMove.x)) * speed;
+                    }
+                    else
+                    {
+                        movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                    }
                 }
 
                 movement.y += velocityY;
@@ -457,7 +482,7 @@ public class Char_Controller : MonoBehaviour
                 }
             }
             //Debug.Log(_moveInput);
-            if (velocityY<-.5f && !hitGround)
+            if (velocityY<-1f && !hitGround)
             {
                 animator.Falling(true);
             }
@@ -488,6 +513,21 @@ public class Char_Controller : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         _contactNormal = hit.normal;
+        if (hit.collider.CompareTag("SliderArea"))
+        {
+            isSliding = true;
+            // Eğer hali hazırda bir coroutine çalışmıyorsa başlat
+            if (_slindingC == null)
+            {
+                _slindingC = StartCoroutine(SlindingMove());
+            }
+
+        }
+        else
+        {
+            isSliding = false;
+            _slindingC = null;
+        }
         if (hit.collider.CompareTag("Crump"))
         {
             stamina += 1;
@@ -641,7 +681,7 @@ public class Char_Controller : MonoBehaviour
 
     }
     bool _isCurrentlyPushing;
-    
+    private bool isSliding;
 
     private void LateUpdate()
     {
