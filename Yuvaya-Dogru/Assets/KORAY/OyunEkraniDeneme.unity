@@ -1062,6 +1062,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8097699898298512168, guid: f1867e873972b7d4f81651cba4f46222, type: 3}
   m_PrefabInstance: {fileID: 8097699897971048984}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &974314910 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4558688488497334101, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
+  m_PrefabInstance: {fileID: 2071259662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1082126862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,27 +1628,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kameraTransform: {fileID: 788931060}
   pressEUi: {fileID: 62820979}
+  tirmanmaHizi: 3
+  rayMesafesi: 1
+  turningSpeed: 360
   tirmanmaLayeri:
     serializedVersion: 2
     m_Bits: 128
   tirmanmaAktif: 0
+  isTurning: 0
   tirmanmaOncesiZ: 0
---- !u!114 &1725851893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725851881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325f8ddcd163edc4c963e4c31ded8cce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHiz: 6
-  kaymaIvmelenme: 4
-  kaymaYavaslama: 2
-  normalYavaslama: 20
 --- !u!1 &1814982866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,6 +1908,14 @@ PrefabInstance:
       propertyPath: isGrounded
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5067764132433203825, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912415654773525, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
+      propertyPath: _Cam
+      value: 
+      objectReference: {fileID: 974314910}
     - target: {fileID: 9121810305503115283, guid: cb8aca45b4cf02540b59c20a7ccb7d89, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.252

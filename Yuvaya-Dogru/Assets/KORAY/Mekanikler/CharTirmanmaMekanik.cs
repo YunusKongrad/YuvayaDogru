@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -9,13 +11,14 @@ public class CharTirmanmaMekanik : MonoBehaviour
     CharacterController charController;
     public Transform kameraTransform;
     public GameObject pressEUi;
-    private float tirmanmaHizi = 3f, rayMesafesi = 1f;
+    [SerializeField] float tirmanmaHizi = 3f, rayMesafesi = 1f,turningSpeed;
     public LayerMask tirmanmaLayeri;
-    public bool tirmanmaAktif = false;
+    public bool tirmanmaAktif = false,isTurning;
     private Vector2 moveInput;
     private GameControls inputMapi;
     private Vector3 duvarinPos, duvarinYonu, tirmanmaOncesiYon;
     private Char_Controller _char;
+    private GameControls _controls;
     private string raycastAtilmaNedeni = "Duvar", interaksiyonaGirmeNedeni = "Yok";
     public float tirmanmaOncesiZ;
     private RaycastHit tutunmaHiti;
@@ -53,6 +56,7 @@ public class CharTirmanmaMekanik : MonoBehaviour
                 tirmanmaOncesiYon = kameraTransform.forward.normalized;
                 tirmanmaAktif = true;
                 _char.isSticky = true;
+                _char.cam.isClimbing = true;
                 raycastAtilmaNedeni = "DuvardanCikis";
                 break;
             case "DuvardanÝnme":
@@ -67,15 +71,16 @@ public class CharTirmanmaMekanik : MonoBehaviour
     private void Update()
     {
         RaycastAtici();
-        if(tirmanmaAktif == true)
+        if(tirmanmaAktif && !isTurning)
         {
             Vector3 move = Vector3.up * moveInput.y + transform.right * moveInput.x;
             charController.Move(move * tirmanmaHizi * Time.deltaTime);
         }
     }
+    RaycastHit hit;
     private void RaycastAtici()
     {
-        RaycastHit hit;
+        
         if(raycastAtilmaNedeni == "Duvar")
         {
             Debug.DrawRay(transform.position + Vector3.up, kameraTransform.forward, Color.green);
@@ -127,11 +132,17 @@ public class CharTirmanmaMekanik : MonoBehaviour
             }
           
         }
+        if (hit.collider==null)
+        {
+            DuvardanCikis();
+        }
     }
     private void DuvardanCikis()
     {
         tirmanmaAktif = false;
         _char.isSticky = false;
+        _char.cam.isClimbing = false;
+
         raycastAtilmaNedeni = "Duvar";
         pressEUi.SetActive(false);
         interaksiyonaGirmeNedeni = "Yok";
@@ -146,4 +157,38 @@ public class CharTirmanmaMekanik : MonoBehaviour
         transform.forward = -tutunmaHiti.normal;
     }
 
+    public void JumpOther()
+    {
+        isTurning = true;
+        targetAngle += 180;
+        toward *= -1;
+        StartCoroutine(Jump());
+        
+    }
+   [SerializeField] int targetAngle,toward=1;
+    IEnumerator Jump()
+    {
+        Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+
+        // Açý farký 0.1 dereceden büyük olduðu sürece devam et
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
+        {
+            // Dönüþ
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                turningSpeed * Time.deltaTime
+            );
+
+            // Ýleri hareket (Kendi baktýðý yöne doðru)
+            Vector3 move = new Vector3(0, 0, toward * 1*Time.deltaTime);
+            charController.Move(move);
+
+            yield return null;
+        }
+
+        // Tam hizalama
+        transform.rotation = targetRotation;
+        isTurning = false;
+    }
 }

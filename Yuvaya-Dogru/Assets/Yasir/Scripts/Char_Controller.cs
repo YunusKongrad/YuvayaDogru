@@ -13,7 +13,7 @@ public class Char_Controller : MonoBehaviour
     GameControls _controls;
     public Vector2 _moveInput;
     [SerializeField] Char_Animation animator;
-    [SerializeField] CamController cam;
+    public CamController cam;
     CharacterController cc;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform, _hangingPos;
@@ -28,7 +28,7 @@ public class Char_Controller : MonoBehaviour
 
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning, canJump, isHanging;
+    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning, canJump, isHanging, isSliding;
     public bool canClimb, isSticky;
     [Header("stamina")]
     [SerializeField] bool staminaAnim/*, startStaminanim*/;
@@ -192,7 +192,7 @@ public class Char_Controller : MonoBehaviour
     {
       
         _moveInput = _controls.Player.Move.ReadValue<Vector2>();
-        
+      
       
       
         forward = _cameraTransform.forward;
@@ -257,7 +257,29 @@ public class Char_Controller : MonoBehaviour
             jumpPressed = true;
             canJump = false;
             animator.JumpAnim();
+            Debug.Log("aktif2");
         }
+        else
+        {
+            charTirmanmaCS.JumpOther();
+            Debug.Log("aktif");
+        }
+    }
+   public  Vector2 slideMove;
+    IEnumerator SlindingMove()
+    {
+       
+        while (isSliding)
+        {
+           
+
+            slideMove.x = Mathf.MoveTowards(slideMove.x, _moveInput.x, Time.deltaTime);
+            slideMove.y = Mathf.MoveTowards(slideMove.y, _moveInput.y, Time.deltaTime);
+
+          
+            yield return null;
+        }
+        _slindingC = null;
     }
 
     private void MoveCharacter()
@@ -292,6 +314,14 @@ public class Char_Controller : MonoBehaviour
             {
                 bool hitGround = Physics.SphereCast(transform.position, sphereRadius,
               Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
+                if (hitInfo.collider != null)
+                {
+                    //Debug.Log("asdasdasd");
+                }
+                else
+                {
+                    isGrounded = false;
+                }
                 if (hitGround && velocityY < 0)
                 {
                     velocityY = -2f;
@@ -312,7 +342,15 @@ public class Char_Controller : MonoBehaviour
                 }
                 else
                 {
-                    movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                    if (isSliding)
+                    {
+                        movement = ((forward * slideMove.y) + (right * slideMove.x)) * speed;
+                    }
+                    else
+                    {
+                        movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                    }
+                        
                 }
 
                 movement.y += velocityY;
@@ -389,11 +427,26 @@ public class Char_Controller : MonoBehaviour
     {
         _controls.Disable();
     }
-
+    Coroutine _slindingC;
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
          _contactNormal = hit.normal;
+        if (hit.collider.CompareTag("SliderArea"))
+        {
+            isSliding = true;
+            // Eğer hali hazırda bir coroutine çalışmıyorsa başlat
+            if (_slindingC == null)
+            {
+                _slindingC = StartCoroutine(SlindingMove());
+            }
+
+        }
+        else
+        {
+            isSliding = false;
+            _slindingC = null;
+        }
         if (hit.collider.CompareTag("Crump"))
         {
             stamina += 3;
@@ -446,6 +499,14 @@ public class Char_Controller : MonoBehaviour
 
 
         }
+        if (hit.collider.gameObject.layer==7)
+        {
+            if (hit.normal.y > 0.5f)
+            {
+                canJump = true;
+            }
+        }
+
         if (hit.collider.CompareTag("Pushable"))
         {
             Vector3 extents = hit.collider.bounds.extents;
@@ -569,5 +630,6 @@ public class Char_Controller : MonoBehaviour
             }
            
         }
+       
     }
 }
