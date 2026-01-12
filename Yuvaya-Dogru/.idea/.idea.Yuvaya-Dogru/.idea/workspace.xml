@@ -5,16 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d3c1607-ea41-4450-917f-7ef95e2fcccf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/Mekanikler.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/Mekanikler/CharTirmanmaMekanik.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/Mekanikler/TirmanilanDuvar.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/KORAY/Mekanikler/TirmanilanDuvar.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KORAY/CharTirmanma.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KORAY/CharTirmanma.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KORAY/Mekanikler/CharTirmanmaMekanik.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KORAY/OyunEkraniDeneme.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KORAY/OyunEkraniDeneme.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/HoldSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/HoldSet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/HedefBari.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/Prefabs/HedefBari.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling Idle.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling Idle.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling To Landing.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling To Landing.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Hard Landing.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Hard Landing.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/FallScript.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/FallScript.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/ClimbObj.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Animation/karakteryeni@Zombie Stand Up.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/karakteryeni@Zombie Stand Up.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Climbing.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Climbing.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Climbing.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Climbing.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/HamurYogurma_Parcali.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/HamurYogurma_Parcali.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Rende.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Rende.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Saat.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Saat.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Animation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Animation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/ClimbAnimScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/ClimbAnimScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/harundeneme.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yasir/harundeneme.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/ClimbObj.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/Prefabler/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MAIN/Prefabler/Character.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,27 +47,27 @@
     <setting file="mock://C:/Users/USER/Projects/Proje1/YuvayaDogru/YuvayaDogru/Yuvaya-Dogru/Assets/Yasir/Scripts/Char_Controller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USER/Projects/Proje1/YuvayaDogru/YuvayaDogru/Yuvaya-Dogru/Assets/Yasir/Scripts/Char_Controller.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="389PJuputxQC5DnKovmcvtj84lr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.30f1\Editor\Unity.exe" />
@@ -103,6 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1768208747092</updated>
       <workItem from="1768208748521" duration="100000" />
+      <workItem from="1768208907626" duration="7000" />
     </task>
     <servers />
   </component>
@@ -111,7 +130,6 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
-    <option name="hasUnityReference" value="true" />
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
