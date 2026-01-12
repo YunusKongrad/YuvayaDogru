@@ -98,6 +98,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Eat"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d563832-60a3-477d-a6ff-a94fb2313b1f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -318,6 +327,28 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Climb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdf1df45-0113-484d-9b23-db5ea9ffb965"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67e62ab9-aa74-444b-b364-e5daff2bd84c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -600,6 +631,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_Player_LookUp = m_Player.FindAction("LookUp", throwIfNotFound: true);
         m_Player_Interactive = m_Player.FindAction("Interactive", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
+        m_Player_Eat = m_Player.FindAction("Eat", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
@@ -675,6 +707,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LookUp;
     private readonly InputAction m_Player_Interactive;
     private readonly InputAction m_Player_Climb;
+    private readonly InputAction m_Player_Eat;
     public struct PlayerActions
     {
         private @GameControls m_Wrapper;
@@ -687,6 +720,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         public InputAction @LookUp => m_Wrapper.m_Player_LookUp;
         public InputAction @Interactive => m_Wrapper.m_Player_Interactive;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
+        public InputAction @Eat => m_Wrapper.m_Player_Eat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -720,6 +754,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Climb.started += instance.OnClimb;
             @Climb.performed += instance.OnClimb;
             @Climb.canceled += instance.OnClimb;
+            @Eat.started += instance.OnEat;
+            @Eat.performed += instance.OnEat;
+            @Eat.canceled += instance.OnEat;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -748,6 +785,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Climb.started -= instance.OnClimb;
             @Climb.performed -= instance.OnClimb;
             @Climb.canceled -= instance.OnClimb;
+            @Eat.started -= instance.OnEat;
+            @Eat.performed -= instance.OnEat;
+            @Eat.canceled -= instance.OnEat;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -845,6 +885,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         void OnLookUp(InputAction.CallbackContext context);
         void OnInteractive(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
+        void OnEat(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

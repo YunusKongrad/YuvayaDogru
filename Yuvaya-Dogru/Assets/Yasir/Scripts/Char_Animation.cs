@@ -42,7 +42,11 @@ public class Char_Animation : MonoBehaviour
        
     }
 
+    public void Falling(bool fall)
+    {
+        animator.SetBool("Falling", fall);
 
+    }
     void Update()
     {
 

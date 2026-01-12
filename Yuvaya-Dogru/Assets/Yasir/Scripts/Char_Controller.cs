@@ -1,51 +1,57 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngineInternal;
-using static UnityEngine.GraphicsBuffer;
 public class Char_Controller : MonoBehaviour
 {
-    private CharTirmanma charTirmanmaCS;   
+    private CharTirmanma charTirmanmaCS;
     GameControls _controls;
-     Vector2 _moveInput;
+    Vector2 _moveInput;
     [SerializeField] Char_Animation animator;
     [SerializeField] CamController cam;
     CharacterController cc;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform, _hangingPos;
-    [SerializeField] GameObject _pushingObj,hangingobj,_groundChechObj;
+    [SerializeField] GameObject _pushingObj, hangingobj, _groundChechObj;
     [SerializeField] Vector3 _pushingObjPos;
-    [Header("Karakter �zellikleri")]
+    bool hitGround;
+    Vector2 slideMove;
+    Coroutine _slindingC;
+    [Header("Karakter ozellikleri")]
     [SerializeField] float moveSpeed;
-    [SerializeField] float speed,jumpForce, RunSpeed,pushingSpeed, originalStepOffset, sphereRadius,sphereDistance;
+    [SerializeField] float speed, jumpForce, RunSpeed, pushingSpeed, originalStepOffset, sphereRadius, sphereDistance;
     [Header("Kal�c� de�erler")]
     public Vector3 movement;
-    [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit,stamina,maxStamina,staminaFactor;
+    [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit, stamina, maxStamina, staminaFactor;
 
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
-    [SerializeField] bool wasGrounded,isWaitingFall,jumpPressed,sopungJumped,isRunning, canJump, isHanging;
+    [SerializeField] bool wasGrounded, isWaitingFall, jumpPressed, sopungJumped, isRunning, canJump, isHanging;
     public bool canClimb, isSticky;
     [Header("stamina")]
-    [SerializeField] bool staminaAnim/*, startStaminanim*/;
+    [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
-    [SerializeField] float staminaAlpha;
+    [SerializeField] float staminaAlpha, crumpAlpha;
+    [SerializeField] int crumpCount;
+    
+    [SerializeField] Image crumpImage;
+    [SerializeField] TextMeshProUGUI crumpT;
 
-    [Header("T�rmanma")]
+    [Header("Tirmanma")]
     public Transform leftHandTarget;
     public Transform rightHandTarget;
     public float ikWeight, ClimpSpeed, snapDuration;
-    public bool isClimbing;
+    public bool isClimbing, isBlocking;
 
     private void Awake()
     {
         // 2. Nesneyi haf�zada olu�turuyoruz
         _controls = new GameControls();
-     
+
         cc = GetComponent<CharacterController>();
         charTirmanmaCS = GetComponent<CharTirmanma>();
 
@@ -59,7 +65,41 @@ public class Char_Controller : MonoBehaviour
         _controls.Player.Run.performed += Run_performed;
         _controls.Player.Run.canceled += Run_canceled;
         _controls.Player.Climb.performed += Climb_performed;
-       
+        _controls.Player.Eat.performed += Eat_performed;
+
+    }
+
+    private void Eat_performed(InputAction.CallbackContext obj)
+    {
+        if (crumpCount > 0 && stamina < maxStamina)
+        {
+            crumpCount--;
+            stamina += 15;
+            if (stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+
+            
+        }
+        crumpT.text = crumpCount.ToString();
+        crumpAlpha = 255;
+        crumpImage.gameObject.SetActive(true);
+        StartCoroutine(CrumpAnim());
+    }
+    IEnumerator CrumpAnim()
+    {
+
+
+        while(crumpImage.color.a>0.1f)
+        {
+            crumpAlpha -= Time.deltaTime * 150;
+            crumpImage.color = new Color32(255, 255, 255, (byte)crumpAlpha);
+            crumpT.color= new Color32(0, 0, 0, (byte)crumpAlpha);
+            yield return null;
+        }
+
+        crumpImage.gameObject.SetActive(false);
     }
 
     private void Climb_performed(InputAction.CallbackContext obj)
@@ -103,10 +143,10 @@ public class Char_Controller : MonoBehaviour
                 **/
             }
         }
-       
-        
+
+
     }
-    
+
     public void anim2bos(Transform target)
     {
         // 1. Fizi�i ve kontrol� kapat ki titreme yapmas�n
@@ -147,7 +187,7 @@ public class Char_Controller : MonoBehaviour
         movement = Vector3.zero;
         movement = (forward * _moveInput.y) + (right * _moveInput.x);
         movement.y += velocityY;
-       
+
 
     }
     Vector3 normal;
@@ -157,12 +197,12 @@ public class Char_Controller : MonoBehaviour
     {
         canClimb = false;
         isHanging = false;
-        
+
         climb = false;
         isClimbing = false;
         Vector3 pos = hangingobj.transform.position;
         pos.y += 1f;
-       // _hangingPos.position = pos;
+        // _hangingPos.position = pos;
         transform.position = pos;
         cc.enabled = true;
         animator.EndHold();
@@ -185,35 +225,55 @@ public class Char_Controller : MonoBehaviour
         speed += RunSpeed;
     }
 
-  
+
     Vector3 forward;
     Vector3 right;
     private void Update()
     {
-      
+
         _moveInput = _controls.Player.Move.ReadValue<Vector2>();
-        
-      
-      
-        forward = _cameraTransform.forward;
-      
-        if (_moveInput!=Vector2.zero && isRunning)
+
+        if (staminaAnim && staminaAlpha < 1)
         {
-            stamina -= Time.deltaTime * staminaFactor;
-          
+            staminaAlpha += Time.deltaTime;
+            staminaBar.color = new Color(staminaBar.color.r, staminaBar.color.g, staminaBar.color.b, staminaAlpha);
+            if (staminaAlpha < .5f)
+            {
+                staminaBar2.color = new Color(0, 0, 0, staminaAlpha);
+            }
+
+        }
+        else if (staminaAlpha > 0)
+        {
+            staminaAlpha -= Time.deltaTime;
+            staminaBar.color = new Color(staminaBar.color.r, staminaBar.color.g, staminaBar.color.b, staminaAlpha);
+            if (staminaAlpha < .5f)
+            {
+                staminaBar2.color = new Color(0, 0, 0, staminaAlpha);
+            }
+
         }
 
-        
-      
 
-      
+        forward = _cameraTransform.forward;
+
+        if (_moveInput != Vector2.zero && isRunning)
+        {
+            stamina -= Time.deltaTime * staminaFactor;
+
+        }
+
+
+
+
+
         right = _cameraTransform.right;
         MoveCharacter();
         staminaBar.fillAmount = stamina / maxStamina;
-      
+
 
         #region ziplma
-      
+
         bool isGrounded2 = cc.isGrounded;
         if (isGrounded2)
         {
@@ -225,10 +285,18 @@ public class Char_Controller : MonoBehaviour
             OnLanded();
         }
         #endregion
-    }
-   
 
-    private void OnLanded()
+        #region camCheck
+
+        RaycastHit hit;
+        isBlocking = Physics.Raycast(transform.position, -forward, out hit, 3, groundLayer);
+
+
+        #endregion
+    }
+
+
+    public void OnLanded()
     {
         if (jumpPressed)
         {
@@ -237,29 +305,46 @@ public class Char_Controller : MonoBehaviour
         }
         isGrounded = true;
         sopungJumped = false;
+        animator.Falling(false);
     }
 
 
 
     void SopungJump()
     {
-        velocityY += jumpForce*2;
+        velocityY += jumpForce * 2;
         animator.JumpAnim();
     }
-   
+
     private void DoJump(InputAction.CallbackContext context)
     {
         if (isGrounded && !isSticky)
         {
             speed *= moveMulti;
-            velocityY = jumpForce;          
-            isGrounded = false;         
+            velocityY = jumpForce;
+            isGrounded = false;
             jumpPressed = true;
             canJump = false;
             animator.JumpAnim();
+          
         }
     }
+    
+    IEnumerator SlindingMove()
+    {
 
+        while (isSliding)
+        {
+
+
+            slideMove.x = Mathf.MoveTowards(slideMove.x, _moveInput.x, Time.deltaTime);
+            slideMove.y = Mathf.MoveTowards(slideMove.y, _moveInput.y, Time.deltaTime);
+
+
+            yield return null;
+        }
+        _slindingC = null;
+    }
     private void MoveCharacter()
     {
 
@@ -290,13 +375,13 @@ public class Char_Controller : MonoBehaviour
             }
             else if (!canClimb)
             {
-                bool hitGround =Physics.SphereCast(transform.position, sphereRadius,
+                hitGround = Physics.SphereCast(transform.position, sphereRadius,
               Vector3.down, out RaycastHit hitInfo, sphereDistance, groundLayer);
 
                 if (cc.isGrounded && !hitGround)
                 {
-                    
-                    if (hitInfo.collider!=null)
+
+                    if (hitInfo.collider != null)
                     {
                         Debug.Log("asdasdasd");
                     }
@@ -305,7 +390,7 @@ public class Char_Controller : MonoBehaviour
                         isGrounded = false;
                     }
                 }
-                
+
                 if (hitGround && velocityY < 0)
                 {
                     velocityY = -2f;
@@ -321,12 +406,19 @@ public class Char_Controller : MonoBehaviour
                 {
 
                     movement.x += _contactNormal.x * speed;
-                    movement.z += _contactNormal.z * speed;                
-                    
+                    movement.z += _contactNormal.z * speed;
+
                 }
                 else
                 {
-                    movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                    if (isSliding)
+                    {
+                        movement = ((forward * slideMove.y) + (right * slideMove.x)) * speed;
+                    }
+                    else
+                    {
+                        movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                    }
                 }
 
                 movement.y += velocityY;
@@ -340,13 +432,11 @@ public class Char_Controller : MonoBehaviour
                 {
                     transform.localRotation = Quaternion.Euler(0, -45, 0);
                     animspeed = 1;
-                    Debug.Log("0");
                 }
                 if (_moveInput.x > 0 && _moveInput.y < 0)
                 {
                     transform.localRotation = Quaternion.Euler(0, 135, 0);
                     animspeed = 1;
-                    Debug.Log("1");
                 }
             }
             else
@@ -355,15 +445,13 @@ public class Char_Controller : MonoBehaviour
                 {
                     transform.localRotation = Quaternion.Euler(0, 45, 0);
                     animspeed = 1;
-                    Debug.Log("2");
                 }
                 else if (_moveInput.x + _moveInput.y <= -1.35)
                 {
                     transform.localRotation = Quaternion.Euler(0, -135, 0);
                     animspeed = 1;
-                    Debug.Log("3");
                 }
-                else 
+                else
                 {
                     if (_moveInput.y != 0)
                     {
@@ -371,13 +459,11 @@ public class Char_Controller : MonoBehaviour
                         {
                             transform.localRotation = Quaternion.Euler(0, 180, 0);
                             animspeed = 1;
-                            Debug.Log("4");
                         }
                         else
                         {
                             transform.localRotation = Quaternion.Euler(0, 0, 0);
                             animspeed = 1;
-                            Debug.Log("5");
                         }
                     }
                     if (_moveInput.x != 0)
@@ -386,21 +472,25 @@ public class Char_Controller : MonoBehaviour
                         {
                             transform.localRotation = Quaternion.Euler(0, 90, 0);
                             animspeed = 1;
-                            Debug.Log("6");
                         }
                         else
                         {
                             transform.localRotation = Quaternion.Euler(0, 270, 0);
                             animspeed = 1;
-                            Debug.Log("7");
                         }
                     }
                 }
-              
-
             }
             //Debug.Log(_moveInput);
-            animator.WalkAnim(MathF.Abs(animspeed* speed));
+            if (velocityY<-1f && !hitGround)
+            {
+                animator.Falling(true);
+            }
+            else
+            {
+                animator.Falling(false);
+            }
+                animator.WalkAnim(MathF.Abs(animspeed * speed));
             cc.Move(movement * Time.deltaTime);
         }
 
@@ -412,20 +502,44 @@ public class Char_Controller : MonoBehaviour
         _controls.Disable();
     }
 
-
+    IEnumerator StaminaWait()
+    {
+        yield return new WaitForSeconds(1);
+        if (!isRunning && !_isCurrentlyPushing)
+        {
+            staminaAnim = false;
+        }
+    }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-         _contactNormal = hit.normal;
+        _contactNormal = hit.normal;
+        if (hit.collider.CompareTag("SliderArea"))
+        {
+            isSliding = true;
+            // Eğer hali hazırda bir coroutine çalışmıyorsa başlat
+            if (_slindingC == null)
+            {
+                _slindingC = StartCoroutine(SlindingMove());
+            }
+
+        }
+        else
+        {
+            isSliding = false;
+            _slindingC = null;
+        }
         if (hit.collider.CompareTag("Crump"))
         {
-            stamina += 3;
+            stamina += 1;
+            crumpCount++;
             if (stamina > maxStamina)
             {
                 stamina = maxStamina;
             }
+            crumpT.text = crumpCount.ToString();
+            staminaAnim = true;
+            StartCoroutine(StaminaWait());
             Destroy(hit.gameObject);
-
-            StartCoroutine(staminaWait());
         }
         if (hit.collider.CompareTag("Sopung"))
         {
@@ -435,19 +549,20 @@ public class Char_Controller : MonoBehaviour
                 {
                     SopungJump();
                     sopungJumped = true;
+                    animator.Falling(false);
                 }
             }
 
 
         }
-        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y<-1f )
+        else if (hit.collider.gameObject.layer == 6 && hit.collider.tag != "Sopung" && cc.velocity.y < -1f)
         {
-           
+
             if (hit.normal.y > 0.5f)
             {
                 canJump = true;
             }
-            else if(hit.normal.y>-.1f && hit.collider.tag != "Camasir")
+            else if (hit.normal.y > -.1f && hit.collider.tag == "rope")
             {
 
                 SetHanging(hit);
@@ -458,27 +573,27 @@ public class Char_Controller : MonoBehaviour
                 {
                     canJump = true;
                 }
-                else if (Mathf.Abs(hit.normal.y) < 0.1f && hit.collider.tag != "Camasir")
+                else if (Mathf.Abs(hit.normal.y) < 0.1f && hit.collider.tag == "rope")
                 {
                     SetHanging(hit);
-                    
+
                 }
 
             }
 
 
         }
-        if (hit.collider.CompareTag("Pushable"))
+        if (hit.collider.CompareTag("Pushable") && stamina>0)
         {
             Vector3 extents = hit.collider.bounds.extents;
 
-            
+
             float objectRadius = Mathf.Abs(Vector3.Dot(extents, hit.normal));
 
-          
+
             float dynamicRayDistance = objectRadius + 0.1f;
             RaycastHit ray;
-           
+
 
             if (Physics.Raycast(hit.transform.position, -hit.normal, out ray, dynamicRayDistance))
             {
@@ -489,15 +604,19 @@ public class Char_Controller : MonoBehaviour
             {
                 _isCurrentlyPushing = true;
                 speed = pushingSpeed;
+                stamina -= Time.deltaTime*0.2f;
+                staminaAnim = true;                              
                 _pushingObjPos = hit.gameObject.transform.position;
                 _pushingObjPos -= hit.normal * Time.deltaTime * speed;
                 hit.gameObject.transform.position = _pushingObjPos;
             }
-            Debug.DrawRay(hit.transform.position, -hit.normal*dynamicRayDistance,Color.red);
+            //Debug.DrawRay(hit.transform.position, -hit.normal * dynamicRayDistance, Color.red);
         }
-        
-        
+
+
     }
+    
+ 
 
     void SetHanging(ControllerColliderHit hit)
     {
@@ -511,8 +630,8 @@ public class Char_Controller : MonoBehaviour
 
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
-               
-                
+
+
                 Vector3 pos = hit.gameObject.transform.position + (hit.normal * 0.8f);
                 _hangingPos.position = pos;
                 cc.enabled = false;
@@ -562,16 +681,7 @@ public class Char_Controller : MonoBehaviour
 
     }
     bool _isCurrentlyPushing;
-    IEnumerator staminaWait()
-    {
-        yield return new WaitForSeconds(1);
-        if (!staminaAnim)
-        {
-            //startStaminanim = false;
-
-        }
-       
-    }
+    private bool isSliding;
 
     private void LateUpdate()
     {
@@ -581,6 +691,7 @@ public class Char_Controller : MonoBehaviour
         }
         else
         {
+            staminaAnim = false;
             if (isRunning)
             {
                 speed = RunSpeed;
@@ -589,7 +700,7 @@ public class Char_Controller : MonoBehaviour
             {
                 speed = moveSpeed;
             }
-           
+
         }
     }
 }
