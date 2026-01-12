@@ -45,7 +45,22 @@ public class Char_Controller : MonoBehaviour
     public Transform leftHandTarget;
     public Transform rightHandTarget;
     public float ikWeight, ClimpSpeed, snapDuration;
-    public bool isClimbing, isBlocking;
+
+    public bool isClimbing;
+    
+    [Header("Asperator Ozellikleri")]
+    public bool isVacuumed = false;
+    public int vacuumStage = 0;
+    [Header("Recel Ozellikleri")]
+    [SerializeField] float jamSlowSpeed = 2f;
+    [SerializeField] float jamNormalSpeed = 5f;
+    [SerializeField] float jamDuration = 10f;
+
+    Coroutine jamRoutine;
+    
+    bool isJammed = false;
+
+    
 
     private void Awake()
     {
@@ -54,11 +69,16 @@ public class Char_Controller : MonoBehaviour
 
         cc = GetComponent<CharacterController>();
         charTirmanmaCS = GetComponent<CharTirmanma>();
+        
+       
 
     }
 
     private void OnEnable()
     {
+        if (_controls == null)
+            _controls = new GameControls();
+        
         // 3. Kontrolleri aktif ediyoruz (Bu olmazsa tu�lar �al��maz!)
         _controls.Enable();
         _controls.Player.Jump.performed += DoJump;
@@ -228,9 +248,19 @@ public class Char_Controller : MonoBehaviour
 
     Vector3 forward;
     Vector3 right;
+
+    
     private void Update()
     {
 
+        if (isVacuumed)
+        {
+            _moveInput = Vector2.zero;
+            movement = Vector3.zero;
+            velocityY = 0f;
+            return;
+        }
+      
         _moveInput = _controls.Player.Move.ReadValue<Vector2>();
 
         if (staminaAnim && staminaAlpha < 1)
@@ -347,7 +377,9 @@ public class Char_Controller : MonoBehaviour
     }
     private void MoveCharacter()
     {
-
+        if (isVacuumed)
+            return;
+        
         right = _cameraTransform.right;
         forward.y = 0f;
         right.y = 0f;
@@ -613,10 +645,40 @@ public class Char_Controller : MonoBehaviour
             //Debug.DrawRay(hit.transform.position, -hit.normal * dynamicRayDistance, Color.red);
         }
 
+        if (hit.collider.CompareTag("JAM"))
+        {
+            ApplyJamEffect();
+        }
+        
+        
+    }
+    void ApplyJamEffect()
+    {
+        if (isJammed)
+            return;
 
+        isJammed = true;
+
+        // TEMAS ANINDA
+        moveSpeed = jamSlowSpeed;
+        speed = jamSlowSpeed;
+        RunSpeed = jamSlowSpeed;
+
+        jamRoutine = StartCoroutine(JamReset());
     }
     
- 
+    
+    IEnumerator JamReset()
+    {
+        yield return new WaitForSeconds(jamDuration);
+
+        moveSpeed = jamNormalSpeed;
+        speed = jamNormalSpeed;
+        RunSpeed = jamNormalSpeed;
+
+        isJammed = false;
+        jamRoutine = null;
+    }
 
     void SetHanging(ControllerColliderHit hit)
     {
@@ -685,6 +747,9 @@ public class Char_Controller : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (isJammed)
+            return;
+        
         if (_isCurrentlyPushing)
         {
             _isCurrentlyPushing = false;
@@ -702,5 +767,10 @@ public class Char_Controller : MonoBehaviour
             }
 
         }
+    }
+    
+    public void VacuumMove(Vector3 velocity)
+    {
+        cc.Move(velocity * Time.deltaTime);
     }
 }

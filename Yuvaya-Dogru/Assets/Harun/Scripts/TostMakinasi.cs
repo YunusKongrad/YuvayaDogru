@@ -21,7 +21,7 @@ public class TostMakinasi : MonoBehaviour
         {
             float currentZ = lid.localEulerAngles.z;
 
-            // 270 = -90 derece Unity karşılığı
+            
             if (currentZ > 0 && currentZ < 270)
                 currentZ = 270;
 
