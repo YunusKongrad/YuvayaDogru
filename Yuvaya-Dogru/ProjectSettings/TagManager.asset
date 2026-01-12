@@ -13,6 +13,8 @@ TagManager:
   - TirmanmaAlaniTag
   - TirmanmaEnUst
   - Camasir
+  - "CAMAS\u0130R"
+  - JAM
   layers:
   - Default
   - TransparentFX

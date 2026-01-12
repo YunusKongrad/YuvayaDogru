@@ -41,9 +41,19 @@ public class Char_Controller : MonoBehaviour
     public float ikWeight, ClimpSpeed, snapDuration;
     public bool isClimbing;
     
-    
+    [Header("Asperator Ozellikleri")]
     public bool isVacuumed = false;
     public int vacuumStage = 0;
+    [Header("Recel Ozellikleri")]
+    [SerializeField] float jamSlowSpeed = 2f;
+    [SerializeField] float jamNormalSpeed = 5f;
+    [SerializeField] float jamDuration = 10f;
+
+    Coroutine jamRoutine;
+    
+    bool isJammed = false;
+
+    
 
     private void Awake()
     {
@@ -52,6 +62,8 @@ public class Char_Controller : MonoBehaviour
      
         cc = GetComponent<CharacterController>();
         charTirmanmaCS = GetComponent<CharTirmanma>();
+        
+       
 
     }
 
@@ -195,6 +207,8 @@ public class Char_Controller : MonoBehaviour
   
     Vector3 forward;
     Vector3 right;
+
+    
     private void Update()
     {
         if (isVacuumed)
@@ -511,8 +525,39 @@ public class Char_Controller : MonoBehaviour
             }
             Debug.DrawRay(hit.transform.position, -hit.normal*dynamicRayDistance,Color.red);
         }
+        if (hit.collider.CompareTag("JAM"))
+        {
+            ApplyJamEffect();
+        }
         
         
+    }
+    void ApplyJamEffect()
+    {
+        if (isJammed)
+            return;
+
+        isJammed = true;
+
+        // TEMAS ANINDA
+        moveSpeed = jamSlowSpeed;
+        speed = jamSlowSpeed;
+        RunSpeed = jamSlowSpeed;
+
+        jamRoutine = StartCoroutine(JamReset());
+    }
+    
+    
+    IEnumerator JamReset()
+    {
+        yield return new WaitForSeconds(jamDuration);
+
+        moveSpeed = jamNormalSpeed;
+        speed = jamNormalSpeed;
+        RunSpeed = jamNormalSpeed;
+
+        isJammed = false;
+        jamRoutine = null;
     }
 
     void SetHanging(ControllerColliderHit hit)
@@ -591,7 +636,7 @@ public class Char_Controller : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (isVacuumed)
+        if (isJammed)
             return;
         
         if (_isCurrentlyPushing)
