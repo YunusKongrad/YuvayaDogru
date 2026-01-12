@@ -7,8 +7,10 @@ public class UiOyunİciManager : MonoBehaviour
 {
     public GameObject pausePaneli, pauseOgeleri, pauseAyarlarMenusu;
     public CheckpointRespawn checkpointRespawnScript;
+    public Fade fadeScript;
     private void Start()
     {
+        //fadeScript.FadeOut();
         pausePaneli.SetActive(false);
         pauseOgeleri.SetActive(false);
         pauseAyarlarMenusu.SetActive(false);

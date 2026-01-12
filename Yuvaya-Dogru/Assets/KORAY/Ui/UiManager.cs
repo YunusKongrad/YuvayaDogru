@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
 {
     public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu, kazandinMenusu;
     GameControls _gameControlls;
+    public Fade fadeScript;
     private void Start()
     {
         anaMenu.SetActive(true);
@@ -18,6 +19,8 @@ public class UiManager : MonoBehaviour
     }
     public void OyunaSifirdanBasla()
     {
+        fadeScript.FadeIn();
+        fadeScript.FadeOut();
         SceneManager.LoadScene("yunusScene");
     }
     public void OyunaKaldiginYerdenDevamEt()
