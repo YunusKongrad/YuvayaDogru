@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d3c1607-ea41-4450-917f-7ef95e2fcccf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling Idle.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling Idle.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling To Landing.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Falling To Landing.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Hard Landing.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Hard Landing.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/FallScript.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/FallScript.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/ClimbObj.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Animation/karakteryeni@Zombie Stand Up.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/karakteryeni@Zombie Stand Up.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Climbing.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Climbing.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Climbing.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Animation/Climbing.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Controllers/GameControls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/HamurYogurma_Parcali.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/HamurYogurma_Parcali.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Rende.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Rende.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Saat.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Saat.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/CamController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Animation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Animation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/Char_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/Scripts/ClimbAnimScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/Scripts/ClimbAnimScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/YasirScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/harundeneme.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yasir/harundeneme.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yasir/prefabe/ClimbObj.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_MAIN/Prefabler/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_MAIN/Prefabler/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,29 +28,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;harun5&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\harun\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\harun\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\harun\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\harun\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\harun\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\harun\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.30f1\Editor\Unity.exe" />

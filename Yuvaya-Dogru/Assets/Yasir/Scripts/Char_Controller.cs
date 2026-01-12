@@ -8,11 +8,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 public class Char_Controller : MonoBehaviour
 {
-    private CharTirmanma charTirmanmaCS;
     GameControls _controls;
     Vector2 _moveInput;
-    [SerializeField] Char_Animation animator;
-    [SerializeField] CamController cam;
+    [SerializeField] Char_Animation animator; 
+    public CamController cam;
     CharacterController cc;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform, _hangingPos;
@@ -32,6 +31,8 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] bool isGrounded;
     [SerializeField] bool wasGrounded, isWaitingFall, jumpPressed, sopungJumped, isRunning, canJump, isHanging;
     public bool canClimb, isSticky;
+    public bool isBlocking;
+        
     [Header("stamina")]
     [SerializeField] bool staminaAnim, startStaminanim;
     [SerializeField] Image staminaBar, staminaBar2;
@@ -68,7 +69,6 @@ public class Char_Controller : MonoBehaviour
         _controls = new GameControls();
 
         cc = GetComponent<CharacterController>();
-        charTirmanmaCS = GetComponent<CharTirmanma>();
         
        
 
@@ -747,12 +747,14 @@ public class Char_Controller : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (isJammed)
-            return;
         
         if (_isCurrentlyPushing)
         {
             _isCurrentlyPushing = false;
+        }
+        else if (isJammed)
+        {
+            speed = jamSlowSpeed;
         }
         else
         {
