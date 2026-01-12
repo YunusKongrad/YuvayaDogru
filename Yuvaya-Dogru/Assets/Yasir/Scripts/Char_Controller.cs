@@ -40,6 +40,10 @@ public class Char_Controller : MonoBehaviour
     public Transform rightHandTarget;
     public float ikWeight, ClimpSpeed, snapDuration;
     public bool isClimbing;
+    
+    
+    public bool isVacuumed = false;
+    public int vacuumStage = 0;
 
     private void Awake()
     {
@@ -53,6 +57,9 @@ public class Char_Controller : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_controls == null)
+            _controls = new GameControls();
+        
         // 3. Kontrolleri aktif ediyoruz (Bu olmazsa tu�lar �al��maz!)
         _controls.Enable();
         _controls.Player.Jump.performed += DoJump;
@@ -190,6 +197,13 @@ public class Char_Controller : MonoBehaviour
     Vector3 right;
     private void Update()
     {
+        if (isVacuumed)
+        {
+            _moveInput = Vector2.zero;
+            movement = Vector3.zero;
+            velocityY = 0f;
+            return;
+        }
       
         _moveInput = _controls.Player.Move.ReadValue<Vector2>();
         
@@ -262,7 +276,9 @@ public class Char_Controller : MonoBehaviour
 
     private void MoveCharacter()
     {
-
+        if (isVacuumed)
+            return;
+        
         right = _cameraTransform.right;
         forward.y = 0f;
         right.y = 0f;
@@ -575,6 +591,9 @@ public class Char_Controller : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (isVacuumed)
+            return;
+        
         if (_isCurrentlyPushing)
         {
             _isCurrentlyPushing = false;
@@ -591,5 +610,10 @@ public class Char_Controller : MonoBehaviour
             }
            
         }
+    }
+    
+    public void VacuumMove(Vector3 velocity)
+    {
+        cc.Move(velocity * Time.deltaTime);
     }
 }
