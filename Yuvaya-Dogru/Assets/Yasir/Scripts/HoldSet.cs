@@ -20,7 +20,6 @@ public class HoldSet : MonoBehaviour
 
     void OnAnimatorIK(int layerIndex)
     {
-        Debug.Log("animasyon çalýþýyor");
         if (_animator == null) return;
     
         // Sadece týrmanýrken elleri kilitle
