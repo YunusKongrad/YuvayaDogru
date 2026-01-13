@@ -10,6 +10,7 @@ public class Char_Controller : MonoBehaviour
 {
     GameControls _controls;
     Vector2 _moveInput;
+    [SerializeField] CharTirmanmaMekanik _charTirmanmaMekanik;
     [SerializeField] Char_Animation animator; 
     public CamController cam;
     CharacterController cc;
@@ -336,6 +337,7 @@ public class Char_Controller : MonoBehaviour
         isGrounded = true;
         sopungJumped = false;
         animator.Falling(false);
+
     }
 
 
@@ -358,9 +360,13 @@ public class Char_Controller : MonoBehaviour
             animator.JumpAnim();
           
         }
+        else if(isSticky)
+        {
+            //_charTirmanmaMekanik.JumpOther();
+        }
     }
     
-    IEnumerator SlindingMove()
+   IEnumerator SlindingMove()
     {
 
         while (isSliding)
@@ -379,7 +385,8 @@ public class Char_Controller : MonoBehaviour
     {
         if (isVacuumed)
             return;
-        
+        animator.ClimbEnd();
+
         right = _cameraTransform.right;
         forward.y = 0f;
         right.y = 0f;
@@ -441,16 +448,24 @@ public class Char_Controller : MonoBehaviour
                     movement.z += _contactNormal.z * speed;
 
                 }
-                else
+                if (isSliding)
                 {
-                    if (isSliding)
+
+
+                    if (_contactNormal.y > 0.9)
                     {
                         movement = ((forward * slideMove.y) + (right * slideMove.x)) * speed;
                     }
                     else
                     {
-                        movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
+                        movement = ((forward * 0) + (right * 0));
                     }
+                    movement.x += _contactNormal.x * speed;
+                    movement.z += _contactNormal.z * speed;
+                }
+                else
+                {
+                    movement = ((forward * _moveInput.y) + (right * _moveInput.x)) * speed;
                 }
 
                 movement.y += velocityY;
@@ -522,10 +537,23 @@ public class Char_Controller : MonoBehaviour
             {
                 animator.Falling(false);
             }
-                animator.WalkAnim(MathF.Abs(animspeed * speed));
+            animator.WalkAnim(MathF.Abs((speed * animspeed) * (cc.velocity.x + cc.velocity.z)));
             cc.Move(movement * Time.deltaTime);
         }
+        else
+        {
+            if (_moveInput.y != 0 || _moveInput.y != 0)
+            {
+                animator.ClimbStart();
 
+            }
+            if (_moveInput.y == 0 && _moveInput.y == 0)
+            {
+                animator.ClimbWait();
+
+            }
+
+        }
 
     }
     private Vector3 _contactNormal;

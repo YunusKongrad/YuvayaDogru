@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &189272421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1579040036710073411, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_Name
+      value: TirmanilanDuvar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.935513
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5365534
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 330a402082f5c10488a43e43be757563, type: 3}
 --- !u!1 &300087345
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,13 +204,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300087345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.34, z: -3.5}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5936038764721394666}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &472567736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4200808461157553624, guid: dcf2659240b62b242a20abd746f57572, type: 3}
+  m_PrefabInstance: {fileID: 1685292991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &667292294
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +447,7 @@ Transform:
   m_Children:
   - {fileID: 2000925658}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &821658147
 PrefabInstance:
@@ -400,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286954281396026845, guid: 8133ec92e118c1141becc3c6ec34b3d1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1286954281396026845, guid: 8133ec92e118c1141becc3c6ec34b3d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -481,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286954281396026845, guid: 8133ec92e118c1141becc3c6ec34b3d1, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1286954281396026845, guid: 8133ec92e118c1141becc3c6ec34b3d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -626,6 +688,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641a1af3e0356164eb4e14f5c8967343, type: 3}
+--- !u!1001 &889054677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1579040036710073411, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_Name
+      value: TirmanilanDuvar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.935513
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 330a402082f5c10488a43e43be757563, type: 3}
 --- !u!1 &1013099912
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +836,7 @@ GameObject:
   - component: {fileID: 1089118242}
   m_Layer: 6
   m_Name: Plane
-  m_TagString: SliderArea
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,7 +918,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282734228
 PrefabInstance:
@@ -911,7 +1030,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1685292991
 PrefabInstance:
@@ -1016,7 +1135,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1876871469
 MonoBehaviour:
@@ -1631,6 +1750,7 @@ GameObject:
   - component: {fileID: 3343143974997109790}
   - component: {fileID: 3699804683693516636}
   - component: {fileID: 3699804683693516637}
+  - component: {fileID: 7683832875859179913}
   m_Layer: 0
   m_Name: Char
   m_TagString: Player
@@ -2101,7 +2221,7 @@ Transform:
   - {fileID: 5936038764721394666}
   - {fileID: 2702588240832935278}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2707641926716144118
 Transform:
@@ -3492,7 +3612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7524656283615480030, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7524656283615480030, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3580,6 +3700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a84b30ad8f35c4dae1b58d231821d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _charTirmanmaMekanik: {fileID: 7683832875859179913}
   animator: {fileID: 3699804683693516637}
   cam: {fileID: 2008957636944972753}
   groundLayer:
@@ -3618,6 +3739,7 @@ MonoBehaviour:
   isHanging: 0
   canClimb: 0
   isSticky: 0
+  isBlocking: 0
   staminaAnim: 0
   startStaminanim: 0
   staminaBar: {fileID: 7169314049537213276}
@@ -3633,7 +3755,36 @@ MonoBehaviour:
   ClimpSpeed: 0
   snapDuration: 0.75
   isClimbing: 0
-  isBlocking: 0
+  isVacuumed: 0
+  vacuumStage: 0
+  jamSlowSpeed: 2
+  jamNormalSpeed: 5
+  jamDuration: 10
+--- !u!114 &7683832875859179913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295912011632629641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44f1f1b637418f4f8c8a7857d118002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kameraTransform: {fileID: 6000178872758555693}
+  pressEUi: {fileID: 472567736}
+  tirmanmaHizi: 3
+  rayMesafesi: 1
+  turningSpeed: 360
+  tirmanmaLayeri:
+    serializedVersion: 2
+    m_Bits: 128
+  tirmanmaAktif: 0
+  isTurning: 0
+  tirmanmaOncesiZ: 0
+  targetAngle: 180
+  toward: 5
 --- !u!222 &7731654254767735505
 CanvasRenderer:
   m_ObjectHideFlags: 0

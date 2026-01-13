@@ -47,6 +47,27 @@ public class Char_Animation : MonoBehaviour
         animator.SetBool("Falling", fall);
 
     }
+    public void ClimbStart()
+    {
+        animator.SetBool("Climb2", true);
+        animator.SetBool("Climb3", false);
+        transform.GetChild(0).localRotation = Quaternion.Euler(-90, 90, 90);
+
+    }
+    public void ClimbWait()
+    {
+        animator.SetBool("Climb2", false);
+        animator.SetBool("Climb3", true);
+        transform.GetChild(0).localRotation = Quaternion.Euler(-90, 90, 90);
+    }
+
+    public void ClimbEnd()
+    {
+        animator.SetBool("Climb2", false);
+        animator.SetBool("Climb3", false);
+        transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
+
+    }
     void Update()
     {
 

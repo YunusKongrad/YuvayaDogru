@@ -139,6 +139,10 @@ public class CharTirmanmaMekanik : MonoBehaviour
     }
     private void DuvardanCikis()
     {
+        if (tirmanmaAktif)
+        {
+            _char.OnLanded();
+        }
         tirmanmaAktif = false;
         _char.isSticky = false;
         _char.cam.isClimbing = false;
@@ -146,7 +150,8 @@ public class CharTirmanmaMekanik : MonoBehaviour
         raycastAtilmaNedeni = "Duvar";
         pressEUi.SetActive(false);
         interaksiyonaGirmeNedeni = "Yok";
-        _char.OnLanded();
+       
+       
     }
     private void DuvarinUstuneCikma()
     {
@@ -186,9 +191,17 @@ public class CharTirmanmaMekanik : MonoBehaviour
 
             yield return null;
         }
-
-        // Tam hizalama
-        transform.rotation = targetRotation;
+        if (Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit,
+            rayMesafesi, tirmanmaLayeri))
+        {
+          
+        }
+        else
+        {
+            _char.isSticky = false;
+        }
+            // Tam hizalama
+            transform.rotation = targetRotation;
         isTurning = false;
     }
 }
