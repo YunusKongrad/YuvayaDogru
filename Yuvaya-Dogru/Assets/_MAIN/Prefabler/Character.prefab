@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 2318455222086092956}
   - component: {fileID: 4400489384471102430}
   - component: {fileID: 4400489384471102431}
+  - component: {fileID: 5477512797359695733}
   m_Layer: 0
   m_Name: Char
   m_TagString: Player
@@ -415,6 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a84b30ad8f35c4dae1b58d231821d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _charTirmanmaMekanik: {fileID: 0}
   animator: {fileID: 4400489384471102431}
   cam: {fileID: 1560696649914658643}
   groundLayer:
@@ -453,11 +455,13 @@ MonoBehaviour:
   isHanging: 0
   canClimb: 0
   isSticky: 0
+  isBlocking: 0
   staminaAnim: 0
   startStaminanim: 0
   staminaBar: {fileID: 7869882167722371038}
   staminaBar2: {fileID: 1586746981165196281}
   staminaAlpha: 0
+  crumpAlpha: 0
   crumpCount: 0
   crumpImage: {fileID: 7882042376045272182}
   crumpT: {fileID: 3423399085619545940}
@@ -467,7 +471,11 @@ MonoBehaviour:
   ClimpSpeed: 0
   snapDuration: 0.75
   isClimbing: 0
-  isBlocking: 0
+  isVacuumed: 0
+  vacuumStage: 0
+  jamSlowSpeed: 2
+  jamNormalSpeed: 5
+  jamDuration: 10
 --- !u!143 &2318455222086092956
 CharacterController:
   m_ObjectHideFlags: 0
@@ -513,6 +521,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5584008072845593711}
   controller: {fileID: 7272047087589137674}
+--- !u!114 &5477512797359695733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285000795296477963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44f1f1b637418f4f8c8a7857d118002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kameraTransform: {fileID: 6705050479391682735}
+  pressEUi: {fileID: 4200808461157553624, guid: dcf2659240b62b242a20abd746f57572, type: 3}
+  tirmanmaHizi: 3
+  rayMesafesi: 1
+  turningSpeed: 0
+  tirmanmaLayeri:
+    serializedVersion: 2
+    m_Bits: 128
+  tirmanmaAktif: 0
+  isTurning: 0
+  tirmanmaOncesiZ: 0
+  targetAngle: 0
+  toward: 1
 --- !u!1 &2499017043285718408
 GameObject:
   m_ObjectHideFlags: 0
