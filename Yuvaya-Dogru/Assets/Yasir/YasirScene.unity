@@ -688,63 +688,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641a1af3e0356164eb4e14f5c8967343, type: 3}
---- !u!1001 &889054677
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1579040036710073411, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_Name
-      value: TirmanilanDuvar (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.935513
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579040036710073415, guid: 330a402082f5c10488a43e43be757563, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 330a402082f5c10488a43e43be757563, type: 3}
 --- !u!1 &1013099912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1886,7 @@ MonoBehaviour:
   posSpeed: 0.25
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   target: {fileID: 5223124896291730005}
   camTarget: {fileID: 300087346}
   dummy: {fileID: 4568998831284714803}
@@ -3084,7 +3027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295912011632629641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 8, z: 0}
+  m_LocalPosition: {x: -9.89, y: 3.18, z: 6.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3610,9 +3553,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClimbObj
       objectReference: {fileID: 0}
+    - target: {fileID: 7524656283615480028, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7524656283615480030, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524656283615480030, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524656283615480030, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7524656283615480030, guid: 22e3155293e849e4f8319b0bbce52e96, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3705,7 +3660,7 @@ MonoBehaviour:
   cam: {fileID: 2008957636944972753}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   _cameraTransform: {fileID: 6000178872758555693}
   _hangingPos: {fileID: 2702588240832935278}
   _pushingObj: {fileID: 0}
