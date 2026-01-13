@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6d3c1607-ea41-4450-917f-7ef95e2fcccf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Yuvaya-Dogru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Yunus/LevelSahnesi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/LevelSahnesi.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,7 @@
       <workItem from="1768203611932" duration="2335000" />
       <workItem from="1768258104114" duration="1489000" />
       <workItem from="1768298142885" duration="611000" />
-      <workItem from="1768304056787" duration="339000" />
+      <workItem from="1768304056787" duration="947000" />
     </task>
     <servers />
   </component>

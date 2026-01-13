@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KORAY/OyunEkraniDeneme.unity
+    path: Assets/Koray/OyunEkraniDeneme.unity
     guid: ba944bcf5bcc92c499b8da6367c2ead7
   - enabled: 1
     path: Assets/_MAIN/Sahneler/anamenu.unity
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_MAIN/Sahneler/yunusScene.unity
     guid: d40515a297f95ff499dcab4cf65f6576
+  - enabled: 1
+    path: Assets/Yunus/LevelSahnesi.unity
+    guid: a072510f9c983004fb3d5b52d0e8bab8
   m_configObjects: {}
