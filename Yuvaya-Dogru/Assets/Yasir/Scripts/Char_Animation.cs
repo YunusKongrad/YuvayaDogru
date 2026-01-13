@@ -28,7 +28,7 @@ public class Char_Animation : MonoBehaviour
     {
         currentSpeed = Mathf.Lerp(currentSpeed, speed, Time.deltaTime * 5f);
         animator.SetFloat("Speed", currentSpeed);
-        PlaySound(yurumeSesi);
+        //PlaySound(yurumeSesi);
     }
 
     public void Hold()
