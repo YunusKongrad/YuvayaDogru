@@ -88,8 +88,6 @@ public class CharTirmanmaMekanik : MonoBehaviour
             {
                 duvarinPos = hit.point;
                 duvarinPos -= hit.normal;
-                Debug.Log(hit.normal);
-                    duvarinYonu = hit.normal;
                 pressEUi.SetActive(true);
                 interaksiyonaGirmeNedeni = "Duvar";
             }
