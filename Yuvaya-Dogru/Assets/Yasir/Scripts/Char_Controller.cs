@@ -218,7 +218,6 @@ public class Char_Controller : MonoBehaviour
     {
         canClimb = false;
         isHanging = false;
-
         climb = false;
         isClimbing = false;
         Vector3 pos = hangingobj.transform.position;
@@ -385,8 +384,8 @@ public class Char_Controller : MonoBehaviour
     {
         if (isVacuumed)
             return;
-        animator.ClimbEnd();
-
+      
+    
         right = _cameraTransform.right;
         forward.y = 0f;
         right.y = 0f;
@@ -473,72 +472,77 @@ public class Char_Controller : MonoBehaviour
 
             }
             float animspeed = 0;
-            if (_moveInput.x + _moveInput.y == 0)
+            if (!isHanging && !isClimbing)
             {
-                if (_moveInput.y > 0 && _moveInput.x < 0)
+                animator.ClimbEnd();
+                if (_moveInput.x + _moveInput.y == 0)
                 {
-                    transform.localRotation = Quaternion.Euler(0, -45, 0);
-                    animspeed = 1;
-                }
-                if (_moveInput.x > 0 && _moveInput.y < 0)
-                {
-                    transform.localRotation = Quaternion.Euler(0, 135, 0);
-                    animspeed = 1;
-                }
-            }
-            else
-            {
-                if (_moveInput.x + _moveInput.y >= 1.35)
-                {
-                    transform.localRotation = Quaternion.Euler(0, 45, 0);
-                    animspeed = 1;
-                }
-                else if (_moveInput.x + _moveInput.y <= -1.35)
-                {
-                    transform.localRotation = Quaternion.Euler(0, -135, 0);
-                    animspeed = 1;
+                    if (_moveInput.y > 0 && _moveInput.x < 0)
+                    {
+                        transform.localRotation = Quaternion.Euler(0, -45, 0);
+                        animspeed = 1;
+                    }
+                    if (_moveInput.x > 0 && _moveInput.y < 0)
+                    {
+                        transform.localRotation = Quaternion.Euler(0, 135, 0);
+                        animspeed = 1;
+                    }
                 }
                 else
                 {
-                    if (_moveInput.y != 0)
+                    if (_moveInput.x + _moveInput.y >= 1.35)
                     {
-                        if (_moveInput.y < 0)
-                        {
-                            transform.localRotation = Quaternion.Euler(0, 180, 0);
-                            animspeed = 1;
-                        }
-                        else
-                        {
-                            transform.localRotation = Quaternion.Euler(0, 0, 0);
-                            animspeed = 1;
-                        }
+                        transform.localRotation = Quaternion.Euler(0, 45, 0);
+                        animspeed = 1;
                     }
-                    if (_moveInput.x != 0)
+                    else if (_moveInput.x + _moveInput.y <= -1.35)
                     {
-                        if (_moveInput.x > 0)
+                        transform.localRotation = Quaternion.Euler(0, -135, 0);
+                        animspeed = 1;
+                    }
+                    else
+                    {
+                        if (_moveInput.y != 0)
                         {
-                            transform.localRotation = Quaternion.Euler(0, 90, 0);
-                            animspeed = 1;
+                            if (_moveInput.y < 0)
+                            {
+                                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                                animspeed = 1;
+                            }
+                            else
+                            {
+                                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                                Debug.Log("afdasffsd");
+                                animspeed = 1;
+                            }
                         }
-                        else
+                        if (_moveInput.x != 0)
                         {
-                            transform.localRotation = Quaternion.Euler(0, 270, 0);
-                            animspeed = 1;
+                            if (_moveInput.x > 0)
+                            {
+                                transform.localRotation = Quaternion.Euler(0, 90, 0);
+                                animspeed = 1;
+                            }
+                            else
+                            {
+                                transform.localRotation = Quaternion.Euler(0, 270, 0);
+                                animspeed = 1;
+                            }
                         }
                     }
                 }
+                //Debug.Log(_moveInput);
+                if (velocityY < -1f && !hitGround)
+                {
+                    animator.Falling(true);
+                }
+                else
+                {
+                    animator.Falling(false);
+                }
+                animator.WalkAnim(MathF.Abs((speed * animspeed) * (cc.velocity.x + cc.velocity.z)));
+                cc.Move(movement * Time.deltaTime);
             }
-            //Debug.Log(_moveInput);
-            if (velocityY<-1f && !hitGround)
-            {
-                animator.Falling(true);
-            }
-            else
-            {
-                animator.Falling(false);
-            }
-            animator.WalkAnim(MathF.Abs((speed * animspeed) * (cc.velocity.x + cc.velocity.z)));
-            cc.Move(movement * Time.deltaTime);
         }
         else
         {
@@ -710,17 +714,16 @@ public class Char_Controller : MonoBehaviour
 
     void SetHanging(ControllerColliderHit hit)
     {
-        if (isHanging == false)
+        if (!isHanging)
         {
             if (hit.gameObject.transform.position.y > transform.position.y)
             {
                 isHanging = true;
                 normal = hit.normal;
                 hangingobj = hit.collider.gameObject;
-
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
-
+                Debug.Log("sfdsfdsf");
 
                 Vector3 pos = hit.gameObject.transform.position + (hit.normal * 0.8f);
                 _hangingPos.position = pos;
@@ -734,6 +737,7 @@ public class Char_Controller : MonoBehaviour
                 Vector3 rot = Vector3.zero;
                 if (MathF.Abs(hit.normal.z) > MathF.Abs(hit.normal.x))
                 {
+               
                     if (hit.normal.z < 0)
                     {
                         rot.y = 0;
@@ -747,7 +751,7 @@ public class Char_Controller : MonoBehaviour
 
                 }
                 else
-                {
+                { 
                     if (hit.normal.x < 0)
                     {
                         rot.y = 90;
@@ -761,8 +765,13 @@ public class Char_Controller : MonoBehaviour
 
                 }
 
-                transform.GetChild(0).localRotation = Quaternion.Euler(rot);
                 animator.Hold();
+                transform.GetChild(0).localRotation = Quaternion.Euler(rot);
+                transform.localEulerAngles = Vector3.zero;
+                Debug.Log(rot);
+                Debug.Log(hit.normal);
+                Debug.Log(transform.GetChild(0).localRotation);
+               
 
             }
 

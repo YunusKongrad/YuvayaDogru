@@ -65,6 +65,7 @@ public class Char_Animation : MonoBehaviour
     {
         animator.SetBool("Climb2", false);
         animator.SetBool("Climb3", false);
+       
         transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
 
     }

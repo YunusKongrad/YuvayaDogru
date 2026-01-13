@@ -62,7 +62,6 @@ public class CamController : MonoBehaviour
             // Çarpışma varsa mesafeyi, çarpışma noktasına göre ayarla
             // Hit distance bize ne kadar uzakta çarptığını verir
             targetDistance = hit.distance - wallOffset;
-            Debug.Log(hit.distance - wallOffset);
             isBlocked = true;
 
         }
@@ -70,8 +69,6 @@ public class CamController : MonoBehaviour
         {
             isBlocked = false;
         }
-
-        // Güvenlik: Mesafe asla 0.1'den küçük olmasın (karakterin içine girmesin)
         float safeZ = -(targetDistance - 0.2f); // Eksi işareti koyduk çünkü kamera arkada!
 
         // Güvenlik: Asla 0'a çok yaklaşmasın (Karakterin içine girmesin)
@@ -80,7 +77,7 @@ public class CamController : MonoBehaviour
         Vector3 targetLocalPos = new Vector3(transform.localPosition.x, transform.localPosition.y, safeZ);
 
         // Lerp ile git
-        transform.localPosition = Vector3.Lerp(transform.localPosition, targetLocalPos, Time.deltaTime * posSpeed * 15);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, targetLocalPos, Time.deltaTime * posSpeed*15);
 
         float mouseX = _mouseDelta.x * sensitivity;
         float mouseY = _mouseDelta.y * sensitivity;
@@ -96,14 +93,14 @@ public class CamController : MonoBehaviour
                 // Vector3.Lerp, t oran�na g�re iki pozisyon aras�nda gidip gelir.
 
                 Vector3 targetPos = Vector3.Lerp(upPos, downPos, t);
-                lookinPos = Vector3.Lerp(lookinPos, targetPos, Time.deltaTime * posSpeed);
+                lookinPos = Vector3.Lerp(lookinPos, targetPos, Time.deltaTime * posSpeed*15);
                 transform.localPosition = Vector3.SmoothDamp(transform.localPosition,
                     lookinPos, ref vel2, posSpeed);
             }
             else
             {
 
-                lookinPos = Vector3.Lerp(lookinPos, simplePos, Time.deltaTime * posSpeed);
+                lookinPos = Vector3.Lerp(lookinPos, simplePos, Time.deltaTime * posSpeed * 15);
 
                 transform.localPosition = Vector3.SmoothDamp(transform.localPosition,
                     lookinPos, ref vel2, posSpeed);

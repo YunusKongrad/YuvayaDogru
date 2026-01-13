@@ -86,8 +86,8 @@ public class CharTirmanmaMekanik : MonoBehaviour
             Debug.DrawRay(transform.position + Vector3.up, kameraTransform.forward, Color.green);
             if(Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit, rayMesafesi, tirmanmaLayeri) == true)
             {
-                duvarinPos = hit.point - hit.normal * (charController.radius + 0.05f);
-                duvarinYonu = hit.normal;
+                duvarinPos = hit.point;
+                duvarinPos -= hit.normal;
                 pressEUi.SetActive(true);
                 interaksiyonaGirmeNedeni = "Duvar";
             }
@@ -142,11 +142,10 @@ public class CharTirmanmaMekanik : MonoBehaviour
         if (tirmanmaAktif)
         {
             _char.OnLanded();
+             _char.isSticky = false;
+            _char.cam.isClimbing = false;
         }
-        tirmanmaAktif = false;
-        _char.isSticky = false;
-        _char.cam.isClimbing = false;
-
+        tirmanmaAktif = false;       
         raycastAtilmaNedeni = "Duvar";
         pressEUi.SetActive(false);
         interaksiyonaGirmeNedeni = "Yok";
