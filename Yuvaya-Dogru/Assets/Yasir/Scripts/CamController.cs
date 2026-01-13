@@ -20,19 +20,25 @@ public class CamController : MonoBehaviour
     private float _xRotation = 0f;
     public float maxCameraDistance, sphereRadius;
     public float wallOffset = 0.2f;
+    public UiOyunİciManager oyunİciUiManager;
 
     private void Awake() => _controls = new GameControls();
     private void Start()
     {
-
-
+        GameObject obj = GameObject.Find("UiOyunIciManager");
+        oyunİciUiManager = obj.GetComponent<UiOyunİciManager>();
     }
 
     void Update()
     {
+        if (oyunİciUiManager.pauseAktif == false)
+        {
+            _mouseDelta = iAction.action.ReadValue<Vector2>();
+        }
+        else if (oyunİciUiManager.pauseAktif == true)
+        {
 
-        _mouseDelta = iAction.action.ReadValue<Vector2>();
-
+        }
     }
     private void OnDrawGizmos()
     {
@@ -47,86 +53,93 @@ public class CamController : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 origin = camTarget.position;
-        Vector3 direction = (transform.position - camTarget.position).normalized;
-
-        // Hedef mesafemiz varsayılan olarak maksimumdur
-        float targetDistance = maxCameraDistance;
-
-        RaycastHit hit;
-
-        // 2. KONTROL: Karakterden kameraya doğru bir küre fırlatıyoruz
-        // Önemli: direction kullanıyoruz, position değil!
-        if (Physics.SphereCast(origin, sphereRadius, direction, out hit, maxCameraDistance, collisionLayers))
+        if (oyunİciUiManager.pauseAktif == false)
         {
-            // Çarpışma varsa mesafeyi, çarpışma noktasına göre ayarla
-            // Hit distance bize ne kadar uzakta çarptığını verir
-            targetDistance = hit.distance - wallOffset;
-            Debug.Log(hit.distance - wallOffset);
-            isBlocked = true;
+            Vector3 origin = camTarget.position;
+            Vector3 direction = (transform.position - camTarget.position).normalized;
 
-        }
-        else
-        {
-            isBlocked = false;
-        }
+            // Hedef mesafemiz varsayılan olarak maksimumdur
+            float targetDistance = maxCameraDistance;
 
-        // Güvenlik: Mesafe asla 0.1'den küçük olmasın (karakterin içine girmesin)
-        float safeZ = -(targetDistance - 0.2f); // Eksi işareti koyduk çünkü kamera arkada!
+            RaycastHit hit;
 
-        // Güvenlik: Asla 0'a çok yaklaşmasın (Karakterin içine girmesin)
-        if (safeZ > -0.5f) safeZ = -0.5f;
-
-        Vector3 targetLocalPos = new Vector3(transform.localPosition.x, transform.localPosition.y, safeZ);
-
-        // Lerp ile git
-        transform.localPosition = Vector3.Lerp(transform.localPosition, targetLocalPos, Time.deltaTime * posSpeed * 15);
-
-        float mouseX = _mouseDelta.x * sensitivity;
-        float mouseY = _mouseDelta.y * sensitivity;
-        _xRotation -= mouseY;
-        _xRotation = Mathf.Clamp(_xRotation, -25, 35f);
-        transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-        float t = Mathf.InverseLerp(-45f, 45f, _xRotation);
-
-        if (!isBlocked)
-        {
-            if (isLookingUp || isClimbing)
+            // 2. KONTROL: Karakterden kameraya doğru bir küre fırlatıyoruz
+            // Önemli: direction kullanıyoruz, position değil!
+            if (Physics.SphereCast(origin, sphereRadius, direction, out hit, maxCameraDistance, collisionLayers))
             {
-                // Vector3.Lerp, t oran�na g�re iki pozisyon aras�nda gidip gelir.
+                // Çarpışma varsa mesafeyi, çarpışma noktasına göre ayarla
+                // Hit distance bize ne kadar uzakta çarptığını verir
+                targetDistance = hit.distance - wallOffset;
+                Debug.Log(hit.distance - wallOffset);
+                isBlocked = true;
 
-                Vector3 targetPos = Vector3.Lerp(upPos, downPos, t);
-                lookinPos = Vector3.Lerp(lookinPos, targetPos, Time.deltaTime * posSpeed);
-                transform.localPosition = Vector3.SmoothDamp(transform.localPosition,
-                    lookinPos, ref vel2, posSpeed);
+            }
+            else
+            {
+                isBlocked = false;
+            }
+
+            // Güvenlik: Mesafe asla 0.1'den küçük olmasın (karakterin içine girmesin)
+            float safeZ = -(targetDistance - 0.2f); // Eksi işareti koyduk çünkü kamera arkada!
+
+            // Güvenlik: Asla 0'a çok yaklaşmasın (Karakterin içine girmesin)
+            if (safeZ > -0.5f) safeZ = -0.5f;
+
+            Vector3 targetLocalPos = new Vector3(transform.localPosition.x, transform.localPosition.y, safeZ);
+
+            // Lerp ile git
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetLocalPos, Time.deltaTime * posSpeed * 15);
+
+            float mouseX = _mouseDelta.x * sensitivity;
+            float mouseY = _mouseDelta.y * sensitivity;
+            _xRotation -= mouseY;
+            _xRotation = Mathf.Clamp(_xRotation, -25, 35f);
+            transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+            float t = Mathf.InverseLerp(-45f, 45f, _xRotation);
+
+            if (!isBlocked)
+            {
+                if (isLookingUp || isClimbing)
+                {
+                    // Vector3.Lerp, t oran�na g�re iki pozisyon aras�nda gidip gelir.
+
+                    Vector3 targetPos = Vector3.Lerp(upPos, downPos, t);
+                    lookinPos = Vector3.Lerp(lookinPos, targetPos, Time.deltaTime * posSpeed);
+                    transform.localPosition = Vector3.SmoothDamp(transform.localPosition,
+                        lookinPos, ref vel2, posSpeed);
+                }
+                else
+                {
+
+                    lookinPos = Vector3.Lerp(lookinPos, simplePos, Time.deltaTime * posSpeed);
+
+                    transform.localPosition = Vector3.SmoothDamp(transform.localPosition,
+                        lookinPos, ref vel2, posSpeed);
+                }
+            }
+
+
+            dummy.Rotate(Vector3.up * mouseX);
+            if (!isClimbing)
+            {
+
+                target.rotation = dummy.rotation;
             }
             else
             {
 
-                lookinPos = Vector3.Lerp(lookinPos, simplePos, Time.deltaTime * posSpeed);
-
-                transform.localPosition = Vector3.SmoothDamp(transform.localPosition,
-                    lookinPos, ref vel2, posSpeed);
             }
+
+
+
+            transform.parent.position = Vector3.SmoothDamp(transform.parent.position, target.position,
+                ref velocity, speed);
+            transform.parent.Rotate(Vector3.up * mouseX);
         }
-
-
-        dummy.Rotate(Vector3.up * mouseX);
-        if (!isClimbing)
+        else if(oyunİciUiManager.pauseAktif == true)
         {
 
-            target.rotation = dummy.rotation;
         }
-        else
-        {
-
-        }
-
-
-
-        transform.parent.position = Vector3.SmoothDamp(transform.parent.position, target.position,
-            ref velocity, speed);
-        transform.parent.Rotate(Vector3.up * mouseX);
     }
 
 
