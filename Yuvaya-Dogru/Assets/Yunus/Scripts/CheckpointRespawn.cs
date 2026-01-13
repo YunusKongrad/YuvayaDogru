@@ -28,6 +28,14 @@ public class CheckpointRespawn : MonoBehaviour
         _lastRot = rot;
         _hasCheckpoint = true;
     }
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("Respawn"))
+        {
+            RespawnToLastCheckpoint();
+        }
+    }
 
     // UI Button bu fonksiyonu çağırır
     public void RespawnToLastCheckpoint()

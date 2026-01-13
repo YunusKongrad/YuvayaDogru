@@ -21,7 +21,7 @@ public class UiManager : MonoBehaviour
     {
         fadeScript.FadeIn();
         fadeScript.FadeOut();
-        SceneManager.LoadScene("yunusScene");
+        SceneManager.LoadScene("LevelSahnesi");
     }
     public void OyunaKaldiginYerdenDevamEt()
     {
