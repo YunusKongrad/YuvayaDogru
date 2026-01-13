@@ -7,7 +7,6 @@ public class UiManager : MonoBehaviour
 {
     public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu, kazandinMenusu;
     GameControls _gameControlls;
-    public Fade fadeScript;
     private void Start()
     {
         anaMenu.SetActive(true);
@@ -17,19 +16,29 @@ public class UiManager : MonoBehaviour
         ayarlarMenusu.SetActive(false);
         kazandinMenusu.SetActive(false);
     }
-    public void OyunaSifirdanBasla()
+    public IEnumerator OyunaSifirdanBaslaCoroutine()
     {
-        fadeScript.FadeIn();
-        fadeScript.FadeOut();
+        Fade.Instance.FadeOut();
+        yield return new WaitForSeconds(Fade.Instance.fadeSuresi);
         SceneManager.LoadScene("yunusScene");
     }
-    public void OyunaKaldiginYerdenDevamEt()
+    public void OyunaSifirdanBasla()
     {
+        StartCoroutine(OyunaSifirdanBaslaCoroutine());
+    }
+    public IEnumerator OyunaKaldiginYerdenDevamEtCoroutine()
+    {
+        Fade.Instance.FadeOut();
+        yield return new WaitForSeconds(Fade.Instance.fadeSuresi);
         anaMenu.SetActive(false);
         anaMenuOgeleri.SetActive(false);
         // Oyunun kald���m�z yerden ba�lat�lmas� ve oyun i�i ui buraya kodlanacak
         // �imdilik loadscene at�yorum
         SceneManager.LoadScene("OyunEkraniDeneme");
+    }
+    public void OyunaKaldiginYerdenDevamEt()
+    {
+        StartCoroutine(OyunaKaldiginYerdenDevamEtCoroutine());
     }
     public void YapimcilarMenusuneGecis()
     {
