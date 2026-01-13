@@ -87,7 +87,7 @@ public class CharTirmanmaMekanik : MonoBehaviour
             if(Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit, rayMesafesi, tirmanmaLayeri) == true)
             {
                 duvarinPos = hit.point;
-                duvarinPos -= hit.normal;
+                duvarinPos += hit.normal;
                 pressEUi.SetActive(true);
                 interaksiyonaGirmeNedeni = "Duvar";
             }
