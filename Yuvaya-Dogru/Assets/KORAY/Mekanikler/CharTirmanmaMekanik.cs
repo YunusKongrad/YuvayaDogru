@@ -52,7 +52,9 @@ public class CharTirmanmaMekanik : MonoBehaviour
                
                 tirmanmaOncesiZ = transform.position.z;
                 transform.position = duvarinPos;
-                transform.forward = duvarinYonu;
+                
+                transform.GetChild(0).Rotate(-90f, 0f, 0f);
+                _char.animator.ClimbStart();
                 tirmanmaOncesiYon = kameraTransform.forward.normalized;
                 tirmanmaAktif = true;
                 _char.isSticky = true;
@@ -84,10 +86,13 @@ public class CharTirmanmaMekanik : MonoBehaviour
         if(raycastAtilmaNedeni == "Duvar")
         {
             Debug.DrawRay(transform.position + Vector3.up, kameraTransform.forward, Color.green);
-            if(Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit, rayMesafesi, tirmanmaLayeri) == true)
+            if(Physics.Raycast(transform.position + Vector3.up, kameraTransform.forward, out hit, rayMesafesi,
+                tirmanmaLayeri) == true)
             {
                 duvarinPos = hit.point;
-                duvarinPos += hit.normal;
+                duvarinPos -= hit.normal;
+                Debug.Log(hit.normal);
+                transform.forward = hit.collider.transform.forward;
                 pressEUi.SetActive(true);
                 interaksiyonaGirmeNedeni = "Duvar";
             }
@@ -166,7 +171,7 @@ public class CharTirmanmaMekanik : MonoBehaviour
         isTurning = true;
         targetAngle += 180;
         toward *= -1;
-        StartCoroutine(Jump());
+        //StartCoroutine(Jump());
         
     }
    [SerializeField] int targetAngle,toward=1;

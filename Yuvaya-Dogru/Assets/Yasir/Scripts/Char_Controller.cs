@@ -11,7 +11,7 @@ public class Char_Controller : MonoBehaviour
     GameControls _controls;
     Vector2 _moveInput;
     [SerializeField] CharTirmanmaMekanik _charTirmanmaMekanik;
-    [SerializeField] Char_Animation animator; 
+    public Char_Animation animator; 
     public CamController cam;
     CharacterController cc;
     [SerializeField] LayerMask groundLayer;
@@ -209,7 +209,7 @@ public class Char_Controller : MonoBehaviour
         movement = (forward * _moveInput.y) + (right * _moveInput.x);
         movement.y += velocityY;
 
-
+        Debug.Log("ydsfgdfh");
     }
     Vector3 normal;
     bool climb;
@@ -546,10 +546,10 @@ public class Char_Controller : MonoBehaviour
         }
         else
         {
+
             if (_moveInput.y != 0 || _moveInput.y != 0)
             {
                 animator.ClimbStart();
-
             }
             if (_moveInput.y == 0 && _moveInput.y == 0)
             {
@@ -723,7 +723,7 @@ public class Char_Controller : MonoBehaviour
                 hangingobj = hit.collider.gameObject;
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
-                Debug.Log("sfdsfdsf");
+                Debug.Log("sethang1");
 
                 Vector3 pos = hit.gameObject.transform.position + (hit.normal * 0.8f);
                 _hangingPos.position = pos;
@@ -768,9 +768,7 @@ public class Char_Controller : MonoBehaviour
                 animator.Hold();
                 transform.GetChild(0).localRotation = Quaternion.Euler(rot);
                 transform.localEulerAngles = Vector3.zero;
-                Debug.Log(rot);
-                Debug.Log(hit.normal);
-                Debug.Log(transform.GetChild(0).localRotation);
+                
                
 
             }
