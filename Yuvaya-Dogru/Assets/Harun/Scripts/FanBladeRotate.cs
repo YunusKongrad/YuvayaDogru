@@ -11,6 +11,6 @@ public class FanBladeRotate : MonoBehaviour
         {
             
     
-            transform.Rotate(0, 0, bladeSpeed * Time.deltaTime, Space.Self);
+            transform.Rotate( bladeSpeed * Time.deltaTime, 0,0, Space.Self);
         }
 }

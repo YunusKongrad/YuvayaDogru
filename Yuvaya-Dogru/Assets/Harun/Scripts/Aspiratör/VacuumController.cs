@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class VacuumController : MonoBehaviour
 {
-    
-
-    public Transform target1;   // mavi objenin ortası
-    public Transform target2;   // üst sağ nokta
+    public Transform[] targets;   // 1,2,3,4 sırasıyla
     public float pullSpeed = 3f;
     public float reachDistance = 0.15f;
 
@@ -20,37 +17,37 @@ public class VacuumController : MonoBehaviour
 
         pc.isVacuumed = true;
 
-        // Stage ilk defa girince başlasın
-        if (pc.vacuumStage == 0)
-            pc.vacuumStage = 1;
+        // İlk kez girince başlat
+        if (pc.vacuumStage < 0)
+            pc.vacuumStage = 0;
 
-        Transform currentTarget =
-            pc.vacuumStage == 1 ? target1 :
-            pc.vacuumStage == 2 ? target2 :
-            null;
+        // Güvenlik
+        if (pc.vacuumStage >= targets.Length)
+        {
+            pc.isVacuumed = false;
+            return;
+        }
 
-        if (currentTarget == null) return;
-
+        Transform currentTarget = targets[pc.vacuumStage];
         Vector3 dir = currentTarget.position - other.transform.position;
 
-        // HAREKET
+        // Hareket
         if (dir.magnitude > reachDistance)
         {
             pc.VacuumMove(dir.normalized * pullSpeed);
         }
         else
         {
-            // 🎯 HEDEF 1 → HEDEF 2 GEÇİŞİ
-            if (pc.vacuumStage == 1)
+            // 🎯 Sonraki hedefe geç
+            pc.vacuumStage++;
+
+            // 🎯 Tüm hedefler bittiyse
+            if (pc.vacuumStage >= targets.Length)
             {
-                pc.vacuumStage = 2;
-            }
-            // 🎯 HEDEF 2 BİTTİ
-            else if (pc.vacuumStage == 2)
-            {
-                pc.isVacuumed = false;   // ister açık bırak ister kapat
+                pc.isVacuumed = false;
                 // burada animasyon / yok olma / sahne olayı eklenebilir
             }
         }
     }
 }
+
