@@ -80,5 +80,8 @@ public class UiManager : MonoBehaviour
             //oyun i�i'in kapat�lmas� falan buraya yaz�lacak
         }
     }
-
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
