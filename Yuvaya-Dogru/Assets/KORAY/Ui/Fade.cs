@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour
 {
+    public static Fade Instance;
     public CanvasGroup canvasGroup;
-    private float fadeSuresi = 5f;
+    public float fadeSuresi = 3f;
+    private Coroutine fadeAktif;
     private void Start()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         if (canvasGroup == null)
         {
             canvasGroup = GetComponent<CanvasGroup>();
@@ -15,21 +24,31 @@ public class Fade : MonoBehaviour
     }
     public void FadeIn()
     {
-        StartCoroutine(FadeCoroutine(0));
+        FadeBaslat(0);
     }
     public void FadeOut()
     {
-        StartCoroutine(FadeCoroutine(1));
+        FadeBaslat(1);
+    }
+    private void FadeBaslat(float end)
+    {
+        if(fadeAktif != null)
+        {
+            StopCoroutine(fadeAktif);
+        }
+        fadeAktif = StartCoroutine(FadeCoroutine(end));
     }
     private IEnumerator FadeCoroutine(float end)
     {
+        float start = canvasGroup.alpha;
         float gecenSure = 0f;
         while(gecenSure < fadeSuresi)
         {
             gecenSure += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, end, gecenSure / fadeSuresi);
+            canvasGroup.alpha = Mathf.Lerp(start, end, gecenSure / fadeSuresi);
             yield return null;
         }
         canvasGroup.alpha = end;
+        fadeAktif = null;
     }
 }

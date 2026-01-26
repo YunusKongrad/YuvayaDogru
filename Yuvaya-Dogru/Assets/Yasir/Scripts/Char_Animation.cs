@@ -8,6 +8,13 @@ public class Char_Animation : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] Char_Controller controller;
     float currentSpeed;
+    public AudioSource audioSource;
+    public AudioClip yurumeSesi, tirmanmaSesi;
+    void PlaySound(AudioClip ses)
+    {
+        if(ses == null) { return; }
+        audioSource.PlayOneShot(ses);
+    }
     void Start()
     {
 
@@ -21,7 +28,7 @@ public class Char_Animation : MonoBehaviour
     {
         currentSpeed = Mathf.Lerp(currentSpeed, speed, Time.deltaTime * 5f);
         animator.SetFloat("Speed", currentSpeed);
-
+        //PlaySound(yurumeSesi);
     }
 
     public void Hold()
@@ -34,7 +41,7 @@ public class Char_Animation : MonoBehaviour
     {
       
         animator.SetTrigger("Climb");
-       
+        PlaySound(tirmanmaSesi);
     }
     public void EndHold()
     {

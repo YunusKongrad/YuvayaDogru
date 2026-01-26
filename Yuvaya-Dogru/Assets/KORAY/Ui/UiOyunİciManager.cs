@@ -7,13 +7,14 @@ public class UiOyunİciManager : MonoBehaviour
 {
     public GameObject pausePaneli, pauseOgeleri, pauseAyarlarMenusu;
     public CheckpointRespawn checkpointRespawnScript;
-    public Fade fadeScript;
+    public bool pauseAktif;
     private void Start()
     {
-        //fadeScript.FadeOut();
+        Fade.Instance.FadeIn();
         pausePaneli.SetActive(false);
         pauseOgeleri.SetActive(false);
         pauseAyarlarMenusu.SetActive(false);
+        pauseAktif = false;
     }
     public void AnaMenuyeGecis()
     {
@@ -28,6 +29,7 @@ public class UiOyunİciManager : MonoBehaviour
                 pausePaneli.SetActive(true);
                 pauseOgeleri.SetActive(true);
                 Time.timeScale = 0f;
+                pauseAktif = true;
             }
             else if(pausePaneli.activeSelf == true)
             {
@@ -35,6 +37,7 @@ public class UiOyunİciManager : MonoBehaviour
                 pauseOgeleri.SetActive(false);
                 pauseAyarlarMenusu.SetActive(false);
                 Time.timeScale = 1f;
+                pauseAktif = false;
             }
         }
     }
@@ -57,5 +60,7 @@ public class UiOyunİciManager : MonoBehaviour
     {
         pauseOgeleri.SetActive(true);
         pauseAyarlarMenusu.SetActive(false);
+        Time.timeScale = 1f;
+        pauseAktif = false;
     }
 }
