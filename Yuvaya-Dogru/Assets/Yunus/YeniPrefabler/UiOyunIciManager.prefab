@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6255830947195040552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6255830947195040566}
+  - component: {fileID: 6255830947195040567}
+  - component: {fileID: 6255830947195040564}
+  - component: {fileID: 6255830947195040565}
+  m_Layer: 0
+  m_Name: UiOyunIciManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6255830947195040566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255830947195040552}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.844166, y: 52.539906, z: 39.462425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6255830947195040567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255830947195040552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb3e42398a55104181a41d565af8584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePaneli: {fileID: 0}
+  pauseOgeleri: {fileID: 0}
+  pauseAyarlarMenusu: {fileID: 0}
+  checkpointRespawnScript: {fileID: 0}
+  pauseAktif: 0
+--- !u!114 &6255830947195040564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255830947195040552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba543693610969408469594ac96e272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kisaNotlarPaneli: {fileID: 0}
+  kisaNotTexti: {fileID: 0}
+--- !u!114 &6255830947195040565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255830947195040552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e0fe00e83c83f4c91954b2d28cbfdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KisaNotlarScript: {fileID: 6255830947195040564}
