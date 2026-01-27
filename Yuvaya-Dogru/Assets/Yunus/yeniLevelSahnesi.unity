@@ -872,7 +872,8 @@ GameObject:
   - component: {fileID: 53763674}
   - component: {fileID: 53763676}
   - component: {fileID: 53763675}
-  m_Layer: 0
+  - component: {fileID: 53763677}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,6 +945,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53763673}
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &53763677
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53763673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &54747347
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +970,8 @@ GameObject:
   - component: {fileID: 54747348}
   - component: {fileID: 54747350}
   - component: {fileID: 54747349}
-  m_Layer: 0
+  - component: {fileID: 54747351}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,6 +1042,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54747347}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &54747351
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54747347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &61186599
 GameObject:
@@ -2158,7 +2188,8 @@ GameObject:
   - component: {fileID: 179636703}
   - component: {fileID: 179636705}
   - component: {fileID: 179636704}
-  m_Layer: 0
+  - component: {fileID: 179636706}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,6 +2260,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179636702}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &179636706
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179636702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &195172291
 GameObject:
@@ -2583,7 +2628,8 @@ GameObject:
   - component: {fileID: 265546915}
   - component: {fileID: 265546917}
   - component: {fileID: 265546916}
-  m_Layer: 0
+  - component: {fileID: 265546918}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2655,6 +2701,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265546914}
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &265546918
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265546914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &272543625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2726,8 @@ GameObject:
   - component: {fileID: 272543626}
   - component: {fileID: 272543628}
   - component: {fileID: 272543627}
-  m_Layer: 0
+  - component: {fileID: 272543629}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2737,6 +2798,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272543625}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &272543629
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272543625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &297267132
 GameObject:
@@ -2832,7 +2907,8 @@ GameObject:
   - component: {fileID: 298605936}
   - component: {fileID: 298605938}
   - component: {fileID: 298605937}
-  m_Layer: 0
+  - component: {fileID: 298605939}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2903,6 +2979,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298605935}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &298605939
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298605935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &302377675
 GameObject:
@@ -3577,7 +3667,8 @@ GameObject:
   - component: {fileID: 383828790}
   - component: {fileID: 383828792}
   - component: {fileID: 383828791}
-  m_Layer: 0
+  - component: {fileID: 383828793}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3648,6 +3739,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383828789}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &383828793
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383828789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &393477191
 GameObject:
@@ -4147,7 +4252,8 @@ GameObject:
   - component: {fileID: 426194255}
   - component: {fileID: 426194257}
   - component: {fileID: 426194256}
-  m_Layer: 0
+  - component: {fileID: 426194258}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4218,6 +4324,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426194254}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &426194258
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426194254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &429255437
 GameObject:
@@ -4618,7 +4738,8 @@ GameObject:
   - component: {fileID: 460990823}
   - component: {fileID: 460990825}
   - component: {fileID: 460990824}
-  m_Layer: 0
+  - component: {fileID: 460990826}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4689,6 +4810,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460990822}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &460990826
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460990822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &464103875
 GameObject:
@@ -5779,6 +5914,7 @@ GameObject:
   - component: {fileID: 531881829}
   - component: {fileID: 531881831}
   - component: {fileID: 531881830}
+  - component: {fileID: 531881832}
   m_Layer: 0
   m_Name: tencere2 (1)
   m_TagString: Untagged
@@ -5851,6 +5987,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531881828}
   m_Mesh: {fileID: -6811240436101260502, guid: 222f7d99346c95c439c9894120d4091b, type: 3}
+--- !u!64 &531881832
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531881828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6811240436101260502, guid: 222f7d99346c95c439c9894120d4091b, type: 3}
 --- !u!1 &535976966
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,7 +6012,8 @@ GameObject:
   - component: {fileID: 535976967}
   - component: {fileID: 535976969}
   - component: {fileID: 535976968}
-  m_Layer: 0
+  - component: {fileID: 535976970}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5933,6 +6084,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535976966}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &535976970
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535976966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &551963734
 GameObject:
@@ -6685,7 +6850,8 @@ GameObject:
   - component: {fileID: 599072344}
   - component: {fileID: 599072346}
   - component: {fileID: 599072345}
-  m_Layer: 0
+  - component: {fileID: 599072347}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6756,6 +6922,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599072343}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &599072347
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599072343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!64 &602927510
 MeshCollider:
@@ -7516,7 +7696,8 @@ GameObject:
   - component: {fileID: 664448975}
   - component: {fileID: 664448977}
   - component: {fileID: 664448976}
-  m_Layer: 0
+  - component: {fileID: 664448978}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7587,6 +7768,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664448974}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &664448978
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664448974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &667141112
 GameObject:
@@ -7797,7 +7992,8 @@ GameObject:
   - component: {fileID: 680555622}
   - component: {fileID: 680555624}
   - component: {fileID: 680555623}
-  m_Layer: 0
+  - component: {fileID: 680555625}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7868,6 +8064,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680555621}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &680555625
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680555621}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &689541102
 GameObject:
@@ -8486,7 +8696,8 @@ GameObject:
   - component: {fileID: 738164389}
   - component: {fileID: 738164391}
   - component: {fileID: 738164390}
-  m_Layer: 0
+  - component: {fileID: 738164392}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8557,6 +8768,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738164388}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &738164392
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738164388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &746726870
 GameObject:
@@ -8735,7 +8960,8 @@ GameObject:
   - component: {fileID: 752245670}
   - component: {fileID: 752245672}
   - component: {fileID: 752245671}
-  m_Layer: 0
+  - component: {fileID: 752245673}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8806,6 +9032,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752245669}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &752245673
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752245669}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &752426227
 GameObject:
@@ -9853,7 +10093,8 @@ GameObject:
   - component: {fileID: 812755557}
   - component: {fileID: 812755559}
   - component: {fileID: 812755558}
-  m_Layer: 0
+  - component: {fileID: 812755560}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9924,6 +10165,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812755556}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &812755560
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812755556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &820143610
 GameObject:
@@ -10625,7 +10880,8 @@ GameObject:
   - component: {fileID: 892540362}
   - component: {fileID: 892540364}
   - component: {fileID: 892540363}
-  m_Layer: 0
+  - component: {fileID: 892540365}
+  m_Layer: 6
   m_Name: raf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10696,6 +10952,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892540361}
+  m_Mesh: {fileID: -1064554322790506231, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
+--- !u!64 &892540365
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892540361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -1064554322790506231, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
 --- !u!1 &894074038
 GameObject:
@@ -10901,7 +11171,8 @@ GameObject:
   - component: {fileID: 909665788}
   - component: {fileID: 909665790}
   - component: {fileID: 909665789}
-  m_Layer: 0
+  - component: {fileID: 909665791}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10972,6 +11243,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909665787}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &909665791
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909665787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &910362205
 GameObject:
@@ -11396,6 +11681,7 @@ GameObject:
   - component: {fileID: 930246195}
   - component: {fileID: 930246197}
   - component: {fileID: 930246196}
+  - component: {fileID: 930246198}
   m_Layer: 0
   m_Name: "\xC7ekmeceD\u0131\u015F\u0131"
   m_TagString: Untagged
@@ -11468,6 +11754,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930246194}
   m_Mesh: {fileID: -8678823145569952518, guid: f32b90fe9bc2e014bb90ee09dddd4559, type: 3}
+--- !u!64 &930246198
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930246194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8678823145569952518, guid: f32b90fe9bc2e014bb90ee09dddd4559, type: 3}
 --- !u!1 &931166068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11513,7 +11813,8 @@ GameObject:
   - component: {fileID: 943375935}
   - component: {fileID: 943375937}
   - component: {fileID: 943375936}
-  m_Layer: 0
+  - component: {fileID: 943375938}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11585,6 +11886,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943375934}
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &943375938
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943375934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &949246723
 GameObject:
   m_ObjectHideFlags: 0
@@ -11596,7 +11911,8 @@ GameObject:
   - component: {fileID: 949246724}
   - component: {fileID: 949246726}
   - component: {fileID: 949246725}
-  m_Layer: 0
+  - component: {fileID: 949246727}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11667,6 +11983,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949246723}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &949246727
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949246723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &956360637
 GameObject:
@@ -12403,6 +12733,7 @@ GameObject:
   - component: {fileID: 995914068}
   - component: {fileID: 995914070}
   - component: {fileID: 995914069}
+  - component: {fileID: 995914071}
   m_Layer: 6
   m_Name: buyukCekmece
   m_TagString: Untagged
@@ -12476,6 +12807,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995914067}
+  m_Mesh: {fileID: -1550514412580984892, guid: f25ed9e447c14fb4a8a11329bb6e098a, type: 3}
+--- !u!64 &995914071
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995914067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -1550514412580984892, guid: f25ed9e447c14fb4a8a11329bb6e098a, type: 3}
 --- !u!1 &1000859956
 GameObject:
@@ -12784,7 +13129,8 @@ GameObject:
   - component: {fileID: 1036892884}
   - component: {fileID: 1036892886}
   - component: {fileID: 1036892885}
-  m_Layer: 0
+  - component: {fileID: 1036892887}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12855,6 +13201,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036892883}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1036892887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036892883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1037096117
 GameObject:
@@ -14355,6 +14715,7 @@ GameObject:
   - component: {fileID: 1129286868}
   - component: {fileID: 1129286870}
   - component: {fileID: 1129286869}
+  - component: {fileID: 1129286871}
   m_Layer: 6
   m_Name: sunger (4)
   m_TagString: Sopung
@@ -14427,6 +14788,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129286867}
+  m_Mesh: {fileID: -2124705421725058983, guid: de7e27666c0fbbb4592a42700ee64b79, type: 3}
+--- !u!64 &1129286871
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129286867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2124705421725058983, guid: de7e27666c0fbbb4592a42700ee64b79, type: 3}
 --- !u!1 &1147770589
 GameObject:
@@ -15381,7 +15756,8 @@ GameObject:
   - component: {fileID: 1217403136}
   - component: {fileID: 1217403138}
   - component: {fileID: 1217403137}
-  m_Layer: 0
+  - component: {fileID: 1217403139}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15452,6 +15828,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217403135}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1217403139
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217403135}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1220535481
 GameObject:
@@ -15589,6 +15979,104 @@ Transform:
   - {fileID: 217615786}
   m_Father: {fileID: 991697933}
   m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1236189470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236189474}
+  - component: {fileID: 1236189473}
+  - component: {fileID: 1236189472}
+  - component: {fileID: 1236189471}
+  m_Layer: 6
+  m_Name: Nane (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1236189471
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236189470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4930739329271619298, guid: 2c5411e06d9062547ab221ba061a1f0d, type: 3}
+--- !u!23 &1236189472
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236189470}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a910646447a964f4999a886c7f3f3440, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1236189473
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236189470}
+  m_Mesh: {fileID: 4930739329271619298, guid: 2c5411e06d9062547ab221ba061a1f0d, type: 3}
+--- !u!4 &1236189474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236189470}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.381, y: 1.82, z: 0.137}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1241536055
 GameObject:
@@ -15764,7 +16252,8 @@ GameObject:
   - component: {fileID: 1253991961}
   - component: {fileID: 1253991963}
   - component: {fileID: 1253991962}
-  m_Layer: 0
+  - component: {fileID: 1253991964}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15835,6 +16324,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253991960}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &1253991964
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253991960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &1261882923
 GameObject:
@@ -16044,7 +16547,8 @@ GameObject:
   - component: {fileID: 1314883821}
   - component: {fileID: 1314883823}
   - component: {fileID: 1314883822}
-  m_Layer: 0
+  - component: {fileID: 1314883824}
+  m_Layer: 6
   m_Name: ustDolap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16115,6 +16619,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314883820}
+  m_Mesh: {fileID: 1969476169269212006, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
+--- !u!64 &1314883824
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314883820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1969476169269212006, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
 --- !u!1 &1315246809
 GameObject:
@@ -17316,7 +17834,8 @@ GameObject:
   - component: {fileID: 1401124305}
   - component: {fileID: 1401124307}
   - component: {fileID: 1401124306}
-  m_Layer: 0
+  - component: {fileID: 1401124308}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17387,6 +17906,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401124304}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1401124308
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401124304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1412523739
 GameObject:
@@ -17496,7 +18029,8 @@ GameObject:
   - component: {fileID: 1417314748}
   - component: {fileID: 1417314750}
   - component: {fileID: 1417314749}
-  m_Layer: 0
+  - component: {fileID: 1417314751}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17567,6 +18101,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417314747}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &1417314751
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417314747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &1422038128
 GameObject:
@@ -18331,7 +18879,8 @@ GameObject:
   - component: {fileID: 1481995685}
   - component: {fileID: 1481995687}
   - component: {fileID: 1481995686}
-  m_Layer: 0
+  - component: {fileID: 1481995688}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18402,6 +18951,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481995684}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &1481995688
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481995684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &1485165455
 GameObject:
@@ -18526,7 +19089,8 @@ GameObject:
   - component: {fileID: 1495232580}
   - component: {fileID: 1495232582}
   - component: {fileID: 1495232581}
-  m_Layer: 0
+  - component: {fileID: 1495232583}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18597,6 +19161,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495232579}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1495232583
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495232579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1510334753
 GameObject:
@@ -18805,7 +19383,8 @@ GameObject:
   - component: {fileID: 1515950369}
   - component: {fileID: 1515950371}
   - component: {fileID: 1515950370}
-  m_Layer: 0
+  - component: {fileID: 1515950372}
+  m_Layer: 6
   m_Name: ustDolap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18876,6 +19455,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515950368}
+  m_Mesh: {fileID: 1969476169269212006, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
+--- !u!64 &1515950372
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515950368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1969476169269212006, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
 --- !u!1 &1522736198
 GameObject:
@@ -19445,6 +20038,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1567813049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567813053}
+  - component: {fileID: 1567813052}
+  - component: {fileID: 1567813051}
+  - component: {fileID: 1567813050}
+  m_Layer: 6
+  m_Name: Pulbiber (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1567813050
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567813049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -874223573269157165, guid: a5eefd06bbe4ed94a8a829b102db2082, type: 3}
+--- !u!23 &1567813051
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567813049}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a910646447a964f4999a886c7f3f3440, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1567813052
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567813049}
+  m_Mesh: {fileID: -874223573269157165, guid: a5eefd06bbe4ed94a8a829b102db2082, type: 3}
+--- !u!4 &1567813053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567813049}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.381, y: 1.8295, z: 0.723}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 60
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574597666
 GameObject:
   m_ObjectHideFlags: 0
@@ -19821,7 +20512,8 @@ GameObject:
   - component: {fileID: 1615035155}
   - component: {fileID: 1615035157}
   - component: {fileID: 1615035156}
-  m_Layer: 0
+  - component: {fileID: 1615035158}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19892,6 +20584,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615035154}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &1615035158
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615035154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &1620859630
 GameObject:
@@ -20021,7 +20727,8 @@ GameObject:
   - component: {fileID: 1626712403}
   - component: {fileID: 1626712405}
   - component: {fileID: 1626712404}
-  m_Layer: 0
+  - component: {fileID: 1626712406}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20092,6 +20799,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626712402}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1626712406
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626712402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1630943655
 GameObject:
@@ -20272,7 +20993,8 @@ GameObject:
   - component: {fileID: 1651195992}
   - component: {fileID: 1651195994}
   - component: {fileID: 1651195993}
-  m_Layer: 0
+  - component: {fileID: 1651195995}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20343,6 +21065,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651195991}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &1651195995
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651195991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &1652734256
 GameObject:
@@ -20697,7 +21433,8 @@ GameObject:
   - component: {fileID: 1679950984}
   - component: {fileID: 1679950986}
   - component: {fileID: 1679950985}
-  m_Layer: 0
+  - component: {fileID: 1679950987}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20768,6 +21505,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679950983}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &1679950987
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679950983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &1688672709
 GameObject:
@@ -21158,7 +21909,8 @@ GameObject:
   - component: {fileID: 1716307116}
   - component: {fileID: 1716307118}
   - component: {fileID: 1716307117}
-  m_Layer: 0
+  - component: {fileID: 1716307119}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21229,6 +21981,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716307115}
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &1716307119
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716307115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &1720614182
 GameObject:
@@ -21483,6 +22249,104 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741846357}
   m_Mesh: {fileID: -1550514412580984892, guid: f25ed9e447c14fb4a8a11329bb6e098a, type: 3}
+--- !u!1 &1742510285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742510289}
+  - component: {fileID: 1742510288}
+  - component: {fileID: 1742510287}
+  - component: {fileID: 1742510286}
+  m_Layer: 6
+  m_Name: Tuz (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1742510286
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742510285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5644576711713445885, guid: 2bec82c632c7bdb48a27cce78b48171e, type: 3}
+--- !u!23 &1742510287
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742510285}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a910646447a964f4999a886c7f3f3440, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1742510288
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742510285}
+  m_Mesh: {fileID: 5644576711713445885, guid: 2bec82c632c7bdb48a27cce78b48171e, type: 3}
+--- !u!4 &1742510289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742510285}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.385, y: 1.8230001, z: 0.66300005}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 59
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744167459
 GameObject:
   m_ObjectHideFlags: 0
@@ -21920,7 +22784,8 @@ GameObject:
   - component: {fileID: 1797963071}
   - component: {fileID: 1797963073}
   - component: {fileID: 1797963072}
-  m_Layer: 0
+  - component: {fileID: 1797963074}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21991,6 +22856,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797963070}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1797963074
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797963070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1798902808
 GameObject:
@@ -22737,7 +23616,8 @@ GameObject:
   - component: {fileID: 1855558163}
   - component: {fileID: 1855558165}
   - component: {fileID: 1855558164}
-  m_Layer: 0
+  - component: {fileID: 1855558166}
+  m_Layer: 6
   m_Name: solDolapDisi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22809,6 +23689,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855558162}
   m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
+--- !u!64 &1855558166
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855558162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2477511411847689622, guid: 0d9f7035f0a285e4b988d0222e3c86c4, type: 3}
 --- !u!1 &1861202687
 GameObject:
   m_ObjectHideFlags: 0
@@ -22820,7 +23714,8 @@ GameObject:
   - component: {fileID: 1861202688}
   - component: {fileID: 1861202690}
   - component: {fileID: 1861202689}
-  m_Layer: 0
+  - component: {fileID: 1861202691}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22891,6 +23786,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861202687}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &1861202691
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861202687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &1862608709
 GameObject:
@@ -23573,7 +24482,8 @@ GameObject:
   - component: {fileID: 1915571803}
   - component: {fileID: 1915571805}
   - component: {fileID: 1915571804}
-  m_Layer: 0
+  - component: {fileID: 1915571806}
+  m_Layer: 6
   m_Name: raf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23644,6 +24554,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915571802}
+  m_Mesh: {fileID: -1064554322790506231, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
+--- !u!64 &1915571806
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915571802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -1064554322790506231, guid: 0992805578b48ea4a89a8a6f147eb547, type: 3}
 --- !u!1 &1916122024
 GameObject:
@@ -24134,7 +25058,8 @@ GameObject:
   - component: {fileID: 1945086948}
   - component: {fileID: 1945086950}
   - component: {fileID: 1945086949}
-  m_Layer: 0
+  - component: {fileID: 1945086951}
+  m_Layer: 6
   m_Name: dolapKapagiSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24205,6 +25130,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945086947}
+  m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
+--- !u!64 &1945086951
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945086947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2911736426955009642, guid: 2c31941a0060d264f961133d04fd1b39, type: 3}
 --- !u!1 &1952572736
 GameObject:
@@ -25274,7 +26213,8 @@ GameObject:
   - component: {fileID: 1985406074}
   - component: {fileID: 1985406076}
   - component: {fileID: 1985406075}
-  m_Layer: 0
+  - component: {fileID: 1985406077}
+  m_Layer: 6
   m_Name: DolapKulbu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25345,6 +26285,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985406073}
+  m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
+--- !u!64 &1985406077
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985406073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 6255687079079774844, guid: 2ff4acf6a0f76ce43a637c8435412485, type: 3}
 --- !u!1 &1985920159
 GameObject:
@@ -30527,7 +31481,8 @@ GameObject:
   - component: {fileID: 386963673530604951}
   - component: {fileID: 3670749240772694578}
   - component: {fileID: 1519377415084336888}
-  m_Layer: 0
+  - component: {fileID: 3670749240772694579}
+  m_Layer: 6
   m_Name: Nane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30834,7 +31789,8 @@ GameObject:
   - component: {fileID: 1959666493213527597}
   - component: {fileID: 3215000448141705608}
   - component: {fileID: 826708045519500610}
-  m_Layer: 0
+  - component: {fileID: 3215000448141705609}
+  m_Layer: 6
   m_Name: Tuz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32745,7 +33701,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a910646447a964f4999a886c7f3f3440, type: 2}
+  - {fileID: 2100000, guid: 7d5d5db445aeae2469f2d6093412b2e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37768,6 +38724,7 @@ GameObject:
   - component: {fileID: 2287041328438516045}
   - component: {fileID: 8892590809458262898}
   - component: {fileID: 5251133988899675738}
+  - component: {fileID: 8892590809458262899}
   m_Layer: 0
   m_Name: tencere2
   m_TagString: Untagged
@@ -37815,6 +38772,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187247048266224791}
+  m_Mesh: {fileID: 5644576711713445885, guid: 2bec82c632c7bdb48a27cce78b48171e, type: 3}
+--- !u!64 &3215000448141705609
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187247048266224791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 5644576711713445885, guid: 2bec82c632c7bdb48a27cce78b48171e, type: 3}
 --- !u!4 &3218653133524248659
 Transform:
@@ -39472,6 +40443,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014741229972604717}
+  m_Mesh: {fileID: 4930739329271619298, guid: 2c5411e06d9062547ab221ba061a1f0d, type: 3}
+--- !u!64 &3670749240772694579
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014741229972604717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4930739329271619298, guid: 2c5411e06d9062547ab221ba061a1f0d, type: 3}
 --- !u!33 &3673249926690889531
 MeshFilter:
@@ -60789,13 +61774,28 @@ GameObject:
   - component: {fileID: 3730170401889557636}
   - component: {fileID: 318596288222499617}
   - component: {fileID: 2562291912380934123}
-  m_Layer: 0
+  - component: {fileID: 4075734139351713343}
+  m_Layer: 6
   m_Name: "\xC7ekmeceD\u0131\u015F\u0131"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &4075734139351713343
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075734139351713342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8678823145569952518, guid: f32b90fe9bc2e014bb90ee09dddd4559, type: 3}
 --- !u!4 &4083501150962704692
 Transform:
   m_ObjectHideFlags: 0
@@ -64985,7 +65985,8 @@ GameObject:
   - component: {fileID: 6543662001935090609}
   - component: {fileID: 7881328478608362516}
   - component: {fileID: 5369677478083164382}
-  m_Layer: 0
+  - component: {fileID: 7881328478608362517}
+  m_Layer: 6
   m_Name: Pulbiber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70121,6 +71122,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5873838812133611787}
   m_Mesh: {fileID: -874223573269157165, guid: a5eefd06bbe4ed94a8a829b102db2082, type: 3}
+--- !u!64 &7881328478608362517
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873838812133611787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -874223573269157165, guid: a5eefd06bbe4ed94a8a829b102db2082, type: 3}
 --- !u!33 &7896021339202262121
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -70322,7 +71337,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a910646447a964f4999a886c7f3f3440, type: 2}
+  - {fileID: 2100000, guid: 7d5d5db445aeae2469f2d6093412b2e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74798,6 +75813,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3208551490589904084}
+  m_Mesh: {fileID: -6811240436101260502, guid: 222f7d99346c95c439c9894120d4091b, type: 3}
+--- !u!64 &8892590809458262899
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208551490589904084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -6811240436101260502, guid: 222f7d99346c95c439c9894120d4091b, type: 3}
 --- !u!1 &8893161054275291970
 GameObject:
