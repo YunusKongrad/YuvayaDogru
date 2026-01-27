@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kisaNotlarPaneli: {fileID: 5702019213902776204}
-  kisaNotTexti: {fileID: 5702019214167299624}
+  kisaNotTexti: {fileID: 0}
 --- !u!114 &5702019213266241393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,7 +810,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -1375,7 +1375,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -1793,7 +1793,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -1873,7 +1873,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -1990,7 +1990,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -2261,7 +2261,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -2543,7 +2543,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: KisaNotPaneli
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6108172756976283190, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108172758876585876, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108172758876585876, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -700
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6108172758876585874, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
 --- !u!1 &5702019213902776204 stripped
 GameObject:
@@ -2555,14 +2568,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6108172756976283177, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
   m_PrefabInstance: {fileID: 2010068339353364922}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5702019214167299624 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6108172758876585874, guid: 69f1987dc65f99e478aebd2ed960bd1d, type: 3}
-  m_PrefabInstance: {fileID: 2010068339353364922}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
