@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d3c1607-ea41-4450-917f-7ef95e2fcccf" name="Changes" comment="" />
+    <list default="true" id="6d3c1607-ea41-4450-917f-7ef95e2fcccf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/LevelSahnesi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/LevelSahnesi.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Alper/Vazolar/AnaVazo.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/Prefabs/Alper/Vazolar/AnaVazo.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/YeniPrefabler/Kirinti-1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/YeniPrefabler/Kirinti-1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/YeniPrefabler/YandaşVazo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/YeniPrefabler/YandaşVazo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yunus/yeniLevelSahnesi.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Yunus/yeniLevelSahnesi.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +110,7 @@
       <workItem from="1768595271638" duration="1117000" />
       <workItem from="1769017476060" duration="129000" />
       <workItem from="1769422362533" duration="596000" />
-      <workItem from="1769446445087" duration="369000" />
+      <workItem from="1769446445087" duration="1036000" />
     </task>
     <servers />
   </component>
