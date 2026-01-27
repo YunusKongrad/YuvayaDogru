@@ -112822,6 +112822,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: gravity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: jumpForce
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: gravityLimit
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: jamSlowSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: pushingSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943504218825894595, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
+      propertyPath: jamNormalSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7492474206458834182, guid: d3980d275162d324088a8b67a6c6883b, type: 3}
       propertyPath: m_RootOrder
       value: 10

@@ -532,15 +532,16 @@ public class Char_Controller : MonoBehaviour
                     }
                 }
                 //Debug.Log(_moveInput);
-                if (velocityY < -1f && !hitGround)
+                if (velocityY < -2.5f && !hitGround)
                 {
                     animator.Falling(true);
                 }
                 else
                 {
                     animator.Falling(false);
+                    animator.WalkAnim(MathF.Abs((speed * animspeed) * (cc.velocity.x + cc.velocity.z)));
                 }
-                animator.WalkAnim(MathF.Abs((speed * animspeed) * (cc.velocity.x + cc.velocity.z)));
+
                 cc.Move(movement * Time.deltaTime);
             }
         }

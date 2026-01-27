@@ -59,19 +59,15 @@ public class CamController : MonoBehaviour
             Vector3 origin = camTarget.position;
             Vector3 direction = (transform.position - camTarget.position).normalized;
 
-            // Hedef mesafemiz varsayılan olarak maksimumdur
+          
             float targetDistance = maxCameraDistance;
 
             RaycastHit hit;
 
-            // 2. KONTROL: Karakterden kameraya doğru bir küre fırlatıyoruz
-            // Önemli: direction kullanıyoruz, position değil!
+          
             if (Physics.SphereCast(origin, sphereRadius, direction, out hit, maxCameraDistance, collisionLayers))
             {
-                // Çarpışma varsa mesafeyi, çarpışma noktasına göre ayarla
-                // Hit distance bize ne kadar uzakta çarptığını verir
                 targetDistance = hit.distance - wallOffset;
-                Debug.Log(hit.distance - wallOffset);
                 isBlocked = true;
 
 
@@ -82,7 +78,7 @@ public class CamController : MonoBehaviour
             }
 
             // Güvenlik: Mesafe asla 0.1'den küçük olmasın (karakterin içine girmesin)
-            float safeZ = -(targetDistance - 0.2f); // Eksi işareti koyduk çünkü kamera arkada!
+            float safeZ = -(targetDistance - 0.2f);
 
             // Güvenlik: Asla 0'a çok yaklaşmasın (Karakterin içine girmesin)
             if (safeZ > -0.5f) safeZ = -0.5f;
