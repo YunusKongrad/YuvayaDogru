@@ -95,7 +95,7 @@ public class ackapa : MonoBehaviour
         Quaternion targetRotation = isOpen ? _closedRotation : _openRotation;
         isOpen = !isOpen;
 
-        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.01f)
+        while (Quaternion.Angle(mentese.transform.rotation, targetRotation) > 0.01f)
         {
             mentese.transform.rotation = Quaternion.Lerp(
                 transform.rotation,
