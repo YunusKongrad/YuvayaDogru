@@ -17,7 +17,6 @@ public class VacuumController : MonoBehaviour
 
         pc.isVacuumed = true;
 
-        // İlk kez girince başlat
         if (pc.vacuumStage < 0)
             pc.vacuumStage = 0;
 
@@ -35,19 +34,19 @@ public class VacuumController : MonoBehaviour
         if (dir.magnitude > reachDistance)
         {
             pc.VacuumMove(dir.normalized * pullSpeed);
+            pc.gravity = 0;
         }
         else
         {
-            // 🎯 Sonraki hedefe geç
-            pc.vacuumStage++;
 
-            // 🎯 Tüm hedefler bittiyse
+            pc.vacuumStage++;
             if (pc.vacuumStage >= targets.Length)
             {
                 pc.isVacuumed = false;
-                // burada animasyon / yok olma / sahne olayı eklenebilir
+
             }
         }
     }
+
 }
 

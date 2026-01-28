@@ -71,20 +71,23 @@ public class ackapa : MonoBehaviour
 
     bool IsLookingAtThis()
     {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        RaycastHit hit;
-
         Debug.DrawRay(
             playerCamera.transform.position,
             playerCamera.transform.forward * interactDistance,
             Color.green
         );
-
-        if (Physics.Raycast(ray, out hit, interactDistance))
+        RaycastHit hit;
+        if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward,out hit,5f))
         {
-            return hit.transform.GetComponentInParent<ackapa>() == this;
+            return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
+
+        
+
     }
 
     IEnumerator ToggleDoor()

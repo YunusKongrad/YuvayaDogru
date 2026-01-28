@@ -52,6 +52,7 @@ public class FanWindTarget : MonoBehaviour
    //aa
    public float forwardForce = 4f;
    public float upForce = 1f;
+    public Transform forw;
 
    void OnTriggerStay(Collider other)
    {
@@ -61,7 +62,7 @@ public class FanWindTarget : MonoBehaviour
       if (controller == null) return;
 
       Vector3 push =
-        -Vector3.forward * forwardForce +
+        forw.forward * forwardForce +
          Vector3.up * upForce;
 
       controller.Move(push * Time.deltaTime);

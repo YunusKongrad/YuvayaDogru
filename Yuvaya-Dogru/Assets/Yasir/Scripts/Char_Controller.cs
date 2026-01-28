@@ -13,7 +13,7 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] CharTirmanmaMekanik _charTirmanmaMekanik;
     public Char_Animation animator; 
     public CamController cam;
-    CharacterController cc;
+    public CharacterController cc;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform _cameraTransform, _hangingPos;
     [SerializeField] GameObject _pushingObj, hangingobj, _groundChechObj;
@@ -26,8 +26,8 @@ public class Char_Controller : MonoBehaviour
     [SerializeField] float speed, jumpForce, RunSpeed, pushingSpeed, originalStepOffset, sphereRadius, sphereDistance;
     [Header("Kal�c� de�erler")]
     public Vector3 movement;
-    [SerializeField] float gravity, velocityY, moveMulti, rayDistance, gravityLimit, stamina, maxStamina, staminaFactor;
-
+    [SerializeField] float velocityY, moveMulti, rayDistance, gravityLimit, stamina, maxStamina, staminaFactor;
+    public float gravity;
     [Header("Kontroller")]
     [SerializeField] bool isGrounded;
     [SerializeField] bool wasGrounded, isWaitingFall, jumpPressed, sopungJumped, isRunning, canJump, isHanging;
@@ -532,7 +532,7 @@ public class Char_Controller : MonoBehaviour
                     }
                 }
                 //Debug.Log(_moveInput);
-                if (velocityY < -2.5f && !hitGround)
+                if (velocityY < -4f && !hitGround)
                 {
                     animator.Falling(true);
                 }
