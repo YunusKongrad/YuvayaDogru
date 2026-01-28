@@ -337,11 +337,12 @@ public class Char_Controller : MonoBehaviour
         {
             speed /= moveMulti;
             jumpPressed = false;
+            animator.onland();
         }
         isGrounded = true;
         sopungJumped = false;
         animator.Falling(false);
-
+        
     }
 
 
@@ -609,6 +610,7 @@ public class Char_Controller : MonoBehaviour
             staminaAnim = true;
             StartCoroutine(StaminaWait());
             Destroy(hit.gameObject);
+            animator.Eat();
         }
         if (hit.collider.CompareTag("Sopung"))
         {

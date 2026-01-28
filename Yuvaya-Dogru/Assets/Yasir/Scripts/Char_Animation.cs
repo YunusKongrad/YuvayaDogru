@@ -9,8 +9,9 @@ public class Char_Animation : MonoBehaviour
     [SerializeField] Char_Controller controller;
     float currentSpeed;
     public AudioSource audioSource;
-    public AudioClip yurumeSesi, tirmanmaSesi;
-    
+    public AudioClip yurumeSesi, tirmanmaSesi,zýplamaSesi, eatSound;
+    private float timer = 0f;
+    [SerializeField] private float stepInterval = 0.5f;
     void PlaySound(AudioClip ses)
     {
         if(ses == null) { return; }
@@ -23,24 +24,51 @@ public class Char_Animation : MonoBehaviour
     public void JumpAnim()
     {
         animator.SetTrigger("Jump");
+        PlaySound(zýplamaSesi);
     }
-
+    public void Eat()
+    {
+        PlaySound(eatSound);
+    }
+    public void onland()
+    {
+        PlaySound(zýplamaSesi);
+    }
     public void WalkAnim(float speed)
     {
         currentSpeed = Mathf.Lerp(currentSpeed, speed, Time.deltaTime * 5f);
         animator.SetFloat("Speed", currentSpeed);
-        if (speed>0)
+
+        Debug.Log(speed);
+        // Belirlenen süre doldu mu?
+        if (speed > 0)
         {
-            PlaySound(yurumeSesi);
-            
-            
+            // 2. Zamaný AKIT (En önemli eksik buydu)
+            timer += Time.deltaTime;
+
+            // 3. Süre doldu mu?
+            if (timer >= stepInterval)
+            {
+                // Sesi Çal
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                audioSource.PlayOneShot(yurumeSesi);
+
+                // Sayacý sýfýrla
+                timer = 0f;
+            }
         }
         else
         {
-            
+            // Karakter DURDUÐUNDA, sayacý sýnýra eþitle.
+            // Böylece tekrar yürümeye baþladýðý AN ilk ses hemen çýkar (bekleme yapmaz).
+            // (Senin else bloðun buraya ait olmalýydý)
+            audioSource.Stop();
+            timer = stepInterval;
         }
-        //PlaySound(yurumeSesi);
+
     }
+
+
 
     public void Hold()
     {

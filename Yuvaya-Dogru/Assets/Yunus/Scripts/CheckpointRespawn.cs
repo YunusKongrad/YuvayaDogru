@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class CheckpointRespawn : MonoBehaviour
@@ -8,8 +9,12 @@ public class CheckpointRespawn : MonoBehaviour
     private Vector3 _lastPos;
     private Quaternion _lastRot;
     private bool _hasCheckpoint;
+    
 
     private CharacterController _cc;
+
+    public AudioSource audioSource;
+    public AudioClip ses;
 
     private void Awake()
     {
@@ -34,6 +39,7 @@ public class CheckpointRespawn : MonoBehaviour
         if (hit.collider.CompareTag("Respawn"))
         {
             RespawnToLastCheckpoint();
+            audioSource.PlayOneShot(ses);
         }
     }
 
