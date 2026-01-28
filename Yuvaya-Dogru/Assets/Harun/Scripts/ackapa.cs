@@ -29,7 +29,7 @@ public class ackapa : MonoBehaviour
     private Quaternion _openRotation;
     private Coroutine _currentCoroutine;
     private bool _playerLooking;
-
+    public GameObject mentese;
     private void Start()
     {
         _closedRotation = transform.rotation;
@@ -77,7 +77,7 @@ public class ackapa : MonoBehaviour
             Color.green
         );
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward,out hit,1f))
+        if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward,out hit,interactDistance))
         {
             return true;
         }
@@ -97,7 +97,7 @@ public class ackapa : MonoBehaviour
 
         while (Quaternion.Angle(transform.rotation, targetRotation) > 0.01f)
         {
-            transform.rotation = Quaternion.Lerp(
+            mentese.transform.rotation = Quaternion.Lerp(
                 transform.rotation,
                 targetRotation,
                 Time.deltaTime * openSpeed
@@ -105,6 +105,6 @@ public class ackapa : MonoBehaviour
             yield return null;
         }
 
-        transform.rotation = targetRotation;
+        mentese.transform.rotation = targetRotation;
     }
 }
