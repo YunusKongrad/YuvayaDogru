@@ -6,7 +6,7 @@ using UnityEngine;
 public class StoveFire : MonoBehaviour
 {
    
-    public ParticleSystem[] fireParticle;
+    public ParticleSystem fireParticle;
     public Light fireLight;
 
     [Header("Fire Time Range")]
