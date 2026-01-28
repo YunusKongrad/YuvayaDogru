@@ -6,7 +6,7 @@ public class Fade : MonoBehaviour
 {
     public static Fade Instance;
     public CanvasGroup canvasGroup;
-    public float fadeSuresi = 3f;
+    public float fadeSuresi = 1.5f;
     private Coroutine fadeAktif;
     private void Start()
     {
