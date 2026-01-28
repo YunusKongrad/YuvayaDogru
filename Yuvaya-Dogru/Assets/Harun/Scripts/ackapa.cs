@@ -77,7 +77,7 @@ public class ackapa : MonoBehaviour
             Color.green
         );
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward,out hit,5f))
+        if (Physics.Raycast(playerCamera.transform.position,playerCamera.transform.forward,out hit,1f))
         {
             return true;
         }

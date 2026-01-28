@@ -4888,6 +4888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 728195562054692845, guid: 32152499736bf8342a105c515175fe96, type: 3}
+      propertyPath: fadeSuresi
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2008997450652228328, guid: 32152499736bf8342a105c515175fe96, type: 3}
       propertyPath: m_Name
       value: FadeCanvas

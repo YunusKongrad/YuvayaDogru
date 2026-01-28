@@ -192,7 +192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: db34e13ea58ff6b438f3a441b6a7078f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -419,6 +419,7 @@ MonoBehaviour:
   _charTirmanmaMekanik: {fileID: 0}
   animator: {fileID: 4400489384471102431}
   cam: {fileID: 1560696649914658643}
+  cc: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -437,7 +438,6 @@ MonoBehaviour:
   sphereRadius: 0.25
   sphereDistance: 1
   movement: {x: 0, y: 0, z: 0}
-  gravity: 15
   velocityY: 0
   moveMulti: 1.2
   rayDistance: 6
@@ -445,6 +445,7 @@ MonoBehaviour:
   stamina: 10
   maxStamina: 10
   staminaFactor: 1
+  gravity: 15
   isGrounded: 0
   wasGrounded: 0
   isWaitingFall: 0
@@ -521,6 +522,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5584008072845593711}
   controller: {fileID: 7272047087589137674}
+  audioSource: {fileID: 0}
+  yurumeSesi: {fileID: 0}
+  tirmanmaSesi: {fileID: 0}
 --- !u!114 &5477512797359695733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2603,6 +2607,7 @@ MonoBehaviour:
   maxCameraDistance: 3
   sphereRadius: 0.2
   wallOffset: 0.2
+  "oyun\u0130ciUiManager": {fileID: 0}
 --- !u!114 &201655823308656332
 MonoBehaviour:
   m_ObjectHideFlags: 0

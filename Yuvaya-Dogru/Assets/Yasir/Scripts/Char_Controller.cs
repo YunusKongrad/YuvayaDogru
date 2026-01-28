@@ -240,9 +240,13 @@ public class Char_Controller : MonoBehaviour
     private void Run_performed(InputAction.CallbackContext obj)
     {
         //startStaminanim = true;
-        isRunning = true;
-        staminaAnim = true;
-        speed += RunSpeed;
+        if (stamina>0)
+        {
+            isRunning = true;
+            staminaAnim = true;
+            speed += RunSpeed;
+        }
+      
     }
 
 
@@ -581,7 +585,6 @@ public class Char_Controller : MonoBehaviour
         if (hit.collider.CompareTag("SliderArea"))
         {
             isSliding = true;
-            // Eğer hali hazırda bir coroutine çalışmıyorsa başlat
             if (_slindingC == null)
             {
                 _slindingC = StartCoroutine(SlindingMove());
@@ -724,7 +727,6 @@ public class Char_Controller : MonoBehaviour
                 hangingobj = hit.collider.gameObject;
                 cc.enabled = false;
                 Collider coll = hangingobj.GetComponent<Collider>();
-                Debug.Log("sethang1");
 
                 Vector3 pos = hit.gameObject.transform.position + (hit.normal * 0.8f);
                 _hangingPos.position = pos;
@@ -794,7 +796,7 @@ public class Char_Controller : MonoBehaviour
         }
         else
         {
-            staminaAnim = false;
+          
             if (isRunning)
             {
                 speed = RunSpeed;
@@ -802,6 +804,7 @@ public class Char_Controller : MonoBehaviour
             else
             {
                 speed = moveSpeed;
+
             }
 
         }
