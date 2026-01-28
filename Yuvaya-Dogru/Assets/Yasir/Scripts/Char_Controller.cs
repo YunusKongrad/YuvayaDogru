@@ -62,6 +62,7 @@ public class Char_Controller : MonoBehaviour
     
     bool isJammed = false;
 
+    private AudioSource _audioSource;
     
 
     private void Awake()

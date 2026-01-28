@@ -10,6 +10,7 @@ public class Char_Animation : MonoBehaviour
     float currentSpeed;
     public AudioSource audioSource;
     public AudioClip yurumeSesi, tirmanmaSesi;
+    
     void PlaySound(AudioClip ses)
     {
         if(ses == null) { return; }
@@ -28,6 +29,16 @@ public class Char_Animation : MonoBehaviour
     {
         currentSpeed = Mathf.Lerp(currentSpeed, speed, Time.deltaTime * 5f);
         animator.SetFloat("Speed", currentSpeed);
+        if (speed>0)
+        {
+            PlaySound(yurumeSesi);
+            
+            
+        }
+        else
+        {
+            
+        }
         //PlaySound(yurumeSesi);
     }
 
