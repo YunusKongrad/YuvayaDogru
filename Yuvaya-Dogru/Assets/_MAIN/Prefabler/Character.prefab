@@ -509,6 +509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {fileID: 0}
+  audioSource: {fileID: 0}
+  ses: {fileID: 0}
 --- !u!114 &4400489384471102431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +528,9 @@ MonoBehaviour:
   audioSource: {fileID: 2797925839697281767}
   yurumeSesi: {fileID: 8300000, guid: 4b5b597fc0f878d46b4905f26ebf11cb, type: 3}
   tirmanmaSesi: {fileID: 0}
-  walkAudio: {fileID: 0}
+  "z\u0131plamaSesi": {fileID: 0}
+  eatSound: {fileID: 0}
+  stepInterval: 0.5
 --- !u!114 &5477512797359695733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2705,7 +2709,7 @@ MonoBehaviour:
   maxCameraDistance: 3
   sphereRadius: 0.2
   wallOffset: 0.2
-  "oyun\u0130ciUiManager": {fileID: 0}
+  oyunIciUiManager: {fileID: 0}
 --- !u!114 &201655823308656332
 MonoBehaviour:
   m_ObjectHideFlags: 0

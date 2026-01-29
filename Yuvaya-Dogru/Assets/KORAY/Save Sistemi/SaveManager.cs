@@ -22,36 +22,50 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        Debug.Log("[SaveManager] Awake. Sahne: " + gameObject.scene.name);
     }
 
     private void Start()
     {
         // 0 = normal giriþ, 1 = kaldýðýn yerden devam
         int shouldLoad = PlayerPrefs.GetInt("load_from_save", 0);
+        Debug.Log("[SaveManager] Start. shouldLoad = " + shouldLoad + " | Sahne: " + gameObject.scene.name);
 
         if (shouldLoad == 1)
         {
+            Debug.Log("[SaveManager] LoadFromPrefs çaðrýlýyor.");
             LoadFromPrefs();
 
             // Bir kere iþini yaptýktan sonra sýfýrla ki
             // sahne yeniden yüklendiðinde otomatik load olmasýn
             PlayerPrefs.SetInt("load_from_save", 0);
+            PlayerPrefs.Save();
+            Debug.Log("[SaveManager] load_from_save 0'a çekildi.");
         }
-        toasterTriggered = tostScript.tostTrigger;
-        stovePanTriggered = tavaScript.tavaTrigger;
+
+        // Bunlar null olabilir, o yüzden korumalý alalým
+        if (tostScript != null)
+        {
+            toasterTriggered = tostScript.tostTrigger;
+        }
+
+        if (tavaScript != null)
+        {
+            stovePanTriggered = tavaScript.tavaTrigger;
+        }
     }
 
     // ================== DIÞARIDAN ÇAÐIRACAÐIN FONKSÝYON ==================
     public void SaveCheckpoint()
     {
+        // Kaydetmeden hemen önce trigger'larý güncellemek daha mantýklý:
+        if (tostScript != null)
+            toasterTriggered = tostScript.tostTrigger;
+
+        if (tavaScript != null)
+            stovePanTriggered = tavaScript.tavaTrigger;
+
         // Transformlar
         SaveTransform("player", player);
         SaveTransform("char", charObj);
@@ -66,7 +80,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt("stovePan_trigger", stovePanTriggered ? 1 : 0);
 
         PlayerPrefs.Save();
-        Debug.Log("Checkpoint kaydedildi (PlayerPrefs).");
+        Debug.Log("[SaveManager] Checkpoint kaydedildi (PlayerPrefs).");
     }
 
     // ================== OYUN AÇILDIÐINDA YA DA SAHNEYE DÖNÜNCE ==================
@@ -75,9 +89,11 @@ public class SaveManager : MonoBehaviour
         // Player kaydý yoksa hiç bulaþma
         if (!PlayerPrefs.HasKey("player_px"))
         {
-            Debug.Log("Kayýt bulunamadý, muhtemelen ilk giriþ.");
+            Debug.Log("[SaveManager] Kayýt bulunamadý, muhtemelen ilk giriþ.");
             return;
         }
+
+        Debug.Log("[SaveManager] LoadFromPrefs baþladý.");
 
         LoadTransform("player", player);
         LoadTransform("char", charObj);
@@ -90,13 +106,17 @@ public class SaveManager : MonoBehaviour
         toasterTriggered = PlayerPrefs.GetInt("toaster_trigger", 0) == 1;
         stovePanTriggered = PlayerPrefs.GetInt("stovePan_trigger", 0) == 1;
 
-        Debug.Log("Checkpoint yüklendi (PlayerPrefs).");
+        Debug.Log("[SaveManager] Checkpoint yüklendi (PlayerPrefs).");
     }
 
     // ================== YARDIMCI FONKSÝYONLAR ==================
     void SaveTransform(string key, Transform t)
     {
-        if (t == null) return;
+        if (t == null)
+        {
+            Debug.LogWarning("[SaveManager] SaveTransform: " + key + " için Transform atanmadý.");
+            return;
+        }
 
         PlayerPrefs.SetFloat(key + "_px", t.position.x);
         PlayerPrefs.SetFloat(key + "_py", t.position.y);
@@ -110,8 +130,16 @@ public class SaveManager : MonoBehaviour
 
     void LoadTransform(string key, Transform t)
     {
-        if (t == null) return;
-        if (!PlayerPrefs.HasKey(key + "_px")) return;
+        if (t == null)
+        {
+            Debug.LogWarning("[SaveManager] LoadTransform: " + key + " için Transform atanmadý.");
+            return;
+        }
+        if (!PlayerPrefs.HasKey(key + "_px"))
+        {
+            Debug.LogWarning("[SaveManager] LoadTransform: " + key + " için kayýt yok.");
+            return;
+        }
 
         Vector3 pos = new Vector3(
             PlayerPrefs.GetFloat(key + "_px"),

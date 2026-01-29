@@ -36,7 +36,6 @@ public class Char_Animation : MonoBehaviour
         currentSpeed = Mathf.Lerp(currentSpeed, speed, Time.deltaTime * 5f);
         animator.SetFloat("Speed", currentSpeed);
 
-        Debug.Log(speed);
         if (speed > 0)
         {
             timer += Time.deltaTime;

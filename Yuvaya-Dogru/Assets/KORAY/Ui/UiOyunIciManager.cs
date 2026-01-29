@@ -20,6 +20,7 @@ public class UiOyunIciManager : MonoBehaviour
     }
     public void AnaMenuyeGecis()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("anamenu");
     }
     private void Update()

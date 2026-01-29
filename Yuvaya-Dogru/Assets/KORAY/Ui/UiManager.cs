@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu, kazandinMenusu;
+    public GameObject anaMenu, anaMenuOgeleri, nasilOynanirMenusu, yapimcilarMenusu, ayarlarMenusu, kazandinMenusu, devamEtUyarisi;
+    public Button devamEtButonu;
     GameControls _gameControlls;
+    public Image targetImage;
+    public Sprite normalSprite, lockedSprite;
+    private int devamEtAcildi;
+    private Coroutine aktifCorotine;
     private void Start()
     {
         anaMenu.SetActive(true);
@@ -15,6 +21,16 @@ public class UiManager : MonoBehaviour
         yapimcilarMenusu.SetActive(false);
         ayarlarMenusu.SetActive(false);
         kazandinMenusu.SetActive(false);
+        devamEtUyarisi.SetActive(false);
+        int devamEtAcildi = PlayerPrefs.GetInt("devamEtAcildi", 0);
+        if(devamEtAcildi == 1)
+        {
+            targetImage.sprite = normalSprite;
+        }
+        else
+        {
+            targetImage.sprite = lockedSprite;
+        }
     }
     public IEnumerator OyunaSifirdanBaslaCoroutine()
     {
@@ -31,17 +47,43 @@ public class UiManager : MonoBehaviour
     }
     public IEnumerator OyunaKaldiginYerdenDevamEtCoroutine()
     {
+        Debug.Log("[UI] Devam Et coroutine başladı.");
+
+        // Önce flag'i yaz, sonra fade / sahne işleri gelsin
+        PlayerPrefs.SetInt("load_from_save", 1);
+        PlayerPrefs.Save();
+        Debug.Log("[UI] load_from_save = 1 yazıldı.");
+
         Fade.Instance.FadeOut();
         yield return new WaitForSeconds(Fade.Instance.fadeSuresi);
+
         anaMenu.SetActive(false);
         anaMenuOgeleri.SetActive(false);
-        // Oyun sahnesine gittiğimizde SaveManager'ın load etmesini istiyoruz
-        PlayerPrefs.SetInt("load_from_save", 1);
+
+        Debug.Log("[UI] yeniLevelSahnesi yükleniyor...");
         SceneManager.LoadScene("yeniLevelSahnesi");
     }
     public void OyunaKaldiginYerdenDevamEt()
     {
-        StartCoroutine(OyunaKaldiginYerdenDevamEtCoroutine());
+        int devamEtAcildiIki = PlayerPrefs.GetInt("devamEtAcildi", 0);
+        if(devamEtAcildiIki == 1)
+        {
+            StartCoroutine(OyunaKaldiginYerdenDevamEtCoroutine());
+        }
+        else
+        {
+            if(aktifCorotine != null)
+            {
+                StopCoroutine(aktifCorotine);
+            }
+            aktifCorotine = StartCoroutine(NotunBelirmeSureci());
+        }
+    }
+    private IEnumerator NotunBelirmeSureci()
+    {
+        devamEtUyarisi.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        devamEtUyarisi.SetActive(false);
     }
     public void YapimcilarMenusuneGecis()
     {
