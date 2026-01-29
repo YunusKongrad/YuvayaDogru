@@ -68,7 +68,5 @@ public class UiOyunIciManager : MonoBehaviour
     {
         pauseOgeleri.SetActive(true);
         pauseAyarlarMenusu.SetActive(false);
-        Time.timeScale = 1f;
-        pauseAktif = false;
     }
 }
