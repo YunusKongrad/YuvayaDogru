@@ -131,76 +131,11 @@ public class Char_Controller : MonoBehaviour
             if (canClimb)
             {
                 EndHanging();
-
-
-
                 climb = true;
             }
-            else
-            {
-                /**
-                RaycastHit hit;
-                if (Physics.Raycast(_cameraTransform.transform.position, forward, out hit, rayDistance))
-                {
-                   
-                    if (hit.collider.CompareTag("rope"))
-                    {
-                        if (hit.collider.gameObject.transform.position.y > transform.position.y + 1)
-                        {
-                            isHanging = true;
-                            normal = hit.normal;
-                            hangingobj = hit.collider.gameObject;
-
-                            cc.enabled = false;
-                            Collider coll = hangingobj.GetComponent<Collider>();
-                            Vector3 pos = hangingobj.transform.position - ((-new Vector3(hit.normal.x * coll.bounds.size.x,
-                             hit.normal.y - ((cc.height + coll.bounds.size.y) / 2), hit.normal.z * coll.bounds.size.z)));
-                            _hangingPos.position = pos;
-                            animator.Hold();
-                            StartCoroutine(ClimbAnim(_hangingPos));
-                        }
-
-                    }
-                }
-                **/
-            }
         }
-
-
     }
 
-    public void anim2bos(Transform target)
-    {
-        // 1. Fizi�i ve kontrol� kapat ki titreme yapmas�n
-        // Ba�lang�� de�erlerini al
-        Vector3 startPos = transform.position;
-        Quaternion startRot = transform.rotation;
-
-        float timeElapsed = 0;
-        Debug.Log("denemeasfdasdf");
-        while (timeElapsed < snapDuration)
-        {
-            // Lerp ile yumu�ak ge�i� (0'dan 1'e giden bir oran hesapla)
-            float t = timeElapsed / snapDuration;
-
-            // Yumu�ak hareket (Ease-Out efekti i�in Mathf.SmoothStep kullan�labilir)
-            t = t * t * (3f - 2f * t); // SmoothStep form�l�
-
-            // Pozisyonu ve D�n��� (Rotasyonu) hedefle e�le
-            transform.position = Vector3.Lerp(startPos, target.position, t);
-            transform.rotation = Quaternion.Lerp(startRot, target.rotation, t);
-
-            timeElapsed += Time.deltaTime;
-            //yield return null; // Bir sonraki kareyi bekle
-        }
-
-        // 2. Tam hedefe kilitle (K�s�rat hatalar�n� �nlemek i�in)
-        transform.position = target.position;
-        transform.rotation = target.rotation;
-
-        // BURADA: Art�k karakter tutunuyor.
-        // controller.enabled = true; // D�KKAT: T�rmanma bitene kadar bunu a�ma!
-    }
     public void EndHanging()
     {
         isHanging = false;
@@ -321,13 +256,6 @@ public class Char_Controller : MonoBehaviour
         }
         #endregion
 
-        #region camCheck
-
-        RaycastHit hit;
-        isBlocking = Physics.Raycast(transform.position, -forward, out hit, 3, groundLayer);
-
-
-        #endregion
     }
 
 
@@ -364,10 +292,6 @@ public class Char_Controller : MonoBehaviour
             canJump = false;
             animator.JumpAnim();
           
-        }
-        else if(isSticky)
-        {
-            //_charTirmanmaMekanik.JumpOther();
         }
     }
     

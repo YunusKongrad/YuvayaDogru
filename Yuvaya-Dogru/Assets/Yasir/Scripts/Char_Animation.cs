@@ -17,10 +17,7 @@ public class Char_Animation : MonoBehaviour
         if(ses == null) { return; }
         audioSource.PlayOneShot(ses);
     }
-    void Start()
-    {
-
-    }
+ 
     public void JumpAnim()
     {
         animator.SetTrigger("Jump");
@@ -40,28 +37,20 @@ public class Char_Animation : MonoBehaviour
         animator.SetFloat("Speed", currentSpeed);
 
         Debug.Log(speed);
-        // Belirlenen süre doldu mu?
         if (speed > 0)
         {
-            // 2. Zamaný AKIT (En önemli eksik buydu)
             timer += Time.deltaTime;
 
-            // 3. Süre doldu mu?
             if (timer >= stepInterval)
             {
-                // Sesi Çal
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.PlayOneShot(yurumeSesi);
-
-                // Sayacý sýfýrla
                 timer = 0f;
             }
         }
         else
         {
-            // Karakter DURDUÐUNDA, sayacý sýnýra eþitle.
-            // Böylece tekrar yürümeye baþladýðý AN ilk ses hemen çýkar (bekleme yapmaz).
-            // (Senin else bloðun buraya ait olmalýydý)
+        
             audioSource.Stop();
             timer = stepInterval;
         }
