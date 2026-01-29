@@ -1883,7 +1883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &863343812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2586,27 +2586,17 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 45
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus
-    ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis
-    convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla
-    lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer
-    nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
-    torquent per conubia nostra inceptos himenaeos.
-
-
-
-    Lorem ipsum dolor sit
-    amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque
-    sem placerat. In id cursus mi pretium tellus duis convallis.'
+  m_Text: "Hareket - 'W', 'A' ,'S', 'D'\r\nZ\u0131plama - 'Space'\r\nEtkile\u015Fim
+    / T\u0131rmanma - 'E'\r\nK\u0131r\u0131nt\u0131lar\u0131 T\xFCketme - 'Q'"
 --- !u!222 &1090231191
 CanvasRenderer:
   m_ObjectHideFlags: 0
