@@ -25,6 +25,7 @@ public class Fade : MonoBehaviour
     public void FadeIn()
     {
         FadeBaslat(0);
+        Debug.Log("fade çalýþtý");
     }
     public void FadeOut()
     {
@@ -44,7 +45,7 @@ public class Fade : MonoBehaviour
         float gecenSure = 0f;
         while(gecenSure < fadeSuresi)
         {
-            gecenSure += Time.deltaTime;
+            gecenSure += Time.unscaledDeltaTime;
             canvasGroup.alpha = Mathf.Lerp(start, end, gecenSure / fadeSuresi);
             yield return null;
         }

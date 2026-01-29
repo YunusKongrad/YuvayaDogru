@@ -18,10 +18,12 @@ public class UiManager : MonoBehaviour
     }
     public IEnumerator OyunaSifirdanBaslaCoroutine()
     {
-
+        // Eski kaydı temizle (istersen DeleteAll da atabilirsin)
+        PlayerPrefs.DeleteKey("player_px"); // tüm kaydı silmek istersen: PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("load_from_save", 0);
         Fade.Instance.FadeOut();
         yield return new WaitForSeconds(Fade.Instance.fadeSuresi);
-        SceneManager.LoadScene("yunusScene");
+        SceneManager.LoadScene("BaslangicCutScene");
     }
     public void OyunaSifirdanBasla()
     {
@@ -33,9 +35,9 @@ public class UiManager : MonoBehaviour
         yield return new WaitForSeconds(Fade.Instance.fadeSuresi);
         anaMenu.SetActive(false);
         anaMenuOgeleri.SetActive(false);
-        // Oyunun kald���m�z yerden ba�lat�lmas� ve oyun i�i ui buraya kodlanacak
-        // �imdilik loadscene at�yorum
-        SceneManager.LoadScene("OyunEkraniDeneme");
+        // Oyun sahnesine gittiğimizde SaveManager'ın load etmesini istiyoruz
+        PlayerPrefs.SetInt("load_from_save", 1);
+        SceneManager.LoadScene("yeniLevelSahnesi");
     }
     public void OyunaKaldiginYerdenDevamEt()
     {

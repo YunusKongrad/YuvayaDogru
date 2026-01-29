@@ -6,18 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/KORAY/OyunEkraniDeneme.unity
-    guid: ba944bcf5bcc92c499b8da6367c2ead7
-  - enabled: 1
     path: Assets/_MAIN/Sahneler/anamenu.unity
     guid: 6bdb4e378ddfca14aa3d2516855aa20e
   - enabled: 1
-    path: Assets/_MAIN/Sahneler/yunusScene.unity
-    guid: d40515a297f95ff499dcab4cf65f6576
-  - enabled: 1
-    path: Assets/Yunus/LevelSahnesi.unity
-    guid: a072510f9c983004fb3d5b52d0e8bab8
-  - enabled: 1
     path: Assets/Yunus/yeniLevelSahnesi.unity
     guid: af1860468ca295541bd229f4f4ce3281
+  - enabled: 1
+    path: Assets/KORAY/Ui/Cutscene/BaslangicCutScene.unity
+    guid: b1b1b61b798aeff4a86c93778cc6ffc8
+  - enabled: 1
+    path: Assets/KORAY/Ui/Cutscene/BitisCutScene.unity
+    guid: fdc2f2ce42170cc42a447c6239534fde
   m_configObjects: {}

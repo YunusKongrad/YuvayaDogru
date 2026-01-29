@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UiOyunİciManager : MonoBehaviour
+public class UiOyunIciManager : MonoBehaviour
 {
     public GameObject pausePaneli, pauseOgeleri, pauseAyarlarMenusu;
     public CheckpointRespawn checkpointRespawnScript;
     public bool pauseAktif;
     private void Start()
     {
-        Fade.Instance.FadeIn();
+        Debug.Log("UiOyunİciManager Start ÇALIŞTI, Fade.Instance: " + Fade.Instance);
         pausePaneli.SetActive(false);
         pauseOgeleri.SetActive(false);
         pauseAyarlarMenusu.SetActive(false);
         pauseAktif = false;
+        Time.timeScale = 1;
+        Fade.Instance.FadeIn();
     }
     public void AnaMenuyeGecis()
     {
@@ -44,12 +46,17 @@ public class UiOyunİciManager : MonoBehaviour
     public void BolumuYenidenOyna()
     {
         checkpointRespawnScript.RespawnToLastCheckpoint();
+        pauseOgeleri.SetActive(false);
+        pausePaneli.SetActive(false);
+        Time.timeScale = 1f;
+        pauseAktif = false;
     }
     public void OyunaDevamEtPauseEkranindanCik()
     {
         pauseOgeleri.SetActive(false);
         pausePaneli.SetActive(false);
         Time.timeScale = 1f;
+        pauseAktif = false;
     }
     public void PausedakiAyarlarMenusuneGecis()
     {

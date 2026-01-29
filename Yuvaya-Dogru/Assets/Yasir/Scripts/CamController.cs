@@ -20,22 +20,22 @@ public class CamController : MonoBehaviour
     private float _xRotation = 0f;
     public float maxCameraDistance, sphereRadius;
     public float wallOffset = 0.2f;
-    public UiOyunİciManager oyunİciUiManager;
+    public UiOyunIciManager oyunIciUiManager;
 
     private void Awake() => _controls = new GameControls();
     private void Start()
     {
         GameObject obj = GameObject.Find("UiOyunIciManager");
-        oyunİciUiManager = obj.GetComponent<UiOyunİciManager>();
+        oyunIciUiManager = obj.GetComponent<UiOyunIciManager>();
     }
 
     void Update()
     {
-        if (oyunİciUiManager.pauseAktif == false)
+        if (oyunIciUiManager.pauseAktif == false)
         {
             _mouseDelta = iAction.action.ReadValue<Vector2>();
         }
-        else if (oyunİciUiManager.pauseAktif == true)
+        else if (oyunIciUiManager.pauseAktif == true)
         {
 
         }
@@ -53,7 +53,7 @@ public class CamController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (oyunİciUiManager.pauseAktif == false)
+        if (oyunIciUiManager.pauseAktif == false)
         {
 
             Vector3 origin = camTarget.position;
@@ -136,7 +136,7 @@ public class CamController : MonoBehaviour
                 ref velocity, speed);
             transform.parent.Rotate(Vector3.up * mouseX);
         }
-        else if(oyunİciUiManager.pauseAktif == true)
+        else if(oyunIciUiManager.pauseAktif == true)
         {
 
         }

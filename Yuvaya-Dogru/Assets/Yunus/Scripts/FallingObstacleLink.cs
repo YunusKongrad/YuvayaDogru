@@ -13,7 +13,7 @@ public class FallingObstacleLink : MonoBehaviour
     [SerializeField] private float delaySeconds = 0f;
 
     private bool _used;
-
+    public bool tavaTrigger = false;
     private void Reset()
     {
         // Trigger objesinde collider zorunlu ve trigger olmalı
@@ -37,6 +37,7 @@ public class FallingObstacleLink : MonoBehaviour
         if (delaySeconds <= 0f)
         {
             DropNow();
+            tavaTrigger = true;
         }
         else
         {

@@ -9,7 +9,7 @@ public class KisaNotlar : MonoBehaviour
     public Text kisaNotTexti;
     private float belirmeSuresi = 5f;
     private Coroutine aktifCoroutine;
-    private void Awake()
+    private void Start()
     {
         kisaNotlarPaneli.SetActive(false);
     }

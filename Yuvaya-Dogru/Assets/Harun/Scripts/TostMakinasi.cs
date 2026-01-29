@@ -6,6 +6,7 @@ public class TostMakinasi : MonoBehaviour
 {
     public Transform lid;          // Kapak
     public float closeSpeed = 120f;
+    public bool tostTrigger = false;
 
     public AudioSource audioSource;
     private bool isClosing = false;
@@ -54,6 +55,7 @@ public class TostMakinasi : MonoBehaviour
             {
                 audioSource.Play();
             }
+            tostTrigger = true;
         }
     }
 }

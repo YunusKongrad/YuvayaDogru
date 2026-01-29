@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 250}
-  m_SizeDelta: {x: 500, y: 200}
+  m_AnchoredPosition: {x: 600, y: 374.0749}
+  m_SizeDelta: {x: 721.4991, y: 281.1076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6108172758607703384
 CanvasRenderer:
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b5188feb0906b3f45874f410285fa8f2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -189,8 +189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 250}
-  m_SizeDelta: {x: 500, y: 200}
+  m_AnchoredPosition: {x: 600, y: 375}
+  m_SizeDelta: {x: 667.777, y: 309.0283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6108172758876585877
 CanvasRenderer:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -222,8 +222,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 65e64f4b0396deb4ca81c6909c6337ab, type: 3}
-    m_FontSize: 45
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 45
@@ -233,15 +233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus
-    ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis
-    convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla
-    lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer
-    nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
-    torquent per conubia nostra inceptos himenaeos.
-
-
-
-    Lorem ipsum dolor sit
-    amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque
-    sem placerat. In id cursus mi pretium tellus duis convallis.'
+  m_Text: buradan boyunun yetmedigi yerlere tutunmaya calisacaksin,eger tutunursan
+    e tusuna basarak yukari cikabilirsin. sungerlere dikkat et seni fazlasiyla ucurabilir.
+    vantilator gorursen mantikli karar vermen lazim seni herhangi bir yone dogru
+    ucurabilir. dogur acidan ziplaman lazim

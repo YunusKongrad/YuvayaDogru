@@ -23,5 +23,6 @@ public class Checkpoint : MonoBehaviour
         Transform playerRoot = respawn.transform;
 
         respawn.SetCheckpoint(transform.position, playerRoot.rotation);
+        SaveManager.Instance.SaveCheckpoint();
     }
 }
